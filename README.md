@@ -1,4 +1,6 @@
-# Leaf.js
+![logo](docs/images/logo.jpg) 
+
+#  Leaf.js
 
 Leaf.js is a lightweight Model-View framework for creating client-side web applications.
 
