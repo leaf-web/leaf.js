@@ -1,6 +1,6 @@
 # ![logo](docs/images/logo.jpg).js
 
-Leaf.js is a lightweight Model-View framework for creating client-side web applications.
+Leaf.js is a lightweight MV* framework for creating client-side web applications.
 
 * [API Reference](docs/api.md)
 * [Developer Guides](docs/guides.md)
