@@ -35,7 +35,7 @@ var View = (function() {
 		/**
 		 * Store passed properties in the options.
 		 */
-        that.options.data = props || {};
+        that.options.props = props || {};
 		/**
 		 * Render each instance of the view.
 		 */
@@ -44,6 +44,13 @@ var View = (function() {
                 el.innerHTML = that.options.draw(el);
             });
         }
+	};
+	/**
+	 * Returns the Object containing the properties.
+	 * @return {Object} The properties Object
+	 */
+	View.prototype.props = function() {
+		return this.options.props;
 	};
 	/**
 	 * Execute a callback Function for each match in option.selector.
