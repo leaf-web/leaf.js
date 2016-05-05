@@ -86,3 +86,7 @@ Keys inside double-brackets will be replaced with their value.
 
 > See [Model.template](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model.template)
 
+
+----
+
+[Back to Developer Guides](../guides.md)

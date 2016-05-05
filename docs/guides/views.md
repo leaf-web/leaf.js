@@ -77,3 +77,7 @@ Event handlers can be created inside the `init` option.
 			</script>
 		</body>
 	</html>
+
+----
+
+[Back to Developer Guides](../guides.md)
