@@ -12,7 +12,7 @@ Views are created by passing options to the constructor.
 		<body>
 			<hello></hello>
 
-			<script src="leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var View = new leaf.View({
 					selector: 'hello',
@@ -33,7 +33,7 @@ Properties can be passed inside the render Function.
 		<body>
 			<hello></hello>
 
-			<script src="../builds/leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var View = new leaf.View({
 					selector: 'hello',
@@ -58,7 +58,7 @@ Event handlers can be created inside the `init` option.
 		<body>
 			<hello></hello>
 
-			<script src="../builds/leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var View = new leaf.View({
 					selector: 'hello',
@@ -77,5 +77,3 @@ Event handlers can be created inside the `init` option.
 			</script>
 		</body>
 	</html>
-
-> See [List.each](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List.each)

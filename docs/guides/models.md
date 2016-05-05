@@ -10,7 +10,7 @@ Keys and values can be initally added using the constructor.
 
 	<html>
 		<body>
-			<script src="leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var Person = new leaf.Model({
 					firstName: 'Jane',
@@ -20,15 +20,13 @@ Keys and values can be initally added using the constructor.
 		</body>
 	</html>
 
-----
-
 ## Serialization
 
 Models can be serialized to JSON to send to restful APIs.
 
 	<html>
 		<body>
-			<script src="leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var Person = new leaf.Model({
 					firstName: 'Jane',
@@ -42,15 +40,13 @@ Models can be serialized to JSON to send to restful APIs.
 
 See [Model.toJSON()](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model.toJSON)
 
-----
-
 ## Observation
 
 Functions can be executed when a key's value changes.
 
 	<html>
 		<body>
-			<script src="leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var Person = new leaf.Model({
 					firstName: 'Jane',
@@ -74,7 +70,7 @@ Keys inside double-brackets will be replaced with their value.
 
 	<html>
 		<body>
-			<script src="leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var Person = new leaf.Model({
 					firstName: 'Jane',

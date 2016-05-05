@@ -10,7 +10,7 @@ Models can be initally added using the constructor.
 
 	<html>
 		<body>
-			<script src="leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var People = new leaf.List([
 					{ lastName: 'Smith', firstName: 'Jane'},
@@ -26,7 +26,7 @@ You can also create its Models from a JSON file.
 
 	<html>
 		<body>
-			<script src="leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var People = new leaf.List();
 
@@ -45,7 +45,7 @@ Models in the List can be enumerated through.
 
 	<html>
 		<body>
-			<script src="leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var People = new leaf.List();
 
@@ -66,7 +66,7 @@ Lists can be serialized to JSON to send to restful APIs.
 
 	<html>
 		<body>
-			<script src="leaf.full.js"></script>
+			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var List = new leaf.List([
 					{ lastName: 'Smith', firstName: 'Jane'},
