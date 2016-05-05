@@ -7,4 +7,4 @@
 
 ----
 
-[Back to README](../README.md)
+[Back to leaf.js](https://github.com/leaf-web/leaf.js)
