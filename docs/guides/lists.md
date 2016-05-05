@@ -2,7 +2,7 @@
 
 Lists represent a collection of Models.
 
-[View API](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List)
+> See [List](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List)
 
 ## Creation
 
@@ -37,6 +37,8 @@ You can also create its Models from a JSON file.
 		</body>
 	</html>
 
+> See [List.loadJSON](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List.loadJSON)
+
 ## Enumeration
 
 Models in the List can be enumerated through.
@@ -56,6 +58,8 @@ Models in the List can be enumerated through.
 		</body>
 	</html>
 
+> See [List.each](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List.each)
+
 ## Serialization
 
 Lists can be serialized to JSON to send to restful APIs.
@@ -74,3 +78,4 @@ Lists can be serialized to JSON to send to restful APIs.
 		</body>
 	</html>
 
+> See [List.toJSON](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List.toJSON)
