@@ -80,6 +80,3 @@ Lists can be serialized to JSON to send to restful APIs.
 
 > See [List.toJSON](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List.toJSON)
 
-----
-
-[Back to Developer Guides](../guides.md)

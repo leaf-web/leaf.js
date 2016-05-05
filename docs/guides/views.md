@@ -66,7 +66,7 @@ Event handlers can be created inside the `init` option.
 						el.addEventListener('click', function() {
 							console.log('A click event was fired.');
 						});
-					}
+					},
 					draw: function(el) {
 						return '<h1>Hello ' + this.props.name + '</h1>';
 					}
@@ -77,7 +77,3 @@ Event handlers can be created inside the `init` option.
 			</script>
 		</body>
 	</html>
-
-----
-
-[Back to Developer Guides](../guides.md)
