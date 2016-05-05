@@ -2,5 +2,5 @@
 
 * [Models](guides/models.md)
 * [Lists](guides/lists.md)
-* [Views](guides/view.md)
+* [Views](guides/views.md)
 * [Router](guides/router.md)
