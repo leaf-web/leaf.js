@@ -2,7 +2,7 @@
 
 Models represent interactive data and their business logic. 
 
-[View API](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model)
+[Model Class](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model)
 
 ## Creation
 
@@ -38,6 +38,8 @@ Models can be serialized to JSON to send to restful APIs.
 		</body>
 	</html>
 
+[Model.toJSON()](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model.toJSON)
+
 ## Observation
 
 Functions can be executed when a key's value changes.
@@ -60,6 +62,8 @@ Functions can be executed when a key's value changes.
 		</body>
 	</html>
 
+[Model.on](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model.on)
+
 ## Templates
 
 Keys inside double-brackets will be replaced with their value. 
@@ -79,3 +83,6 @@ Keys inside double-brackets will be replaced with their value.
 			</script>
 		</body>
 	</html>
+
+[Model.template](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model.template)
+
