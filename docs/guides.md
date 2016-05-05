@@ -1,8 +1,6 @@
 # Guides
 
-* [Lists](guides/lists.md)
 * [Models](guides/models.md)
-
-[Router](guides/router.md)
-
-[Views](guides/view.md)
+* [Lists](guides/lists.md)
+* [Views](guides/view.md)
+* [Router](guides/router.md)

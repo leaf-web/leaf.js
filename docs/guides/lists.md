@@ -2,9 +2,11 @@
 
 Lists represent a collection of Models.
 
+[https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List](API Reference)
+
 ## Creation
 
-Data can be initally added using the constructor.
+Models can be initally added using the constructor.
 
 	<html>
 		<body>
@@ -20,7 +22,7 @@ Data can be initally added using the constructor.
 
 **From JSON**
 
-You can also create its models from a JSON file.
+You can also create its Models from a JSON file.
 
 	<html>
 		<body>

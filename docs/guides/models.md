@@ -2,6 +2,8 @@
 
 Models represent interactive data and their business logic. 
 
+[https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model](API Reference)
+
 ## Creation
 
 Keys and values can be initally added using the constructor.
