@@ -2,7 +2,7 @@
 
 Models represent interactive data and their business logic. 
 
-[https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model](API Reference)
+[View API](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.Model)
 
 ## Creation
 

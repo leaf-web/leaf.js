@@ -2,7 +2,7 @@
 
 Lists represent a collection of Models.
 
-[https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List](API Reference)
+[View API](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.List)
 
 ## Creation
 
