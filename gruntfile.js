@@ -1,17 +1,6 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
-	    jsdoc2md: {
-			oneOutputFile: {
-				src: 'builds/leaf.full.js',
-				dest: 'docs/api.md'
-			},
-			withOptions: {
-				options: {
-					'no-gfm': true
-				}
-			}
-    	},		
-		concat: {
+	    concat: {
 			js: {
 				src: [
 					'src/leaf.prefix.js',
@@ -35,13 +24,25 @@ module.exports = function(grunt) {
 				src: 'builds/leaf.full.js',
 				dest: 'builds/leaf.min.js'
 			}
-		}
+		},
+ 		jsdoc2md: {
+			oneOutputFile: {
+				src: 'builds/leaf.full.js',
+				dest: 'docs/api.md'
+			},
+			withOptions: {
+				options: {
+					'no-gfm': true,
+					'separators': true
+				}
+			}
+    	}   		
 	});
 
-	grunt.loadNpmTasks('grunt-jsdoc-to-markdown');	
  	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-jshint'); 
 	grunt.loadNpmTasks('grunt-contrib-uglify');	
+	grunt.loadNpmTasks('grunt-jsdoc-to-markdown');	
 
 	grunt.registerTask('default', ['concat', 'jshint', 'uglify']);
 	grunt.registerTask('api', ['concat', 'jsdoc2md']);
