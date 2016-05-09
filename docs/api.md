@@ -48,7 +48,7 @@
         * [.jsonp(url)](#leaf.http.jsonp)
         * [.post(url, data)](#leaf.http.post)
         * [.patch(url, data)](#leaf.http.patch)
-        * [.include(url, selector)](#leaf.http.include)
+        * [.include(url, selector, success, failure)](#leaf.http.include)
     * [.isNumber(value)](#leaf.isNumber) ⇒ <code>boolean</code>
     * [.isBoolean(value)](#leaf.isBoolean) ⇒ <code>boolean</code>
     * [.isArray(value)](#leaf.isArray) ⇒ <code>boolean</code>
@@ -441,7 +441,7 @@ Directive to repeat a List inside a container, replacing handlebar values.
     * [.jsonp(url)](#leaf.http.jsonp)
     * [.post(url, data)](#leaf.http.post)
     * [.patch(url, data)](#leaf.http.patch)
-    * [.include(url, selector)](#leaf.http.include)
+    * [.include(url, selector, success, failure)](#leaf.http.include)
 
 <a name="leaf.http.request"></a>
 
@@ -526,7 +526,7 @@ Shorthand function to execute a HTTP PATCH request.
 
 <a name="leaf.http.include"></a>
 
-#### http.include(url, selector)
+#### http.include(url, selector, success, failure)
 Shorthand function to execute a HTTP GET request and put the content in an element.
 
 **Kind**: static method of <code>[http](#leaf.http)</code>  
@@ -535,6 +535,8 @@ Shorthand function to execute a HTTP GET request and put the content in an eleme
 | --- | --- | --- |
 | url | <code>string</code> | The URL. |
 | selector | <code>string</code> | The selector string. |
+| success | <code>function</code> | The success Function. |
+| failure | <code>function</code> | The failure Function. |
 
 <a name="leaf.isNumber"></a>
 
