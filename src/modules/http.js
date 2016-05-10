@@ -148,7 +148,7 @@ var http;
 	 * @param {string} url The URL.
 	 * @param {string} selector The selector string.
 	 * @param {Function} success The success Function.
-	 * @param {Function} failure The failure Function.
+	 * @param {Function} failure The failure Function. 
 	 */
 	
     function include(url, selector, success, failure) {

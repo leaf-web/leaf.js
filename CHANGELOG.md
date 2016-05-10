@@ -1,5 +1,11 @@
 # Change Log
 
-## 1.0.0
+## 0.1.1
 
-Initial release.
+**Fixes**
+
+* Missing success and failure arguments from `http.include` function.
+
+## 0.1.0
+
+Initial pre-release.
