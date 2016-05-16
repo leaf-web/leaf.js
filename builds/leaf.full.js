@@ -244,7 +244,7 @@ var http;
 	 * @param {string} url The URL.
 	 * @param {string} selector The selector string.
 	 * @param {Function} success The success Function.
-	 * @param {Function} failure The failure Function.
+	 * @param {Function} failure The failure Function. 
 	 */
 	
     function include(url, selector, success, failure) {
@@ -713,10 +713,11 @@ leaf.RepeatView = new leaf.View({
 		var source = el.innerHTML;
 		var target = '';
 		var List = new leaf.List();
+		var url = this.options.url || el.getAttribute('leaf-repeat');
 		//
 		// Load the model from a JSON file.
 		//
-		List.loadJSON(el.getAttribute('leaf-repeat'), 
+		List.loadJSON(url, 
 			function(list) {
 				list.each(function(model) {	
 					target += model.template(source); 

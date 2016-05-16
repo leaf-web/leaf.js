@@ -19,10 +19,11 @@ leaf.RepeatView = new leaf.View({
 		var source = el.innerHTML;
 		var target = '';
 		var List = new leaf.List();
+		var url = this.options.url || el.getAttribute('leaf-repeat');
 		//
 		// Load the model from a JSON file.
 		//
-		List.loadJSON(el.getAttribute('leaf-repeat'), 
+		List.loadJSON(url, 
 			function(list) {
 				list.each(function(model) {	
 					target += model.template(source); 
