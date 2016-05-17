@@ -75,6 +75,22 @@ leaf.isDefined = function(value) { return typeof value !== 'undefined'; };
 leaf.isUndefined = function(value) { return typeof value === 'undefined'; };
 
 /**
+ * Determines if a reference is a JSON string.
+ * @function isJSON
+ * @memberOf leaf
+ * @param  {*} value The reference to check.
+ * @return {boolean} True if value is a JSON string.
+ */
+leaf.isJSON = function(value) {
+	try {
+        JSON.parse(value);
+    } catch (e) {
+        return false;
+    }
+    return true;
+};
+
+/**
  * Concatenates multiple string arguments into a single string.
  * @function concat
  * @memberOf leaf

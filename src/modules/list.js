@@ -24,7 +24,7 @@ var List = (function() {
 	 * @return {Object} The Model.
 	 */
 	List.prototype.get = function(index) {
-		return this._items[index];
+		return this.items[index];
 	};
 	/**
 	 * Add a Model to the List.
@@ -33,7 +33,7 @@ var List = (function() {
 	 * @param {Object} model The Model.
 	 */
 	List.prototype.add = function(model) {
- 		this._items.push(model);	
+ 		this.items.push(model);	
 	};
 	/**
 	 * Remove a Model from the List at the specified index.
@@ -42,7 +42,7 @@ var List = (function() {
 	 * @param {number} index The index of the Model.
 	 */
 	List.prototype.remove = function(index) {
-		delete this._items[index];
+		delete this.items[index];
 	};
 	/**
 	 * Execute a callback Function for each Model in the List.
@@ -51,7 +51,7 @@ var List = (function() {
 	 * @param {Function} cb The callback Function.
 	 */
 	List.prototype.each = function(cb) {
-        for (var index in this._items) {
+        for (var index in this.items) {
             cb(this.get(index), index);
         }
 	};
@@ -62,7 +62,7 @@ var List = (function() {
 	 * @return {number} The number of Models.
 	 */
 	List.prototype.count = function() {
-        return this._items.length;
+        return this.items.length;
 	};		
 	/**
 	 * Sort the Models in the List.
@@ -71,7 +71,7 @@ var List = (function() {
 	 * @param {Function} comparer The comparer Function.
 	 */
 	List.prototype.sort = function(comparer) {
-		this._items.sort(comparer);
+		this.items.sort(comparer);
 	};
 	/**
 	 * Serialize the List to JSON format.
@@ -80,7 +80,7 @@ var List = (function() {
 	 * @return {string} A JSON string.
 	 */
 	List.prototype.toJSON = function() {
-		return this._items.map(function(model) {
+		return this.items.map(function(model) {
 			return model.toJSON();
 		});
 	};
@@ -92,7 +92,7 @@ var List = (function() {
 	 * @param {boolean} [merge] If True, merge with existing Models.
 	 */
 	List.prototype.loadData = function(items, merge) {
-		if(!merge) { this._items = []; }
+		if(!merge) { this.items = []; }
 
 		for(var item in items) {
 			this.add(new leaf.Model(items[item]));
@@ -124,6 +124,8 @@ var List = (function() {
 	};
 	/**
 	 * Return a List template with double-brackets replaced with values.
+	 * @function template
+	 * @memberOf leaf.List 
 	 * @param  {string} text The source string.
 	 * @return {string}      The target string.
 	 */

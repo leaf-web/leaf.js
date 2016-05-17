@@ -86,6 +86,22 @@ leaf.isDefined = function(value) { return typeof value !== 'undefined'; };
 leaf.isUndefined = function(value) { return typeof value === 'undefined'; };
 
 /**
+ * Determines if a reference is a JSON string.
+ * @function isJSON
+ * @memberOf leaf
+ * @param  {*} value The reference to check.
+ * @return {boolean} True if value is a JSON string.
+ */
+leaf.isJSON = function(value) {
+	try {
+        JSON.parse(value);
+    } catch (e) {
+        return false;
+    }
+    return true;
+};
+
+/**
  * Concatenates multiple string arguments into a single string.
  * @function concat
  * @memberOf leaf
@@ -291,7 +307,7 @@ var List = (function() {
 	 * @return {Object} The Model.
 	 */
 	List.prototype.get = function(index) {
-		return this._items[index];
+		return this.items[index];
 	};
 	/**
 	 * Add a Model to the List.
@@ -300,7 +316,7 @@ var List = (function() {
 	 * @param {Object} model The Model.
 	 */
 	List.prototype.add = function(model) {
- 		this._items.push(model);	
+ 		this.items.push(model);	
 	};
 	/**
 	 * Remove a Model from the List at the specified index.
@@ -309,7 +325,7 @@ var List = (function() {
 	 * @param {number} index The index of the Model.
 	 */
 	List.prototype.remove = function(index) {
-		delete this._items[index];
+		delete this.items[index];
 	};
 	/**
 	 * Execute a callback Function for each Model in the List.
@@ -318,7 +334,7 @@ var List = (function() {
 	 * @param {Function} cb The callback Function.
 	 */
 	List.prototype.each = function(cb) {
-        for (var index in this._items) {
+        for (var index in this.items) {
             cb(this.get(index), index);
         }
 	};
@@ -329,7 +345,7 @@ var List = (function() {
 	 * @return {number} The number of Models.
 	 */
 	List.prototype.count = function() {
-        return this._items.length;
+        return this.items.length;
 	};		
 	/**
 	 * Sort the Models in the List.
@@ -338,7 +354,7 @@ var List = (function() {
 	 * @param {Function} comparer The comparer Function.
 	 */
 	List.prototype.sort = function(comparer) {
-		this._items.sort(comparer);
+		this.items.sort(comparer);
 	};
 	/**
 	 * Serialize the List to JSON format.
@@ -347,7 +363,7 @@ var List = (function() {
 	 * @return {string} A JSON string.
 	 */
 	List.prototype.toJSON = function() {
-		return this._items.map(function(model) {
+		return this.items.map(function(model) {
 			return model.toJSON();
 		});
 	};
@@ -359,7 +375,7 @@ var List = (function() {
 	 * @param {boolean} [merge] If True, merge with existing Models.
 	 */
 	List.prototype.loadData = function(items, merge) {
-		if(!merge) { this._items = []; }
+		if(!merge) { this.items = []; }
 
 		for(var item in items) {
 			this.add(new leaf.Model(items[item]));
@@ -391,6 +407,8 @@ var List = (function() {
 	};
 	/**
 	 * Return a List template with double-brackets replaced with values.
+	 * @function template
+	 * @memberOf leaf.List 
 	 * @param  {string} text The source string.
 	 * @return {string}      The target string.
 	 */
@@ -424,9 +442,14 @@ var Model = (function() {
 	 * @param {Object} [items] The items to be added to the Model.
 	 */
 	function Model(items) {
-		this._items = items || {}; 
+		/**
+		 * @var {Object} items The raw item collection. Do not modify directly.
+		 * @memberOf leaf.Model
+		 */
+		this.items = items || {}; 
 		this._cbs = {};
 	}
+
 	/**
 	 * Get the value of the specified key in the Model.
 	 * @function get
@@ -435,7 +458,7 @@ var Model = (function() {
 	 * @return {*} The value.
 	 */
 	Model.prototype.get = function(key) {
-		return this._items[key];
+		return this.items[key];
 	};
 	/**
 	 * Set the value of the specified key in the Model.
@@ -445,7 +468,7 @@ var Model = (function() {
 	 * @param {*} value The value.
 	 */
 	Model.prototype.set = function(key, value) {
-		this._items[key] = value;
+		this.items[key] = value;
 		
 		if (key in this._cbs) {
 			this._cbs[key](value);
@@ -458,7 +481,7 @@ var Model = (function() {
 	 * @param {string} key The key.
 	 */
 	Model.prototype.remove = function(key) {
-		delete this._items[key];
+		delete this.items[key];
 	};
 	/**
 	 * Determine if the specified key exists in the Model.
@@ -496,7 +519,7 @@ var Model = (function() {
 	 * @param {Function} cb The callback Function.
 	 */
 	Model.prototype.each = function(cb) {
-		for (var key in this._items) {
+		for (var key in this.items) {
             cb(key, this.get(key));
         }
 	};
@@ -507,7 +530,7 @@ var Model = (function() {
 	 * @return {string} A JSON string.
 	 */
 	Model.prototype.toJSON = function() {
-		return JSON.stringify(this._items);
+		return JSON.stringify(this.items);
 	};	
 
 	/**
@@ -522,23 +545,6 @@ var Model = (function() {
 			text = text.replace('{{' + key + '}}', value);
 		});
 		return text;
-	};
-	/**
-	 * Save a Model to local storage.
-	 * @param  {String} key The key.
-	 */
-	Model.prototype.save = function(key) {
-		localStorage.setItem(key, JSON.stringify(this._items));
-	};
-	/**
-	 * Load a Model from local storage.
-	 * @param  {String} key The key.
-	 */
-	Model.prototype.load = function(key) {
-		if (leaf.isDefined(localStorage.getItem(key))) {
-			this._items = JSON.parse(localStorage.getItem(key));
-		}
-
 	};
 	return Model;
 })();
@@ -723,6 +729,122 @@ var Router = (function() {
 
 leaf.Router = Router;
 
+/* 
+   #storage
+   ========================================================================== */
+
+/**
+ * @namespace storage
+ * @memberOf leaf
+ */
+var storage;
+
+(function (storage) {
+	
+	/**
+	 * Get a value from local storage.
+	 * @function get
+	 * @memberOf leaf.storage
+	 * @param  {string} key    The key.
+	 * @return {string|Object} The value.
+	 */
+    function get(key) {
+    	var value = localStorage.getItem(key);
+
+        if(leaf.isJSON(value)) {
+         	return JSON.parse(value);
+        }
+        return value;
+
+    }
+    storage.get = get;
+    /**
+     * Save a value to local storage.
+     * @function set
+     * @memberOf leaf.storage
+     * @param {string} key The key
+	 * @param {string|Object} value The value.
+     */
+    function set(key, value) {
+        if(leaf.isObject(value)) {
+			localStorage.setItem(key, JSON.stringify(value));
+        }
+        else {
+			localStorage.setItem(key, value);
+        }
+    }
+    storage.set = set;
+    /**
+     * Determines if a key exists in local storage.
+     * @function contains
+     * @memberOf leaf.storage
+     * @param  {string} key The key
+     * @return {boolean} True if key exists.
+     */
+    function contains(key) {
+    	return leaf.isDefined(localStorage.getItem(key));
+    }
+    storage.contains = contains;
+
+})(storage = leaf.storage || (leaf.storage = {}));	
+/* 
+   #session
+   ========================================================================== */
+
+/**
+ * @namespace session
+ * @memberOf leaf
+ */
+var session;
+
+(function (session) {
+	
+	/**
+	 * Get a value from session storage.
+	 * @function get
+	 * @memberOf leaf.session
+	 * @param  {string} key    The key.
+	 * @return {string|Object} The value.
+	 */
+    function get(key) {
+    	var value = sessionStorage.getItem(key);
+
+        if(leaf.isJSON(value)) {
+         	return JSON.parse(value);
+        }
+        return value;
+
+    }
+    session.get = get;
+    /**
+     * Save a value to session storage.
+     * @function set
+     * @memberOf leaf.session
+     * @param {string} key The key
+	 * @param {string|Object} value The value.
+     */
+    function set(key, value) {
+        if(leaf.isObject(value)) {
+			sessionStorage.setItem(key, JSON.stringify(value));
+        }
+        else {
+			sessionStorage.setItem(key, value);
+        }
+    }
+    session.set = set;
+    /**
+     * Determines if a key exists in session storage.
+     * @function contains
+     * @memberOf leaf.session
+     * @param  {string} key The key
+     * @return {boolean} True if key exists.
+     */
+    function contains(key) {
+    	return leaf.isDefined(sessionStorage.getItem(key));
+    }
+    session.contains = contains;
+
+})(session = leaf.session || (leaf.session = {}));	
 /* 
    #repeatview
    ========================================================================== */

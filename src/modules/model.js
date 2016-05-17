@@ -14,9 +14,14 @@ var Model = (function() {
 	 * @param {Object} [items] The items to be added to the Model.
 	 */
 	function Model(items) {
-		this._items = items || {}; 
+		/**
+		 * @var {Object} items The raw item collection. Do not modify directly.
+		 * @memberOf leaf.Model
+		 */
+		this.items = items || {}; 
 		this._cbs = {};
 	}
+
 	/**
 	 * Get the value of the specified key in the Model.
 	 * @function get
@@ -25,7 +30,7 @@ var Model = (function() {
 	 * @return {*} The value.
 	 */
 	Model.prototype.get = function(key) {
-		return this._items[key];
+		return this.items[key];
 	};
 	/**
 	 * Set the value of the specified key in the Model.
@@ -35,7 +40,7 @@ var Model = (function() {
 	 * @param {*} value The value.
 	 */
 	Model.prototype.set = function(key, value) {
-		this._items[key] = value;
+		this.items[key] = value;
 		
 		if (key in this._cbs) {
 			this._cbs[key](value);
@@ -48,7 +53,7 @@ var Model = (function() {
 	 * @param {string} key The key.
 	 */
 	Model.prototype.remove = function(key) {
-		delete this._items[key];
+		delete this.items[key];
 	};
 	/**
 	 * Determine if the specified key exists in the Model.
@@ -86,7 +91,7 @@ var Model = (function() {
 	 * @param {Function} cb The callback Function.
 	 */
 	Model.prototype.each = function(cb) {
-		for (var key in this._items) {
+		for (var key in this.items) {
             cb(key, this.get(key));
         }
 	};
@@ -97,7 +102,7 @@ var Model = (function() {
 	 * @return {string} A JSON string.
 	 */
 	Model.prototype.toJSON = function() {
-		return JSON.stringify(this._items);
+		return JSON.stringify(this.items);
 	};	
 
 	/**
@@ -112,23 +117,6 @@ var Model = (function() {
 			text = text.replace('{{' + key + '}}', value);
 		});
 		return text;
-	};
-	/**
-	 * Save a Model to local storage.
-	 * @param  {String} key The key.
-	 */
-	Model.prototype.save = function(key) {
-		localStorage.setItem(key, JSON.stringify(this._items));
-	};
-	/**
-	 * Load a Model from local storage.
-	 * @param  {String} key The key.
-	 */
-	Model.prototype.load = function(key) {
-		if (leaf.isDefined(localStorage.getItem(key))) {
-			this._items = JSON.parse(localStorage.getItem(key));
-		}
-
 	};
 	return Model;
 })();
