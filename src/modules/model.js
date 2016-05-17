@@ -113,6 +113,20 @@ var Model = (function() {
 		});
 		return text;
 	};
+	/**
+	 * Save a Model to local storage.
+	 * @param  {String} key The key.
+	 */
+	Model.prototype.save = function(key) {
+		localStorage.setItem(key, JSON.stringify(this._items));
+	};
+	/**
+	 * Load a Model from local storage.
+	 * @param  {String} key The key.
+	 */
+	Model.prototype.load = function(key) {
+		this._items = JSON.parse(localStorage.getItem(key));
+	};
 	return Model;
 })();
 

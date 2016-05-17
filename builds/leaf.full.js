@@ -389,6 +389,20 @@ var List = (function() {
             }
 		});
 	};
+	/**
+	 * Return a template string of all Models in a List.
+	 * @param  {string} text The source string.
+	 * @return {string}      The target string.
+	 */
+	List.prototype.template = function(text) {
+		var target = '';
+
+		this.each(function(model) {
+			target += model.template(text); 
+		});
+
+		return target;
+	};
 	return List;
 })();
 
@@ -508,6 +522,20 @@ var Model = (function() {
 			text = text.replace('{{' + key + '}}', value);
 		});
 		return text;
+	};
+	/**
+	 * Save a Model to local storage.
+	 * @param  {String} key The key.
+	 */
+	Model.prototype.save = function(key) {
+		localStorage.setItem(key, JSON.stringify(this._items));
+	};
+	/**
+	 * Load a Model from local storage.
+	 * @param  {String} key The key.
+	 */
+	Model.prototype.load = function(key) {
+		this._items = JSON.parse(localStorage.getItem(key));
 	};
 	return Model;
 })();
@@ -713,7 +741,7 @@ leaf.RepeatView = new leaf.View({
 		var source = el.innerHTML;
 		var target = '';
 		var List = new leaf.List();
-		var url = this.options.props.url || el.getAttribute('leaf-repeat');
+		var url = el.getAttribute('leaf-repeat');
 		//
 		// Load the model from a JSON file.
 		//

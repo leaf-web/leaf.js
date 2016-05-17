@@ -122,6 +122,20 @@ var List = (function() {
             }
 		});
 	};
+	/**
+	 * Return a template string of all Models in a List.
+	 * @param  {string} text The source string.
+	 * @return {string}      The target string.
+	 */
+	List.prototype.template = function(text) {
+		var target = '';
+
+		this.each(function(model) {
+			target += model.template(text); 
+		});
+
+		return target;
+	};
 	return List;
 })();
 
