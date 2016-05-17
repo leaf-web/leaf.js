@@ -101,7 +101,7 @@ var Model = (function() {
 	};	
 
 	/**
-	 * Replace double-brackets in a string with Model values.
+	 * Return a Model template with double-brackets replaced with values.
 	 * @function template
 	 * @memberOf leaf.Model
 	 * @param {string} text The source string.
@@ -125,7 +125,10 @@ var Model = (function() {
 	 * @param  {String} key The key.
 	 */
 	Model.prototype.load = function(key) {
-		this._items = JSON.parse(localStorage.getItem(key));
+		if (leaf.isDefined(localStorage.getItem(key))) {
+			this._items = JSON.parse(localStorage.getItem(key));
+		}
+
 	};
 	return Model;
 })();

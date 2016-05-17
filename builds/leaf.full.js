@@ -390,7 +390,7 @@ var List = (function() {
 		});
 	};
 	/**
-	 * Return a template string of all Models in a List.
+	 * Return a List template with double-brackets replaced with values.
 	 * @param  {string} text The source string.
 	 * @return {string}      The target string.
 	 */
@@ -511,7 +511,7 @@ var Model = (function() {
 	};	
 
 	/**
-	 * Replace double-brackets in a string with Model values.
+	 * Return a Model template with double-brackets replaced with values.
 	 * @function template
 	 * @memberOf leaf.Model
 	 * @param {string} text The source string.
@@ -535,7 +535,10 @@ var Model = (function() {
 	 * @param  {String} key The key.
 	 */
 	Model.prototype.load = function(key) {
-		this._items = JSON.parse(localStorage.getItem(key));
+		if (leaf.isDefined(localStorage.getItem(key))) {
+			this._items = JSON.parse(localStorage.getItem(key));
+		}
+
 	};
 	return Model;
 })();
@@ -725,7 +728,7 @@ leaf.Router = Router;
    ========================================================================== */
 
 /**
- * Directive to repeat a List inside a container, replacing handlebar values.
+ * Directive to return a List template with double-brackets replaced with values.
  * @class RepeatView
  * @memberOf leaf
  */
@@ -738,19 +741,13 @@ leaf.RepeatView = new leaf.View({
 	// Return the innerHTML of the view.
 	//
 	draw: function(el) {
-		var source = el.innerHTML;
-		var target = '';
 		var List = new leaf.List();
 		var url = el.getAttribute('leaf-repeat');
-		//
-		// Load the model from a JSON file.
-		//
+		var template = el.innerHTML;
+		
 		List.loadJSON(url, 
 			function(list) {
-				list.each(function(model) {	
-					target += model.template(source); 
-				});
-				el.innerHTML = target;
+				el.innerHTML = list.template(template);
 			}, 
 			function(status) {
 				el.innerHTML = '';

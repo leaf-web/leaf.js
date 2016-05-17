@@ -123,7 +123,7 @@ var List = (function() {
 		});
 	};
 	/**
-	 * Return a template string of all Models in a List.
+	 * Return a List template with double-brackets replaced with values.
 	 * @param  {string} text The source string.
 	 * @return {string}      The target string.
 	 */

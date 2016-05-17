@@ -278,7 +278,7 @@ Serialize the Model to JSON format.
 <a name="leaf.Model.template"></a>
 
 #### Model.template(text) ⇒ <code>string</code>
-Replace double-brackets in a string with Model values.
+Return a Model template with double-brackets replaced with values.
 
 **Kind**: static method of <code>[Model](#leaf.Model)</code>  
 **Returns**: <code>string</code> - The target string.  
@@ -426,7 +426,7 @@ Stop listening to hash changes.
 <a name="new_leaf.RepeatView_new"></a>
 
 #### new RepeatView()
-Directive to repeat a List inside a container, replacing handlebar values.
+Directive to return a List template with double-brackets replaced with values.
 
 <a name="leaf.http"></a>
 
