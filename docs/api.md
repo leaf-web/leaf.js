@@ -12,6 +12,7 @@
         * [.each(cb)](#leaf.List.each)
         * [.count()](#leaf.List.count) ⇒ <code>number</code>
         * [.sort(comparer)](#leaf.List.sort)
+        * [.reset()](#leaf.List.reset)
         * [.toJSON()](#leaf.List.toJSON) ⇒ <code>string</code>
         * [.loadData(items, [merge])](#leaf.List.loadData)
         * [.loadJSON(url, [success], [failure], [merge])](#leaf.List.loadJSON)
@@ -51,14 +52,7 @@
         * [.post(url, data)](#leaf.http.post)
         * [.patch(url, data)](#leaf.http.patch)
         * [.include(url, selector, success, failure)](#leaf.http.include)
-    * [.storage](#leaf.storage) : <code>object</code>
-        * [.get(key)](#leaf.storage.get) ⇒ <code>string</code> &#124; <code>Object</code>
-        * [.set(key, value)](#leaf.storage.set)
-        * [.contains(key)](#leaf.storage.contains) ⇒ <code>boolean</code>
-    * [.session](#leaf.session) : <code>object</code>
-        * [.get(key)](#leaf.session.get) ⇒ <code>string</code> &#124; <code>Object</code>
-        * [.set(key, value)](#leaf.session.set)
-        * [.contains(key)](#leaf.session.contains) ⇒ <code>boolean</code>
+    * [.isString(value)](#leaf.isString) ⇒ <code>boolean</code>
     * [.isNumber(value)](#leaf.isNumber) ⇒ <code>boolean</code>
     * [.isBoolean(value)](#leaf.isBoolean) ⇒ <code>boolean</code>
     * [.isArray(value)](#leaf.isArray) ⇒ <code>boolean</code>
@@ -67,8 +61,8 @@
     * [.isDate(value)](#leaf.isDate) ⇒ <code>boolean</code>
     * [.isDefined(value)](#leaf.isDefined) ⇒ <code>boolean</code>
     * [.isUndefined(value)](#leaf.isUndefined) ⇒ <code>boolean</code>
-    * [.isJSON(value)](#leaf.isJSON) ⇒ <code>boolean</code>
     * [.concat(args)](#leaf.concat) ⇒ <code>string</code>
+    * [.queryString(name))](#leaf.queryString) ⇒ <code>string</code>
 
 <a name="leaf.List"></a>
 
@@ -83,6 +77,7 @@
     * [.each(cb)](#leaf.List.each)
     * [.count()](#leaf.List.count) ⇒ <code>number</code>
     * [.sort(comparer)](#leaf.List.sort)
+    * [.reset()](#leaf.List.reset)
     * [.toJSON()](#leaf.List.toJSON) ⇒ <code>string</code>
     * [.loadData(items, [merge])](#leaf.List.loadData)
     * [.loadJSON(url, [success], [failure], [merge])](#leaf.List.loadJSON)
@@ -156,6 +151,12 @@ Sort the Models in the List.
 | --- | --- | --- |
 | comparer | <code>function</code> | The comparer Function. |
 
+<a name="leaf.List.reset"></a>
+
+#### List.reset()
+Removes all the Models in a List.
+
+**Kind**: static method of <code>[List](#leaf.List)</code>  
 <a name="leaf.List.toJSON"></a>
 
 #### List.toJSON() ⇒ <code>string</code>
@@ -178,7 +179,7 @@ Load an Array of Models into the List.
 <a name="leaf.List.loadJSON"></a>
 
 #### List.loadJSON(url, [success], [failure], [merge])
-Load a JSON file into the List.
+Load Models from a JSON file into the List.
 
 **Kind**: static method of <code>[List](#leaf.List)</code>  
 
@@ -569,97 +570,17 @@ Shorthand function to execute a HTTP GET request and put the content in an eleme
 | success | <code>function</code> | The success Function. |
 | failure | <code>function</code> | The failure Function. |
 
-<a name="leaf.storage"></a>
+<a name="leaf.isString"></a>
 
-### leaf.storage : <code>object</code>
-**Kind**: static namespace of <code>[leaf](#leaf)</code>  
+### leaf.isString(value) ⇒ <code>boolean</code>
+Determines if a reference is a string.
 
-* [.storage](#leaf.storage) : <code>object</code>
-    * [.get(key)](#leaf.storage.get) ⇒ <code>string</code> &#124; <code>Object</code>
-    * [.set(key, value)](#leaf.storage.set)
-    * [.contains(key)](#leaf.storage.contains) ⇒ <code>boolean</code>
-
-<a name="leaf.storage.get"></a>
-
-#### storage.get(key) ⇒ <code>string</code> &#124; <code>Object</code>
-Get a value from local storage.
-
-**Kind**: static method of <code>[storage](#leaf.storage)</code>  
-**Returns**: <code>string</code> &#124; <code>Object</code> - The value.  
+**Kind**: static method of <code>[leaf](#leaf)</code>  
+**Returns**: <code>boolean</code> - True if value is a string.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| key | <code>string</code> | The key. |
-
-<a name="leaf.storage.set"></a>
-
-#### storage.set(key, value)
-Save a value to local storage.
-
-**Kind**: static method of <code>[storage](#leaf.storage)</code>  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| key | <code>string</code> | The key |
-| value | <code>string</code> &#124; <code>Object</code> | The value. |
-
-<a name="leaf.storage.contains"></a>
-
-#### storage.contains(key) ⇒ <code>boolean</code>
-Determines if a key exists in local storage.
-
-**Kind**: static method of <code>[storage](#leaf.storage)</code>  
-**Returns**: <code>boolean</code> - True if key exists.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| key | <code>string</code> | The key |
-
-<a name="leaf.session"></a>
-
-### leaf.session : <code>object</code>
-**Kind**: static namespace of <code>[leaf](#leaf)</code>  
-
-* [.session](#leaf.session) : <code>object</code>
-    * [.get(key)](#leaf.session.get) ⇒ <code>string</code> &#124; <code>Object</code>
-    * [.set(key, value)](#leaf.session.set)
-    * [.contains(key)](#leaf.session.contains) ⇒ <code>boolean</code>
-
-<a name="leaf.session.get"></a>
-
-#### session.get(key) ⇒ <code>string</code> &#124; <code>Object</code>
-Get a value from session storage.
-
-**Kind**: static method of <code>[session](#leaf.session)</code>  
-**Returns**: <code>string</code> &#124; <code>Object</code> - The value.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| key | <code>string</code> | The key. |
-
-<a name="leaf.session.set"></a>
-
-#### session.set(key, value)
-Save a value to session storage.
-
-**Kind**: static method of <code>[session](#leaf.session)</code>  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| key | <code>string</code> | The key |
-| value | <code>string</code> &#124; <code>Object</code> | The value. |
-
-<a name="leaf.session.contains"></a>
-
-#### session.contains(key) ⇒ <code>boolean</code>
-Determines if a key exists in session storage.
-
-**Kind**: static method of <code>[session](#leaf.session)</code>  
-**Returns**: <code>boolean</code> - True if key exists.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| key | <code>string</code> | The key |
+| value | <code>\*</code> | The reference to check. |
 
 <a name="leaf.isNumber"></a>
 
@@ -757,18 +678,6 @@ Determines if a reference is undefined.
 | --- | --- | --- |
 | value | <code>\*</code> | The reference to check. |
 
-<a name="leaf.isJSON"></a>
-
-### leaf.isJSON(value) ⇒ <code>boolean</code>
-Determines if a reference is a JSON string.
-
-**Kind**: static method of <code>[leaf](#leaf)</code>  
-**Returns**: <code>boolean</code> - True if value is a JSON string.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| value | <code>\*</code> | The reference to check. |
-
 <a name="leaf.concat"></a>
 
 ### leaf.concat(args) ⇒ <code>string</code>
@@ -780,4 +689,16 @@ Concatenates multiple string arguments into a single string.
 | Param | Type | Description |
 | --- | --- | --- |
 | args | <code>Array.&lt;string&gt;</code> | The arguments to concatenate. |
+
+<a name="leaf.queryString"></a>
+
+### leaf.queryString(name)) ⇒ <code>string</code>
+Returns the value of a queryString in the URL.
+
+**Kind**: static method of <code>[leaf](#leaf)</code>  
+**Returns**: <code>string</code> - The value.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name) | <code>string</code> | The name. |
 

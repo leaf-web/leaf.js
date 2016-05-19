@@ -74,6 +74,14 @@ var List = (function() {
 		this.items.sort(comparer);
 	};
 	/**
+	 * Removes all the Models in a List.
+	 * @function reset
+	 * @memberOf leaf.List 
+	 */
+	List.prototype.reset = function() {
+		this.items = [];
+	};
+	/**
 	 * Serialize the List to JSON format.
 	 * @function toJSON
 	 * @memberOf leaf.List 
@@ -99,7 +107,7 @@ var List = (function() {
 		}
 	};
 	/**
-	 * Load a JSON file into the List.
+	 * Load Models from a JSON file into the List.
 	 * @function loadJSON
 	 * @memberOf leaf.List 
 	 * @param {string} url The url.

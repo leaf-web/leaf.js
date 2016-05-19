@@ -3,6 +3,15 @@
    ========================================================================== */
 
 /**
+ * Determines if a reference is a string.
+ * @function isString
+ * @memberOf leaf
+ * @param {*} value The reference to check.
+ * @return {boolean} True if value is a string.
+ */
+leaf.isString = function(value) { return typeof value === 'string' || value instanceof String; };
+
+/**
  * Determines if a reference is a number.
  * @function isNumber
  * @memberOf leaf
@@ -75,22 +84,6 @@ leaf.isDefined = function(value) { return typeof value !== 'undefined'; };
 leaf.isUndefined = function(value) { return typeof value === 'undefined'; };
 
 /**
- * Determines if a reference is a JSON string.
- * @function isJSON
- * @memberOf leaf
- * @param  {*} value The reference to check.
- * @return {boolean} True if value is a JSON string.
- */
-leaf.isJSON = function(value) {
-	try {
-        JSON.parse(value);
-    } catch (e) {
-        return false;
-    }
-    return true;
-};
-
-/**
  * Concatenates multiple string arguments into a single string.
  * @function concat
  * @memberOf leaf
@@ -98,3 +91,12 @@ leaf.isJSON = function(value) {
  * @return {string} The concatenated string. 
  */
 leaf.concat = function() { return Array.prototype.slice.call(arguments).join(""); };
+
+/**
+ * Returns the value of a queryString in the URL.
+ * @function queryString
+ * @memberOf leaf
+ * @param  {string} name) The name.
+ * @return {string} The value.
+ */
+leaf.queryString = function(name) { return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null; };

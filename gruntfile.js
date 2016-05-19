@@ -9,9 +9,7 @@ module.exports = function(grunt) {
 					'src/modules/list.js',					
 					'src/modules/model.js',
 					'src/modules/view.js',	
-					'src/modules/router.js',	
-					'src/modules/storage.js',	
-					'src/modules/session.js',										
+					'src/modules/router.js',									
 					'src/directives/*.js',		
 					'src/leaf.suffix.js'
 				],

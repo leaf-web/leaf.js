@@ -14,6 +14,15 @@ var leaf;
    ========================================================================== */
 
 /**
+ * Determines if a reference is a string.
+ * @function isString
+ * @memberOf leaf
+ * @param {*} value The reference to check.
+ * @return {boolean} True if value is a string.
+ */
+leaf.isString = function(value) { return typeof value === 'string' || value instanceof String; };
+
+/**
  * Determines if a reference is a number.
  * @function isNumber
  * @memberOf leaf
@@ -86,22 +95,6 @@ leaf.isDefined = function(value) { return typeof value !== 'undefined'; };
 leaf.isUndefined = function(value) { return typeof value === 'undefined'; };
 
 /**
- * Determines if a reference is a JSON string.
- * @function isJSON
- * @memberOf leaf
- * @param  {*} value The reference to check.
- * @return {boolean} True if value is a JSON string.
- */
-leaf.isJSON = function(value) {
-	try {
-        JSON.parse(value);
-    } catch (e) {
-        return false;
-    }
-    return true;
-};
-
-/**
  * Concatenates multiple string arguments into a single string.
  * @function concat
  * @memberOf leaf
@@ -110,6 +103,14 @@ leaf.isJSON = function(value) {
  */
 leaf.concat = function() { return Array.prototype.slice.call(arguments).join(""); };
 
+/**
+ * Returns the value of a queryString in the URL.
+ * @function queryString
+ * @memberOf leaf
+ * @param  {string} name) The name.
+ * @return {string} The value.
+ */
+leaf.queryString = function(name) { return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null; };
 /* 
    #http
    ========================================================================== */
@@ -357,6 +358,14 @@ var List = (function() {
 		this.items.sort(comparer);
 	};
 	/**
+	 * Removes all the Models in a List.
+	 * @function reset
+	 * @memberOf leaf.List 
+	 */
+	List.prototype.reset = function() {
+		this.items = [];
+	};
+	/**
 	 * Serialize the List to JSON format.
 	 * @function toJSON
 	 * @memberOf leaf.List 
@@ -382,7 +391,7 @@ var List = (function() {
 		}
 	};
 	/**
-	 * Load a JSON file into the List.
+	 * Load Models from a JSON file into the List.
 	 * @function loadJSON
 	 * @memberOf leaf.List 
 	 * @param {string} url The url.
@@ -729,122 +738,6 @@ var Router = (function() {
 
 leaf.Router = Router;
 
-/* 
-   #storage
-   ========================================================================== */
-
-/**
- * @namespace storage
- * @memberOf leaf
- */
-var storage;
-
-(function (storage) {
-	
-	/**
-	 * Get a value from local storage.
-	 * @function get
-	 * @memberOf leaf.storage
-	 * @param  {string} key    The key.
-	 * @return {string|Object} The value.
-	 */
-    function get(key) {
-    	var value = localStorage.getItem(key);
-
-        if(leaf.isJSON(value)) {
-         	return JSON.parse(value);
-        }
-        return value;
-
-    }
-    storage.get = get;
-    /**
-     * Save a value to local storage.
-     * @function set
-     * @memberOf leaf.storage
-     * @param {string} key The key
-	 * @param {string|Object} value The value.
-     */
-    function set(key, value) {
-        if(leaf.isObject(value)) {
-			localStorage.setItem(key, JSON.stringify(value));
-        }
-        else {
-			localStorage.setItem(key, value);
-        }
-    }
-    storage.set = set;
-    /**
-     * Determines if a key exists in local storage.
-     * @function contains
-     * @memberOf leaf.storage
-     * @param  {string} key The key
-     * @return {boolean} True if key exists.
-     */
-    function contains(key) {
-    	return leaf.isDefined(localStorage.getItem(key));
-    }
-    storage.contains = contains;
-
-})(storage = leaf.storage || (leaf.storage = {}));	
-/* 
-   #session
-   ========================================================================== */
-
-/**
- * @namespace session
- * @memberOf leaf
- */
-var session;
-
-(function (session) {
-	
-	/**
-	 * Get a value from session storage.
-	 * @function get
-	 * @memberOf leaf.session
-	 * @param  {string} key    The key.
-	 * @return {string|Object} The value.
-	 */
-    function get(key) {
-    	var value = sessionStorage.getItem(key);
-
-        if(leaf.isJSON(value)) {
-         	return JSON.parse(value);
-        }
-        return value;
-
-    }
-    session.get = get;
-    /**
-     * Save a value to session storage.
-     * @function set
-     * @memberOf leaf.session
-     * @param {string} key The key
-	 * @param {string|Object} value The value.
-     */
-    function set(key, value) {
-        if(leaf.isObject(value)) {
-			sessionStorage.setItem(key, JSON.stringify(value));
-        }
-        else {
-			sessionStorage.setItem(key, value);
-        }
-    }
-    session.set = set;
-    /**
-     * Determines if a key exists in session storage.
-     * @function contains
-     * @memberOf leaf.session
-     * @param  {string} key The key
-     * @return {boolean} True if key exists.
-     */
-    function contains(key) {
-    	return leaf.isDefined(sessionStorage.getItem(key));
-    }
-    session.contains = contains;
-
-})(session = leaf.session || (leaf.session = {}));	
 /* 
    #repeatview
    ========================================================================== */
