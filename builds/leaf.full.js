@@ -741,6 +741,37 @@ var Router = (function() {
 leaf.Router = Router;
 
 /* 
+   #JsonModelerControl
+   ========================================================================== */
+
+/**
+ * Control to return a template from a single model stored in JSON.
+ * @class JsonModelerControl
+ * @memberOf leaf
+ */
+leaf.JsonModelerControl = new leaf.View({
+	//
+	// Return the innerHTML of the view.
+	//
+	draw: function(el) {
+		var html = el.innerHTML;
+
+		leaf.http.get(this.props.url, 
+			function (data) {
+				var Model = new leaf.Model(JSON.parse(data));
+
+				el.innerHTML = Model.template(html);
+			},
+			function() {
+				el.innerHTML = '';
+			}
+		);
+
+		return '';
+	}
+});
+
+/* 
    #JsonRepeaterControl
    ========================================================================== */
 
