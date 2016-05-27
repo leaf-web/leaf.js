@@ -541,7 +541,6 @@ var Model = (function() {
 	Model.prototype.toJSON = function() {
 		return JSON.stringify(this.items);
 	};	
-
 	/**
 	 * Return a Model template with double-brackets replaced with values.
 	 * @function template
@@ -551,7 +550,7 @@ var Model = (function() {
 	 */
 	Model.prototype.template = function(text) {
 		this.each(function(key, value) {
-			text = text.replace('{{' + key + '}}', value);
+			text = text.replace('{{' + key + '}}', value || '');
 		});
 		return text;
 	};
@@ -575,44 +574,35 @@ var View = (function() {
 	 * @constructor
 	 * @param {Object} options The view's options.
 	 */
-	function View(options) {
-		this.options = options;
-		/**
-		 * Initialize each instance of the view.
-		 */
-        if (leaf.isFunction(options.init)) {
-            this.each(function (el) {
-                options.init(el);
-            });
-        }
-	}
+	function View(options) { this.options = options; }
 	/**
 	 * Render the view on the webpage.
 	 * @function render
 	 * @memberOf leaf.View
+	 * @param {string} [selector] The option.selector value.
 	 * @param {Object} [props] The option.props values.
 	 */
-	View.prototype.render = function(props) {
+	View.prototype.render = function(selector, props) {
+		/**
+		 * Used to reference the view.
+		 */
 		var that = this;
 		/**
-		 * Store passed properties in the options.
+		 * Store the selector string.
 		 */
-        that.options.props = props || {};
+		this.options.selector = selector;
+		/**
+		 * Store the property object.
+		 */
+		this.options.props = props;		
 		/**
 		 * Render each instance of the view.
 		 */
-        if (leaf.isFunction(that.options.draw)) {
+		if (leaf.isFunction(that.options.draw)) {
             this.each(function (el) {
                 el.innerHTML = that.options.draw(el);
-            });
-        }
-	};
-	/**
-	 * Returns the Object containing the properties.
-	 * @return {Object} The properties Object
-	 */
-	View.prototype.props = function() {
-		return this.options.props;
+            });	
+		}
 	};
 	/**
 	 * Execute a callback Function for each match in option.selector.
@@ -621,11 +611,23 @@ var View = (function() {
 	 * @param {Function} cb The callback Function.
 	 */
 	View.prototype.each = function(cb) {
+        /**
+         * Query elements using the selector.
+         */		
         var els = document.querySelectorAll(this.options.selector);
-        
+        /**
+         * Execute the callback for each match.
+         */
         for (var index = 0, length = els.length; index < length; index++) {
 	        cb(els[index]);
-        }		
+        }
+	};
+	/**
+	 * Returns the Object containing the properties.
+	 * @return {Object} The properties Object
+	 */
+	View.prototype.props = function() {
+		return this.options.props;
 	};
 	return View;
 })();
@@ -739,35 +741,52 @@ var Router = (function() {
 leaf.Router = Router;
 
 /* 
-   #repeatview
+   #JsonRepeaterControl
    ========================================================================== */
 
 /**
- * Directive to return a List template with double-brackets replaced with values.
- * @class RepeatView
+ * Control to return a template from a JSON file.
+ * @class JsonRepeaterControl
  * @memberOf leaf
  */
-leaf.RepeatView = new leaf.View({
-	//
-	// The selector string that determines where the view is drawn.
-	//
-	selector: "[leaf-repeat]",
+leaf.JsonRepeaterControl = new leaf.View({
 	//
 	// Return the innerHTML of the view.
 	//
 	draw: function(el) {
 		var List = new leaf.List();
-		var url = el.getAttribute('leaf-repeat');
-		var template = el.innerHTML;
-		
-		List.loadJSON(url, 
+		var html = el.innerHTML;
+		//
+		// Draw the template.
+		// 
+		List.loadJSON(this.props.url,
 			function(list) {
-				el.innerHTML = list.template(template);
-			}, 
-			function(status) {
+				el.innerHTML = list.template(html);
+			},
+			function() {
 				el.innerHTML = '';
 			}
 		);
+
+		return '';
+	}
+});
+
+/* 
+   #ListRepeaterControl
+   ========================================================================== */
+
+/**
+ * Control to return a template from a List or Model.
+ * @class ListRepeaterControl
+ * @memberOf leaf
+ */
+leaf.ListRepeaterControl = new leaf.View({
+	//
+	// Return the innerHTML of the view.
+	//
+	draw: function(el) {
+		return this.props.data.template(el.innerHTML); 
 	}
 });
 

@@ -104,7 +104,6 @@ var Model = (function() {
 	Model.prototype.toJSON = function() {
 		return JSON.stringify(this.items);
 	};	
-
 	/**
 	 * Return a Model template with double-brackets replaced with values.
 	 * @function template
@@ -114,7 +113,7 @@ var Model = (function() {
 	 */
 	Model.prototype.template = function(text) {
 		this.each(function(key, value) {
-			text = text.replace('{{' + key + '}}', value);
+			text = text.replace('{{' + key + '}}', value || '');
 		});
 		return text;
 	};

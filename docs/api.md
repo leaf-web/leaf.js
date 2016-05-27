@@ -30,7 +30,7 @@
         * [.template(text)](#leaf.Model.template) ⇒ <code>string</code>
     * [.View](#leaf.View)
         * [new View()](#new_leaf.View_new)
-        * [.render([props])](#leaf.View.render)
+        * [.render([selector], [props])](#leaf.View.render)
         * [.each(cb)](#leaf.View.each)
     * [.Router](#leaf.Router)
         * [new Router()](#new_leaf.Router_new)
@@ -41,8 +41,10 @@
         * [.invoke([hash])](#leaf.Router.invoke)
         * [.listen([hash])](#leaf.Router.listen)
         * [.ignore()](#leaf.Router.ignore)
-    * [.RepeatView](#leaf.RepeatView)
-        * [new RepeatView()](#new_leaf.RepeatView_new)
+    * [.JsonRepeaterControl](#leaf.JsonRepeaterControl)
+        * [new JsonRepeaterControl()](#new_leaf.JsonRepeaterControl_new)
+    * [.ListRepeaterControl](#leaf.ListRepeaterControl)
+        * [new ListRepeaterControl()](#new_leaf.ListRepeaterControl_new)
     * [.http](#leaf.http) : <code>object</code>
         * [.request(options, success, failure)](#leaf.http.request)
         * [.get(url)](#leaf.http.get)
@@ -326,7 +328,7 @@ Return a Model template with double-brackets replaced with values.
 
 * [.View](#leaf.View)
     * [new View()](#new_leaf.View_new)
-    * [.render([props])](#leaf.View.render)
+    * [.render([selector], [props])](#leaf.View.render)
     * [.each(cb)](#leaf.View.each)
 
 <a name="new_leaf.View_new"></a>
@@ -336,13 +338,14 @@ Represents a view, component, or HTML fragment.
 
 <a name="leaf.View.render"></a>
 
-#### View.render([props])
+#### View.render([selector], [props])
 Render the view on the webpage.
 
 **Kind**: static method of <code>[View](#leaf.View)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
+| [selector] | <code>string</code> | The option.selector value. |
 | [props] | <code>Object</code> | The option.props values. |
 
 <a name="leaf.View.each"></a>
@@ -451,14 +454,23 @@ Listen for hash changes and invoke routes.
 Stop listening to hash changes.
 
 **Kind**: static method of <code>[Router](#leaf.Router)</code>  
-<a name="leaf.RepeatView"></a>
+<a name="leaf.JsonRepeaterControl"></a>
 
-### leaf.RepeatView
+### leaf.JsonRepeaterControl
 **Kind**: static class of <code>[leaf](#leaf)</code>  
-<a name="new_leaf.RepeatView_new"></a>
+<a name="new_leaf.JsonRepeaterControl_new"></a>
 
-#### new RepeatView()
-Directive to return a List template with double-brackets replaced with values.
+#### new JsonRepeaterControl()
+Control to return a template from a JSON file.
+
+<a name="leaf.ListRepeaterControl"></a>
+
+### leaf.ListRepeaterControl
+**Kind**: static class of <code>[leaf](#leaf)</code>  
+<a name="new_leaf.ListRepeaterControl_new"></a>
+
+#### new ListRepeaterControl()
+Control to return a template from a List or Model.
 
 <a name="leaf.http"></a>
 

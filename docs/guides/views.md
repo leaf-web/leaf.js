@@ -15,12 +15,11 @@ Views are created by passing options to the constructor.
 			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var View = new leaf.View({
-					selector: 'hello',
 					draw: function() {
 						return '<h1>Hello World</h1>';
 					}
 				});
-				View.render();
+				View.render('hello');
 			</script>
 		</body>
 	</html>
@@ -36,23 +35,20 @@ Properties can be passed inside the render Function.
 			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var View = new leaf.View({
-					selector: 'hello',
 					draw: function(el) {
 						return '<h1>Hello ' + this.props.name + '</h1>';
 					}
 				});
-				View.render({
-					name: 'Leaf'	
-				});
+				View.render('hello', 
+					{
+						name: 'Leaf'	
+					}
+				);
 			</script>
 		</body>
 	</html>
 
-> See [View.props](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.View.props)
-
-## Initialization
-
-Event handlers can be created inside the `init` option.
+## HTMLElement
 
 	<html>
 		<body>
@@ -61,19 +57,19 @@ Event handlers can be created inside the `init` option.
 			<script src="scripts/leaf.min.js"></script>
 			<script>
 				var View = new leaf.View({
-					selector: 'hello',
-					init: function(el) 	{
-						el.addEventListener('click', function() {
-							console.log('A click event was fired.');
-						});
-					},
 					draw: function(el) {
+						el.style.color = 'red';
+
 						return '<h1>Hello ' + this.props.name + '</h1>';
 					}
 				});
-				View.render({
-					name: 'Leaf'	
-				});
+				View.render('hello', 
+					{
+						name: 'Leaf'	
+					}
+				);
 			</script>
 		</body>
 	</html>
+
+
