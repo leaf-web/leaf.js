@@ -14,15 +14,28 @@ leaf.JsonRepeaterControl = new leaf.View({
 	draw: function(el) {
 		var List = new leaf.List();
 		var html = el.innerHTML;
+		var that = this;
 		//
 		// Draw the template.
 		// 
 		List.loadJSON(this.props.url,
 			function(list) {
 				el.innerHTML = list.template(html);
+				/**
+				 * Success
+				 */
+				if (leaf.isFunction(that.props.success)) { 
+					that.props.success(); 
+				}
 			},
 			function() {
 				el.innerHTML = '';
+				/**
+				 * Failure
+				 */
+				if (leaf.isFunction(that.props.failure)) { 
+					that.props.failure(); 
+				}				
 			}
 		);
 		/**

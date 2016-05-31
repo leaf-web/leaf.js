@@ -113,7 +113,7 @@ var Model = (function() {
 	 */
 	Model.prototype.template = function(text) {
 		this.each(function(key, value) {
-			text = text.replace('{{' + key + '}}', value || '');
+			text = text.replace(new RegExp('{{' + key + '}}', 'g'), value || '');
 		});
 		return text;
 	};

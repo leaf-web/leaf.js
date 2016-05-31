@@ -13,6 +13,7 @@ leaf.JsonModelerControl = new leaf.View({
 	//
 	draw: function(el) {
 		var html = el.innerHTML;
+		var that = this;
 		//
 		// Draw the template.
 		//             
@@ -20,10 +21,22 @@ leaf.JsonModelerControl = new leaf.View({
             function (data) {
                 var Model = new leaf.Model(JSON.parse(data));
 
-               el.innerHTML = Model.template(html);
+               	el.innerHTML = Model.template(html);
+				/**
+				 * Success
+				 */
+				if (leaf.isFunction(that.props.success)) { 
+					that.props.success(); 
+				}               
             },
             function () {
                 el.innerHTML = '';
+				/**
+				 * Failure
+				 */
+				if (leaf.isFunction(that.props.failure)) { 
+					that.props.failure(); 
+				}                
             }
         );
 		/**

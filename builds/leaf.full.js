@@ -579,7 +579,7 @@ var Model = (function() {
 	 */
 	Model.prototype.template = function(text) {
 		this.each(function(key, value) {
-			text = text.replace('{{' + key + '}}', value || '');
+			text = text.replace(new RegExp('{{' + key + '}}', 'g'), value || '');
 		});
 		return text;
 	};
@@ -784,6 +784,7 @@ leaf.JsonModelerControl = new leaf.View({
 	//
 	draw: function(el) {
 		var html = el.innerHTML;
+		var that = this;
 		//
 		// Draw the template.
 		//             
@@ -791,10 +792,22 @@ leaf.JsonModelerControl = new leaf.View({
             function (data) {
                 var Model = new leaf.Model(JSON.parse(data));
 
-               el.innerHTML = Model.template(html);
+               	el.innerHTML = Model.template(html);
+				/**
+				 * Success
+				 */
+				if (leaf.isFunction(that.props.success)) { 
+					that.props.success(); 
+				}               
             },
             function () {
                 el.innerHTML = '';
+				/**
+				 * Failure
+				 */
+				if (leaf.isFunction(that.props.failure)) { 
+					that.props.failure(); 
+				}                
             }
         );
 		/**
@@ -820,15 +833,28 @@ leaf.JsonRepeaterControl = new leaf.View({
 	draw: function(el) {
 		var List = new leaf.List();
 		var html = el.innerHTML;
+		var that = this;
 		//
 		// Draw the template.
 		// 
 		List.loadJSON(this.props.url,
 			function(list) {
 				el.innerHTML = list.template(html);
+				/**
+				 * Success
+				 */
+				if (leaf.isFunction(that.props.success)) { 
+					that.props.success(); 
+				}
 			},
 			function() {
 				el.innerHTML = '';
+				/**
+				 * Failure
+				 */
+				if (leaf.isFunction(that.props.failure)) { 
+					that.props.failure(); 
+				}				
 			}
 		);
 		/**
