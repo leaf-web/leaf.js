@@ -797,8 +797,10 @@ leaf.JsonModelerControl = new leaf.View({
                 el.innerHTML = '';
             }
         );
-
-		return '';
+		/**
+		 * Return loading text if specified.
+		 */
+		return this.props.text || ''; 
 	}
 });
 
@@ -829,8 +831,10 @@ leaf.JsonRepeaterControl = new leaf.View({
 				el.innerHTML = '';
 			}
 		);
-
-		return '';
+		/**
+		 * Return loading text if specified.
+		 */
+		return this.props.text || ''; 
 	}
 });
 
