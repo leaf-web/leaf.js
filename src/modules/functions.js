@@ -92,11 +92,3 @@ leaf.isUndefined = function(value) { return typeof value === 'undefined'; };
  */
 leaf.concat = function() { return Array.prototype.slice.call(arguments).join(""); };
 
-/**
- * Returns the value of a queryString in the URL.
- * @function queryString
- * @memberOf leaf
- * @param  {string} name) The name.
- * @return {string} The value.
- */
-leaf.queryString = function(name) { return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null; };

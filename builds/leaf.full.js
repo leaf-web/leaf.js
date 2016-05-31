@@ -103,14 +103,7 @@ leaf.isUndefined = function(value) { return typeof value === 'undefined'; };
  */
 leaf.concat = function() { return Array.prototype.slice.call(arguments).join(""); };
 
-/**
- * Returns the value of a queryString in the URL.
- * @function queryString
- * @memberOf leaf
- * @param  {string} name) The name.
- * @return {string} The value.
- */
-leaf.queryString = function(name) { return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null; };
+
 /* 
    #http
    ========================================================================== */
@@ -282,6 +275,42 @@ var http;
     http.include = include;
 
 })(http = leaf.http || (leaf.http = {}));
+/* 
+   #request
+   ========================================================================== */
+
+/**
+ * @namespace request
+ * @memberOf leaf
+ */
+var request;
+
+(function (request) {
+	
+	/**
+	 * Return a value from the querystring.
+	 * @function param
+	 * @memberOf leaf.request
+	 * @param  {string} name The name.
+	 * @return {string} The value.
+	 */
+	function param(name) {
+		return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null; 
+	}
+	request.param = param;
+	/**
+	 * Return a value from the pathname.
+	 * @function path
+	 * @memberOf leaf.request
+	 * @param  {number} index The index.
+	 * @return {string} The value.
+	 */
+	function path(index) {
+		return window.location.pathname.split('/')[index];
+	}
+	request.path = path;
+
+})(http = leaf.request || (leaf.request = {}));
 /* 
    #Model
    ========================================================================== */
@@ -745,7 +774,7 @@ leaf.Router = Router;
    ========================================================================== */
 
 /**
- * Control to return a template from a single model stored in JSON.
+ * Control to return a template from a single model in a JSON file.
  * @class JsonModelerControl
  * @memberOf leaf
  */
@@ -755,17 +784,19 @@ leaf.JsonModelerControl = new leaf.View({
 	//
 	draw: function(el) {
 		var html = el.innerHTML;
+		//
+		// Draw the template.
+		//             
+        leaf.http.get(this.props.url).then(
+            function (data) {
+                var Model = new leaf.Model(JSON.parse(data));
 
-		leaf.http.get(this.props.url, 
-			function (data) {
-				var Model = new leaf.Model(JSON.parse(data));
-
-				el.innerHTML = Model.template(html);
-			},
-			function() {
-				el.innerHTML = '';
-			}
-		);
+               el.innerHTML = Model.template(html);
+            },
+            function () {
+                el.innerHTML = '';
+            }
+        );
 
 		return '';
 	}

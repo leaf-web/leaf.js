@@ -41,6 +41,8 @@
         * [.invoke([hash])](#leaf.Router.invoke)
         * [.listen([hash])](#leaf.Router.listen)
         * [.ignore()](#leaf.Router.ignore)
+    * [.JsonModelerControl](#leaf.JsonModelerControl)
+        * [new JsonModelerControl()](#new_leaf.JsonModelerControl_new)
     * [.JsonRepeaterControl](#leaf.JsonRepeaterControl)
         * [new JsonRepeaterControl()](#new_leaf.JsonRepeaterControl_new)
     * [.ListRepeaterControl](#leaf.ListRepeaterControl)
@@ -54,6 +56,9 @@
         * [.post(url, data)](#leaf.http.post)
         * [.patch(url, data)](#leaf.http.patch)
         * [.include(url, selector, success, failure)](#leaf.http.include)
+    * [.request](#leaf.request) : <code>object</code>
+        * [.param(name)](#leaf.request.param) ⇒ <code>string</code>
+        * [.path(index)](#leaf.request.path) ⇒ <code>string</code>
     * [.isString(value)](#leaf.isString) ⇒ <code>boolean</code>
     * [.isNumber(value)](#leaf.isNumber) ⇒ <code>boolean</code>
     * [.isBoolean(value)](#leaf.isBoolean) ⇒ <code>boolean</code>
@@ -64,7 +69,6 @@
     * [.isDefined(value)](#leaf.isDefined) ⇒ <code>boolean</code>
     * [.isUndefined(value)](#leaf.isUndefined) ⇒ <code>boolean</code>
     * [.concat(args)](#leaf.concat) ⇒ <code>string</code>
-    * [.queryString(name))](#leaf.queryString) ⇒ <code>string</code>
 
 <a name="leaf.List"></a>
 
@@ -454,6 +458,15 @@ Listen for hash changes and invoke routes.
 Stop listening to hash changes.
 
 **Kind**: static method of <code>[Router](#leaf.Router)</code>  
+<a name="leaf.JsonModelerControl"></a>
+
+### leaf.JsonModelerControl
+**Kind**: static class of <code>[leaf](#leaf)</code>  
+<a name="new_leaf.JsonModelerControl_new"></a>
+
+#### new JsonModelerControl()
+Control to return a template from a single model in a JSON file.
+
 <a name="leaf.JsonRepeaterControl"></a>
 
 ### leaf.JsonRepeaterControl
@@ -582,6 +595,39 @@ Shorthand function to execute a HTTP GET request and put the content in an eleme
 | success | <code>function</code> | The success Function. |
 | failure | <code>function</code> | The failure Function. |
 
+<a name="leaf.request"></a>
+
+### leaf.request : <code>object</code>
+**Kind**: static namespace of <code>[leaf](#leaf)</code>  
+
+* [.request](#leaf.request) : <code>object</code>
+    * [.param(name)](#leaf.request.param) ⇒ <code>string</code>
+    * [.path(index)](#leaf.request.path) ⇒ <code>string</code>
+
+<a name="leaf.request.param"></a>
+
+#### request.param(name) ⇒ <code>string</code>
+Return a value from the querystring.
+
+**Kind**: static method of <code>[request](#leaf.request)</code>  
+**Returns**: <code>string</code> - The value.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | The name. |
+
+<a name="leaf.request.path"></a>
+
+#### request.path(index) ⇒ <code>string</code>
+Return a value from the pathname.
+
+**Kind**: static method of <code>[request](#leaf.request)</code>  
+**Returns**: <code>string</code> - The value.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| index | <code>number</code> | The index. |
+
 <a name="leaf.isString"></a>
 
 ### leaf.isString(value) ⇒ <code>boolean</code>
@@ -701,16 +747,4 @@ Concatenates multiple string arguments into a single string.
 | Param | Type | Description |
 | --- | --- | --- |
 | args | <code>Array.&lt;string&gt;</code> | The arguments to concatenate. |
-
-<a name="leaf.queryString"></a>
-
-### leaf.queryString(name)) ⇒ <code>string</code>
-Returns the value of a queryString in the URL.
-
-**Kind**: static method of <code>[leaf](#leaf)</code>  
-**Returns**: <code>string</code> - The value.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| name) | <code>string</code> | The name. |
 

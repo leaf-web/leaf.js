@@ -5,7 +5,8 @@ module.exports = function(grunt) {
 				src: [
 					'src/leaf.prefix.js',
 					'src/modules/functions.js',
-					'src/modules/http.js',					
+					'src/modules/http.js',
+					'src/modules/request.js',										
 					'src/modules/list.js',					
 					'src/modules/model.js',
 					'src/modules/view.js',	
