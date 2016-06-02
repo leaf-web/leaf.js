@@ -6,7 +6,7 @@ Views represent a view, component, or HTML fragment.
 
 ## Creation
 
-Views are created by passing options to the constructor.
+Views are created by passing an Object with options to the constructor.
 
 	<html>
 		<body>
@@ -19,14 +19,14 @@ Views are created by passing options to the constructor.
 						return '<h1>Hello World</h1>';
 					}
 				});
-				View.render('hello');
+				View.render('hello'); // The selector.
 			</script>
 		</body>
 	</html>
 
-## Properties
+## Arguments
 
-Properties can be passed inside the render Function.
+Arguments can be passed inside the render Function inside an Object.
 
 	<html>
 		<body>
