@@ -57,7 +57,7 @@ The `default.html` file loads all views and components, then calls `app.init()`.
 	
 ##/views/home.js
 
-The `home.js` script represents the default view. Note that it adds a route definition.
+The `home.js` script represents the Home view. Note that it adds a route definition.
 
 	app.HomeView = new leaf.View({
 	    draw: function (el) {
@@ -76,7 +76,7 @@ The `home.js` script represents the default view. Note that it adds a route defi
 	 */
 	app.Router.add('#/home', function () { app.HomeView.render('main'); });
 
-##/views/Help.js
+##/views/help.js
 
 The `help.js` script represents the Help view. Note that it adds a route definition.
 
@@ -107,7 +107,7 @@ The `home.html` template is called by the Home view.
 		You are currently seeing the Home view.
 	</p>
 
-##/views/templates/home.html
+##/views/templates/help.html
 
 The `help.html` template is called by the Help view.
 
