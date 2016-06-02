@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 					'src/modules/model.js',
 					'src/modules/view.js',	
 					'src/modules/router.js',									
+					'src/modules/salt.js',					
 					'src/directives/*.js',		
 					'src/leaf.suffix.js'
 				],

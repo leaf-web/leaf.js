@@ -1,3 +1,18 @@
+## Objects
+
+<dl>
+<dt><a href="#leaf">leaf</a> : <code>object</code></dt>
+<dd></dd>
+</dl>
+
+## Functions
+
+<dl>
+<dt><a href="#$">$(selector, [context])</a> ⇒ <code>HTMLElement</code></dt>
+<dd><p>Use Salt.js for DOM selection if jQuery is not present.</p>
+</dd>
+</dl>
+
 <a name="leaf"></a>
 
 ## leaf : <code>object</code>
@@ -747,4 +762,17 @@ Concatenates multiple string arguments into a single string.
 | Param | Type | Description |
 | --- | --- | --- |
 | args | <code>Array.&lt;string&gt;</code> | The arguments to concatenate. |
+
+<a name="$"></a>
+
+## $(selector, [context]) ⇒ <code>HTMLElement</code>
+Use Salt.js for DOM selection if jQuery is not present.
+
+**Kind**: global function  
+**Returns**: <code>HTMLElement</code> - The HTMLElement  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| selector | <code>string</code> | The selector |
+| [context] | <code>string</code> | The context |
 
