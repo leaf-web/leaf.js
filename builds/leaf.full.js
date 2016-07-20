@@ -914,7 +914,6 @@ var Router = (function() {
         var that = this;
 
         window.addEventListener('hashchange', function () {
-        	alert(window.location.hash);
             that.call(window.location.hash);
         });        
 	};	
