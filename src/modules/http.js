@@ -14,15 +14,28 @@ var http;
 	 * Executes a HTTP request.
 	 * @function request
 	 * @memberOf leaf.http
+ 	 * @since 0.1.0
 	 * @param {Object} options The request options.
 	 * @param {Function} success The success Function.
 	 * @param {Function} failure The failure Function.
 	 */
 	function request(options, success, failure) {
         var xhr = new XMLHttpRequest();
-
+        /**
+         * Open
+         */
         xhr.open(options.method, options.url, true, options.username, options.password);
-
+        /**
+         * Headers
+         */
+        if (leaf.isDefined(options.headers)) {
+        	for(var header in options.headers) {
+        		xhr.setRequestHeader(header, options.headers[i]);
+        	}
+        }
+        /**
+         * Ready State
+         */
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
@@ -30,30 +43,34 @@ var http;
                         success(xhr.responseText);
                     }
                 }
-            }
-            else {
-                if (leaf.isFunction(failure)) {
-                    failure(xhr.statusText);
-                }
+	            else {
+    	            if (leaf.isFunction(failure)) {
+        	            failure(xhr.statusText);
+            	    }
+            	}
             }
         };
 
-        xhr.send(options.data);
+        xhr.send(options.data || null);
 	}
-
 	http.request = request;
 
 	/**
 	 * Shorthand function to execute a HTTP GET request.	 
 	 * @function get
 	 * @memberOf leaf.http
+ 	 * @since 0.1.0
 	 * @param {string} url The URL.
+	 * @param {Object} options The request options.
 	 */
-    function get(url) {
-        var options = { method: 'GET', url: url };
+    function get(url, options) {
+        var defaults = leaf.merge(options || {}, { 
+        	method: 'GET', 
+        	url: url 
+        });
         return {
             then: function (success, failure) {
-                leaf.http.request(options, success, failure);
+                leaf.http.request(defaults, success, failure);
             }
         };
     }
@@ -63,13 +80,18 @@ var http;
 	 * Shorthand function to execute a HTTP DELETE request.
 	 * @function del
 	 * @memberOf leaf.http
+ 	 * @since 0.1.0
 	 * @param {string} url The URL.
+	 * @param {Object} options The request options.
 	 */
-    function del(url) {
-        var options = { method: 'DELETE', url: url };
+    function del(url, options) {
+        var defaults = leaf.merge(options || {}, { 
+        	method: 'DELETE', 
+        	url: url 
+        });
         return {
             then: function (success, failure) {
-                leaf.http.request(options, success, failure);
+                leaf.http.request(defaults, success, failure);
             }
         };
     }
@@ -79,13 +101,18 @@ var http;
 	 * Shorthand function to execute a HTTP HEAD request.
 	 * @function head
 	 * @memberOf leaf.http
+ 	 * @since 0.1.0
 	 * @param {string} url The URL.
+	 * @param {Object} options The request options.
 	 */
-    function head(url) {
-        var options = { method: 'HEAD', url: url };
+    function head(url, options) {
+        var defaults = leaf.merge(options || {}, { 
+        	method: 'HEAD', 
+        	url: url 
+        });
         return {
             then: function (success, failure) {
-                leaf.http.request(options, success, failure);
+                leaf.http.request(defaults, success, failure);
             }
         };
     }
@@ -95,13 +122,18 @@ var http;
 	 * Shorthand function to execute a HTTP JSONP request.
 	 * @function jsonp
 	 * @memberOf leaf.http
+ 	 * @since 0.1.0
 	 * @param {string} url The URL.
+	 * @param {Object} options The request options.
 	 */
-    function jsonp(url) {
-        var options = { method: 'JSONP', url: url };
+    function jsonp(url, options) {
+        var defaults = leaf.merge(options || {}, { 
+        	method: 'JSONP', 
+        	url: url 
+        });
         return {
             then: function (success, failure) {
-                leaf.http.request(options, success, failure);
+                leaf.http.request(defaults, success, failure);
             }
         };
     }
@@ -111,14 +143,20 @@ var http;
 	 * Shorthand function to execute a HTTP POST request.
 	 * @function post
 	 * @memberOf leaf.http
+ 	 * @since 0.1.0
 	 * @param {string} url The URL.
-	 * @param {*} data The data.	  
+	 * @param {*} data The data.	
+	 * @param {Object} options The request options.  
 	 */
-    function post(url, data) {
-        var options = { method: 'POST', url: url, data: data };
+    function post(url, data, options) {
+        var defaults = leaf.merge(options || {}, { 
+        	method: 'POST', 
+        	url: url,
+        	data: data
+        });        
         return {
             then: function (success, failure) {
-                leaf.http.request(options, success, failure);
+                leaf.http.request(defaults, success, failure);
             }
         };
     }
@@ -128,14 +166,20 @@ var http;
 	 * Shorthand function to execute a HTTP PATCH request.
 	 * @function patch
 	 * @memberOf leaf.http
+ 	 * @since 0.1.0
 	 * @param {string} url The URL.
 	 * @param {*} data The data.
+	 * @param {Object} options The request options.
 	 */
-    function patch(url, data) {
-        var options = { method: 'PATCH', url: url, data: data };
+    function patch(url, data, options) {
+        var defaults = leaf.merge(options || {}, { 
+        	method: 'PATCH', 
+        	url: url,
+        	data: data
+        });
         return {
             then: function (success, failure) {
-                leaf.http.request(options, success, failure);
+                leaf.http.request(defaults, success, failure);
             }
         };
     }
@@ -145,26 +189,29 @@ var http;
 	 * Shorthand function to execute a HTTP GET request and put the content in an element.
 	 * @function include
 	 * @memberOf leaf.http
+ 	 * @since 0.1.0
 	 * @param {string} url The URL.
 	 * @param {string} selector The selector string.
 	 * @param {Function} success The success Function.
 	 * @param {Function} failure The failure Function. 
 	 */
-	
     function include(url, selector, success, failure) {
     	var el = document.querySelector(selector);
 
-    	leaf.http.get(url).then(function(data) {
-    		el.innerHTML = data;
-    		
-			if (leaf.isFunction(success)) {
-				success();
-			} 
-    	}, function() {
-			if (leaf.isFunction(failure)) {
-				failure();
-			} 
-    	});
+    	leaf.http.get(url).then(
+    		function(data) {
+    			el.innerHTML = data;
+
+   				if (leaf.isFunction(success)) {
+					success(data);
+				} 
+    		}, 
+   			function(status) {
+   				if (leaf.isFunction(failure)) {
+					failure(status);
+				} 		
+   			}
+    	);
     }
     http.include = include;
 

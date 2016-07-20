@@ -12,31 +12,30 @@ leaf.JsonRepeaterControl = new leaf.View({
 	// Return the innerHTML of the view.
 	//
 	draw: function(el) {
-		var List = new leaf.List();
-		var html = el.innerHTML;
 		var that = this;
+		var html = el.innerHTML;
 		//
 		// Draw the template.
 		// 
-		List.loadJSON(this.props.url,
-			function(list) {
-				el.innerHTML = list.template(html);
+		var List = new leaf.List(this.props.url, 
+			function(data) {
+				el.innerHTML = data.template(html);
 				/**
 				 * Success
 				 */
 				if (leaf.isFunction(that.props.success)) { 
-					that.props.success(); 
+					that.props.success(data); 
 				}
 			},
-			function() {
+			function(status) {
 				el.innerHTML = '';
 				/**
 				 * Failure
 				 */
 				if (leaf.isFunction(that.props.failure)) { 
-					that.props.failure(); 
-				}				
-			}
+					that.props.failure(status); 
+				}
+			}		
 		);
 		/**
 		 * Return loading text if specified.

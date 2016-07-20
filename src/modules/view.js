@@ -1,41 +1,38 @@
-/* 
-   #View
-   ========================================================================== */
-
 /**
  * Represents a view, component, or HTML fragment.
  * @class View
  * @memberOf leaf
+ * @since 0.1.0
  */
-var View = (function() {	
+var View = (function() {
 	/**
-	 * Add options to the view.
+	 * The constructor function.
 	 * @constructor
-	 * @param {Object} options The view's options.
-	 */
-	function View(options) { this.options = options; }
+	 * @param {Object} options The options.
+	 */	
+	function View(options) { 
+		this.options = options; 
+	}	
 	/**
 	 * Render the view on the webpage.
-	 * @function render
+	 * @function render 
 	 * @memberOf leaf.View
-	 * @param {string} [selector] The option.selector value.
-	 * @param {Object} [props] The option.props values.
+	 * @since 0.1.0
+	 * @param  {string} selector The selector.
+	 * @param  {Object} data The data option.
 	 */
-	View.prototype.render = function(selector, props) {
+	View.prototype.render = function (selector, props) {
 		/**
-		 * Used to reference the view.
+		 * Create a reference to the View.
 		 */
 		var that = this;
 		/**
-		 * Store the selector string.
+		 * Store the options.
 		 */
 		this.options.selector = selector;
+		this.options.props = props;
 		/**
-		 * Store the property object.
-		 */
-		this.options.props = props;		
-		/**
-		 * Render each instance of the view.
+		 * Render the view.
 		 */
 		if (leaf.isFunction(that.options.draw)) {
             this.each(function (el) {
@@ -44,31 +41,39 @@ var View = (function() {
 		}
 	};
 	/**
-	 * Execute a callback Function for each match in option.selector.
+	 * Returns the options.data option.
+	 * @function data
+	 * @memberOf leaf.View
+	 * @since 0.1.0
+	 * @return {Object} The data option.
+	 */
+	View.prototype.props = function() {
+		return this.options.props;
+	};
+	/**
+	 * Execute a callback for each match in the selector.
 	 * @function each
 	 * @memberOf leaf.View
-	 * @param {Function} cb The callback Function.
+	 * @since 0.1.0
+	 * @param  {Function} cb The callback function.
 	 */
 	View.prototype.each = function(cb) {
         /**
-         * Query elements using the selector.
+         * Match on options.selector.
          */		
         var els = document.querySelectorAll(this.options.selector);
         /**
-         * Execute the callback for each match.
+         * Execute the callback for each.
          */
         for (var index = 0, length = els.length; index < length; index++) {
 	        cb(els[index]);
         }
 	};
 	/**
-	 * Returns the Object containing the properties.
-	 * @return {Object} The properties Object
-	 */
-	View.prototype.props = function() {
-		return this.options.props;
-	};
+	 * Return the members of this class.
+	 */	
 	return View;
 })();
 
 leaf.View = View;
+

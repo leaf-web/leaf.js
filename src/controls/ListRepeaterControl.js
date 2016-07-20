@@ -3,9 +3,10 @@
    ========================================================================== */
 
 /**
- * Control to return a template from a List or Model.
+ * Control to return a template from a List.
  * @class ListRepeaterControl
  * @memberOf leaf
+ * @since 0.1.0
  */
 leaf.ListRepeaterControl = new leaf.View({
 	//

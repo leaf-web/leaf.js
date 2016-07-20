@@ -1,26 +1,51 @@
-/* 
-   #Model
-   ========================================================================== */
-
 /**
  * Represents a collection of Models.
  * @class List
  * @memberOf leaf
+ * @since 0.1.0
  */
-var List = (function() {	
+var List = (function() {
 	/**
-	 * Pass Models into the List.
+	 * The constructor function.
 	 * @constructor
-	 * @param {Object[]} [items] The Models to pass.
-	 */
-	function List(items) {
-		this.loadData(items || []);
+	 * @param {Object[]} [items] The Models to be added to the List.
+ 	 * @param {string} [items] The URL to a JSON file.
+	 * @param {Function} [success] The success callback.
+	 * @param {Function} [failure] The failure callback.
+	 */	
+	function List(items, success, failure) {
+		/**
+		 * @var {Array} items The Models collection. 
+		 * @memberOf leaf.List
+		 * @since 0.1.0
+		 */		
+		this.items = [];
+
+		/**
+		 * If items is undefined, break from the function.
+		 */
+		if(leaf.isUndefined(items)) {
+			return;
+		}
+		/**
+		 * If items is an Array, assume we are loading Models.
+		 */
+		if(leaf.isArray(items)) {
+			this.merge(items);
+		}
+		/**
+		 * If items is a string, assume we are loading a URL.
+		 */		
+		if(leaf.isString(items)) {
+			this.fetch(items, success, failure);
+		}		
 	}
 	/**
 	 * Get the Model at the specified index in the List.
 	 * @function get
 	 * @memberOf leaf.List
-	 * @param {number} index The index of the Model in the List.
+	 * @since 0.1.0
+	 * @param {number} index The index.
 	 * @return {Object} The Model.
 	 */
 	List.prototype.get = function(index) {
@@ -30,6 +55,7 @@ var List = (function() {
 	 * Add a Model to the List.
 	 * @function add
 	 * @memberOf leaf.List
+	 * @since 0.1.0
 	 * @param {Object} model The Model.
 	 */
 	List.prototype.add = function(model) {
@@ -39,113 +65,135 @@ var List = (function() {
 	 * Remove a Model from the List at the specified index.
 	 * @function remove
 	 * @memberOf leaf.List
+	 * @since 0.1.0
 	 * @param {number} index The index of the Model.
 	 */
 	List.prototype.remove = function(index) {
-		delete this.items[index];
+		this.items.splice(index, 1);
+	};
+	/**
+	 * Removes all the Models in the List.
+	 * @function clear
+	 * @memberOf leaf.List 
+	 * @since 0.1.0
+	 */
+	List.prototype.clear = function() {
+		this.items = [];
+	};	
+	/**
+	 * Merge the Models with Models from a flat JSON file.
+	 * @function fetch
+	 * @memberOf leaf.List 
+	 * @since 1.0.0
+	 * @param {string} url The URL.
+	 * @param {Function} [success] The success callback.
+	 * @param {Function} [failure] The failure callback.
+	 */
+	List.prototype.fetch = function(url, success, failure) {
+		var that = this;
+
+		leaf.http.get(url).then(
+			function(data) {
+				that.merge(JSON.parse(data));
+
+				if (leaf.isFunction(success)) {
+					success(that);
+				} 
+			},
+			function(status) {
+				if (leaf.isFunction(failure)) {
+					failure(status);
+				} 	
+			}
+		);
+	};	
+	/**
+	 * Merge the Models from an Array with this one.
+	 * @function merge
+	 * @memberOf leaf.List 
+	 * @since 1.0.0
+	 * @param {Object[]} items The Models to merge.
+	 */
+	List.prototype.merge = function(items) {
+		for(var item in items) {
+			this.add(new leaf.Model(items[item]));
+		}
 	};
 	/**
 	 * Execute a callback Function for each Model in the List.
 	 * @function each
 	 * @memberOf leaf.List
+	 * @since 1.0.0
 	 * @param {Function} cb The callback Function.
 	 */
 	List.prototype.each = function(cb) {
         for (var index in this.items) {
             cb(this.get(index), index);
         }
-	};
+	};	
 	/**
-	 * Return the number of Models in the List.
+	 * Return the number of Model in the List.
 	 * @function count
 	 * @memberOf leaf.List
-	 * @return {number} The number of Models.
+	 * @since 1.0.0
 	 */
-	List.prototype.count = function() {
-        return this.items.length;
-	};		
+	List.prototype.count = function(key) {
+		return this.items.length;
+	};	
 	/**
 	 * Sort the Models in the List.
 	 * @function sort
 	 * @memberOf leaf.List 
+	 * @since 0.1.0
 	 * @param {Function} comparer The comparer Function.
 	 */
 	List.prototype.sort = function(comparer) {
 		this.items.sort(comparer);
 	};
 	/**
-	 * Removes all the Models in a List.
-	 * @function reset
+	 * Remove Models that meet a condition.
+	 * @function filter
 	 * @memberOf leaf.List 
+	 * @since 1.0.0
+	 * @param {Function} comparer The comparer Function.
 	 */
-	List.prototype.reset = function() {
-		this.items = [];
-	};
+	List.prototype.filter = function(comparer) {
+		this.items = this.items.filter(comparer);
+	};		
 	/**
 	 * Serialize the List to JSON format.
 	 * @function toJSON
 	 * @memberOf leaf.List 
+	 * @since 0.1.0
 	 * @return {string} A JSON string.
 	 */
 	List.prototype.toJSON = function() {
 		return this.items.map(function(model) {
 			return model.toJSON();
 		});
-	};
-	/**
-	 * Load an Array of Models into the List.
-	 * @function loadData
-	 * @memberOf leaf.List 
-	 * @param {Object[]} items The Models to load.
-	 * @param {boolean} [merge] If True, merge with existing Models.
-	 */
-	List.prototype.loadData = function(items, merge) {
-		if(!merge) { this.items = []; }
-
-		for(var item in items) {
-			this.add(new leaf.Model(items[item]));
-		}
-	};
-	/**
-	 * Load Models from a JSON file into the List.
-	 * @function loadJSON
-	 * @memberOf leaf.List 
-	 * @param {string} url The url.
-	 * @param {Function} [success] The success callback.
-	 * @param {Function} [failure] The failure callback.
-	 * @param {boolean} [merge] If True, merge with existing Models.
-	 */
-	List.prototype.loadJSON = function(url, success, failure, merge) {
-		var that = this;
-
-		leaf.http.get(url).then(function(data) {
-			that.loadData(JSON.parse(data));
-
-            if (leaf.isFunction(success)) {
-                success(that);
-            }
-		}, function() {
-            if (leaf.isFunction(failure)) {
-                failure(that);
-            }
-		});
-	};
+	};	
 	/**
 	 * Return a List template with double-brackets replaced with values.
 	 * @function template
 	 * @memberOf leaf.List 
+	 * @since 0.1.0
 	 * @param  {string} text The source string.
-	 * @return {string}      The target string.
+	 * @return {string} The target string.
 	 */
 	List.prototype.template = function(text) {
 		var target = '';
-
+		/**
+		 * Iterate through each model and build the template.
+		 */
 		this.each(function(model) {
 			target += model.template(text); 
 		});
 
 		return target;
 	};
+	/**
+	 * Return the members of this class.
+	 */	
 	return List;
 })();
 

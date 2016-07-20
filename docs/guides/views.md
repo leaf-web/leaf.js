@@ -2,74 +2,80 @@
 
 Views represent a view, component, or HTML fragment.
 
-> See [View](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md#leaf.View)
+## Initializing
 
-## Creation
+Views can be initialized by passing an object that contains a draw `Function`.
 
-Views are created by passing an Object with options to the constructor.
+    <html>
+        <body>
+            <script src="scripts/leaf.min.js"></script>
+            <script>
+                var Person = new leaf.View({
+                	draw: function(el) {
 
-	<html>
-		<body>
-			<hello></hello>
+                	}	
+            	});
+            </script>
+        </body>
+    </html>       
 
-			<script src="scripts/leaf.min.js"></script>
-			<script>
-				var View = new leaf.View({
-					draw: function() {
-						return '<h1>Hello World</h1>';
-					}
-				});
-				View.render('hello'); // The selector.
-			</script>
-		</body>
-	</html>
+## Drawing
 
-## Arguments
+The draw `Function` replaces the innerHTML property with its return value.
 
-Arguments can be passed inside the render Function inside an Object.
+    <html>
+        <body>
+            <script src="scripts/leaf.min.js"></script>
+            <script>
+                var Person = new leaf.View({
+                	draw: function(el) {
+                		return '<p>Hello World</p>';
+                	}	
+            	});
+            </script>
+        </body>
+    </html>  
 
-	<html>
-		<body>
-			<hello></hello>
+## Rendering
 
-			<script src="scripts/leaf.min.js"></script>
-			<script>
-				var View = new leaf.View({
-					draw: function(el) {
-						return '<h1>Hello ' + this.props.name + '</h1>';
-					}
-				});
-				View.render('hello', 
-					{
-						name: 'Leaf'	
-					}
-				);
-			</script>
-		</body>
-	</html>
+The render `Function` renders the view inside elements by a selector string.
 
-## HTMLElement
+    <html>
+        <body>
+        	<hello></hello>
 
-	<html>
-		<body>
-			<hello></hello>
+            <script src="scripts/leaf.min.js"></script>
+            <script>
+                var Person = new leaf.View({
+                	draw: function(el) {
+                		return '<p>Hello World</p>';
+                	}	
+            	});
 
-			<script src="scripts/leaf.min.js"></script>
-			<script>
-				var View = new leaf.View({
-					draw: function(el) {
-						el.style.color = 'red';
+            	Person.render('hello');
+            </script>
+        </body>
+    </html>          
 
-						return '<h1>Hello ' + this.props.name + '</h1>';
-					}
-				});
-				View.render('hello', 
-					{
-						name: 'Leaf'	
-					}
-				);
-			</script>
-		</body>
-	</html>
+## Properties
 
+The render `Function` accepts an optional `Object` for properties.
 
+    <html>
+        <body>
+        	<hello></hello>
+
+            <script src="scripts/leaf.min.js"></script>
+            <script>
+                var Person = new leaf.View({
+                	draw: function(el) {
+                		return '<p>Hello ' + this.props.name + '</p>';
+                	}	
+            	});
+
+            	Person.render('hello', {
+            		name: 'Jane Doe'
+        		});
+            </script>
+        </body>
+    </html>             

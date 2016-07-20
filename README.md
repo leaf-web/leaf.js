@@ -9,7 +9,7 @@ Leaf.js is a lightweight MV* framework for creating client-side web applications
 
 Once you have setup your environment, run:
 
-    grunt package
+    grunt
 
 ## Browser Support
 
