@@ -77,7 +77,7 @@ Models can be serialized into JSON to send to restful APIs.
 
 ## Templating
 
-Model values will replace double-brackets in a template strings.
+Model values will replace double-brackets in a template string.
 
     <html>
         <body>

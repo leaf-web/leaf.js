@@ -42,7 +42,7 @@ var View = (function() {
 	};
 	/**
 	 * Returns the options.data option.
-	 * @function data
+	 * @function props
 	 * @memberOf leaf.View
 	 * @since 0.1.0
 	 * @return {Object} The data option.

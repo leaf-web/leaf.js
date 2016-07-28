@@ -4,7 +4,7 @@ A Router represents code that is executed when a url hash is changed.
 
 ## Basic Routing
 
-Routes can be added by providing a url hash and callback `Function`.
+Routes can be added by providing a url path and callback `Function`.
 
     <html>
         <body>
@@ -23,7 +23,7 @@ Routes can be added by providing a url hash and callback `Function`.
 
 ## Parameters
 
-Routes can have parameters that are available to the callback `Function`.
+Paths can have parameters that are available to the callback `Function`.
 
     <html>
         <body>

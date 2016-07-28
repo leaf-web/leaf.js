@@ -37,7 +37,7 @@
     * [.View](#leaf.View)
         * [new View()](#new_leaf.View_new)
         * [.render(selector, data)](#leaf.View.render)
-        * [.data()](#leaf.View.data) ⇒ <code>Object</code>
+        * [.props()](#leaf.View.props) ⇒ <code>Object</code>
         * [.each(cb)](#leaf.View.each)
     * [.Router](#leaf.Router)
         * [new Router()](#new_leaf.Router_new)
@@ -51,6 +51,12 @@
         * [.listen()](#leaf.Router.listen)
         * [.ignore()](#leaf.Router.ignore)
         * [.call(hash)](#leaf.Router.call)
+    * [.JsonModelerControl](#leaf.JsonModelerControl)
+        * [new JsonModelerControl()](#new_leaf.JsonModelerControl_new)
+    * [.JsonRepeaterControl](#leaf.JsonRepeaterControl)
+        * [new JsonRepeaterControl()](#new_leaf.JsonRepeaterControl_new)
+    * [.ListRepeaterControl](#leaf.ListRepeaterControl)
+        * [new ListRepeaterControl()](#new_leaf.ListRepeaterControl_new)
     * [.http](#leaf.http) : <code>object</code>
         * [.request(options, success, failure)](#leaf.http.request)
         * [.get(url, options)](#leaf.http.get)
@@ -412,7 +418,7 @@ Returns the specified string with handle bars swapped for Model values.
 * [.View](#leaf.View)
     * [new View()](#new_leaf.View_new)
     * [.render(selector, data)](#leaf.View.render)
-    * [.data()](#leaf.View.data) ⇒ <code>Object</code>
+    * [.props()](#leaf.View.props) ⇒ <code>Object</code>
     * [.each(cb)](#leaf.View.each)
 
 <a name="new_leaf.View_new"></a>
@@ -433,9 +439,9 @@ Render the view on the webpage.
 | selector | <code>string</code> | The selector. |
 | data | <code>Object</code> | The data option. |
 
-<a name="leaf.View.data"></a>
+<a name="leaf.View.props"></a>
 
-#### View.data() ⇒ <code>Object</code>
+#### View.props() ⇒ <code>Object</code>
 Returns the options.data option.
 
 **Kind**: static method of <code>[View](#leaf.View)</code>  
@@ -578,6 +584,34 @@ Execute a route's callback Function on a match.
 | Param | Type | Description |
 | --- | --- | --- |
 | hash | <code>string</code> | The hash. |
+
+<a name="leaf.JsonModelerControl"></a>
+
+### leaf.JsonModelerControl
+**Kind**: static class of <code>[leaf](#leaf)</code>  
+<a name="new_leaf.JsonModelerControl_new"></a>
+
+#### new JsonModelerControl()
+Control to return a template from a single Model.
+
+<a name="leaf.JsonRepeaterControl"></a>
+
+### leaf.JsonRepeaterControl
+**Kind**: static class of <code>[leaf](#leaf)</code>  
+<a name="new_leaf.JsonRepeaterControl_new"></a>
+
+#### new JsonRepeaterControl()
+Control to return a template from a JSON file.
+
+<a name="leaf.ListRepeaterControl"></a>
+
+### leaf.ListRepeaterControl
+**Kind**: static class of <code>[leaf](#leaf)</code>  
+**Since**: 0.1.0  
+<a name="new_leaf.ListRepeaterControl_new"></a>
+
+#### new ListRepeaterControl()
+Control to return a template from a List.
 
 <a name="leaf.http"></a>
 

@@ -785,7 +785,7 @@ var View = (function() {
 	};
 	/**
 	 * Returns the options.data option.
-	 * @function data
+	 * @function props
 	 * @memberOf leaf.View
 	 * @since 0.1.0
 	 * @return {Object} The data option.
@@ -974,4 +974,116 @@ var Router = (function() {
 
 leaf.Router = Router;
 
+/* 
+   #JsonRepeaterControl
+   ========================================================================== */
+
+/**
+ * Control to return a template from a single Model.
+ * @class JsonModelerControl
+ * @memberOf leaf
+ */
+leaf.JsonModelerControl = new leaf.View({
+	//
+	// Return the innerHTML of the view.
+	//
+	draw: function(el) {
+		var that = this;
+		var html = el.innerHTML;
+		//
+		// Draw the template.
+		// 
+		leaf.http.get(this.props.url).then( 
+			function(data) {
+				var Model = new leaf.Model(JSON.parse(data));
+				
+               	el.innerHTML = Model.template(html);
+				/**
+				 * Success
+				 */
+				if (leaf.isFunction(that.props.success)) { 
+					that.props.success(data); 
+				}
+			},
+			function(status) {
+				el.innerHTML = '';
+				/**
+				 * Failure
+				 */
+				if (leaf.isFunction(that.props.failure)) { 
+					that.props.failure(status); 
+				}
+			}		
+		);
+		/**
+		 * Return loading text if specified.
+		 */
+		return this.props.text || ''; 
+	}
+});
+
+/* 
+   #JsonRepeaterControl
+   ========================================================================== */
+
+/**
+ * Control to return a template from a JSON file.
+ * @class JsonRepeaterControl
+ * @memberOf leaf
+ */
+leaf.JsonRepeaterControl = new leaf.View({
+	//
+	// Return the innerHTML of the view.
+	//
+	draw: function(el) {
+		var that = this;
+		var html = el.innerHTML;
+		//
+		// Draw the template.
+		// 
+		var List = new leaf.List(this.props.url, 
+			function(data) {
+				el.innerHTML = data.template(html);
+				/**
+				 * Success
+				 */
+				if (leaf.isFunction(that.props.success)) { 
+					that.props.success(data); 
+				}
+			},
+			function(status) {
+				el.innerHTML = '';
+				/**
+				 * Failure
+				 */
+				if (leaf.isFunction(that.props.failure)) { 
+					that.props.failure(status); 
+				}
+			}		
+		);
+		/**
+		 * Return loading text if specified.
+		 */
+		return this.props.text || ''; 
+	}
+});
+
+/* 
+   #ListRepeaterControl
+   ========================================================================== */
+
+/**
+ * Control to return a template from a List.
+ * @class ListRepeaterControl
+ * @memberOf leaf
+ * @since 0.1.0
+ */
+leaf.ListRepeaterControl = new leaf.View({
+	//
+	// Return the innerHTML of the view.
+	//
+	draw: function(el) {
+		return this.props.data.template(el.innerHTML); 
+	}
+});
 })(leaf || (leaf = {}));

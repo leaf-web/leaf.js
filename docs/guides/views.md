@@ -59,7 +59,7 @@ The render `Function` renders the view inside elements by a selector string.
 
 ## Properties
 
-The render `Function` accepts an optional `Object` for properties.
+The render `Function` accepts an optional `Object` argument for properties.
 
     <html>
         <body>

@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 					'src/modules/model.js',
 					'src/modules/view.js',	
 					'src/modules/router.js',										
-					'src/directives/*.js',		
+					'src/controls/*.js',		
 					'src/leaf.suffix.js'
 				],
 				dest: 'builds/leaf.full.js'
