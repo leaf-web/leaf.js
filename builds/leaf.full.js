@@ -1,6 +1,6 @@
 var leaf;
 /**
- * @namespace leaf
+ * @namespace leaf 
  */
 (function (leaf) {	
 

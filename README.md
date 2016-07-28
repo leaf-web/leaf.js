@@ -11,7 +11,7 @@ Once you have setup your environment, run:
 
     grunt
 
-## Browser Support
+## Browser Support 
 
 | Browser            | Version |
 | ------------------ | ------- |
