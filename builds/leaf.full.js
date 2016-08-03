@@ -610,7 +610,6 @@ var Model = (function() {
 		  */
 		 this._cbs = cbs || {};
 	}
-	Model.prototype.isNew = false;
 	/**
 	 * Get the value of the specified key in the Model.
 	 * @function get
