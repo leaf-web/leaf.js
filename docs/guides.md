@@ -9,6 +9,6 @@
 
 ## Controls
 
-* [ListRepeaterControl](guides/JsonRepeaterControl.md)
+* [ListRepeaterControl](guides/ListRepeaterControl.md)
 * [JsonRepeaterControl](guides/JsonRepeaterControl.md)
 
