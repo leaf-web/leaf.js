@@ -19,6 +19,10 @@ leaf.JsonRepeaterControl = new leaf.View({
 		// 
 		var List = new leaf.List(this.props.url, 
 			function(data) {
+			
+				/**
+				 * Draw
+				 */				
 				el.innerHTML = data.template(html);
 				/**
 				 * Success

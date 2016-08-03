@@ -52,6 +52,26 @@ var List = (function() {
 		return this.items[index];
 	};
 	/**
+	 * Get the first Model in the List.
+	 * @function first
+	 * @memberOf leaf.List
+	 * @since 0.1.0
+	 * @return {Object} The Model.
+	 */
+	List.prototype.first = function() {
+		return this.items[0];
+	};
+	/**
+	 * Get the last Model in the List.
+	 * @function last
+	 * @memberOf leaf.List
+	 * @since 0.1.0
+	 * @return {Object} The Model.
+	 */
+	List.prototype.last = function() {
+		return this.items[this.items.length - 1];
+	};
+	/**
 	 * Add a Model to the List.
 	 * @function add
 	 * @memberOf leaf.List

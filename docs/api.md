@@ -8,6 +8,8 @@
         * [new List()](#new_leaf.List_new)
         * [.items](#leaf.List.items) : <code>Array</code>
         * [.get(index)](#leaf.List.get) ⇒ <code>Object</code>
+        * [.first()](#leaf.List.first) ⇒ <code>Object</code>
+        * [.last()](#leaf.List.last) ⇒ <code>Object</code>
         * [.add(model)](#leaf.List.add)
         * [.remove(index)](#leaf.List.remove)
         * [.clear()](#leaf.List.clear)
@@ -91,6 +93,8 @@
     * [new List()](#new_leaf.List_new)
     * [.items](#leaf.List.items) : <code>Array</code>
     * [.get(index)](#leaf.List.get) ⇒ <code>Object</code>
+    * [.first()](#leaf.List.first) ⇒ <code>Object</code>
+    * [.last()](#leaf.List.last) ⇒ <code>Object</code>
     * [.add(model)](#leaf.List.add)
     * [.remove(index)](#leaf.List.remove)
     * [.clear()](#leaf.List.clear)
@@ -128,6 +132,22 @@ Get the Model at the specified index in the List.
 | --- | --- | --- |
 | index | <code>number</code> | The index. |
 
+<a name="leaf.List.first"></a>
+
+#### List.first() ⇒ <code>Object</code>
+Get the first Model in the List.
+
+**Kind**: static method of <code>[List](#leaf.List)</code>  
+**Returns**: <code>Object</code> - The Model.  
+**Since**: 0.1.0  
+<a name="leaf.List.last"></a>
+
+#### List.last() ⇒ <code>Object</code>
+Get the last Model in the List.
+
+**Kind**: static method of <code>[List](#leaf.List)</code>  
+**Returns**: <code>Object</code> - The Model.  
+**Since**: 0.1.0  
 <a name="leaf.List.add"></a>
 
 #### List.add(model)
