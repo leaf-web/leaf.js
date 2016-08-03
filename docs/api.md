@@ -139,7 +139,7 @@ Get the first Model in the List.
 
 **Kind**: static method of <code>[List](#leaf.List)</code>  
 **Returns**: <code>Object</code> - The Model.  
-**Since**: 0.1.0  
+**Since**: 1.0.0  
 <a name="leaf.List.last"></a>
 
 #### List.last() ⇒ <code>Object</code>
@@ -147,7 +147,7 @@ Get the last Model in the List.
 
 **Kind**: static method of <code>[List](#leaf.List)</code>  
 **Returns**: <code>Object</code> - The Model.  
-**Since**: 0.1.0  
+**Since**: 1.0.0  
 <a name="leaf.List.add"></a>
 
 #### List.add(model)

@@ -422,7 +422,7 @@ var List = (function() {
 	 * Get the first Model in the List.
 	 * @function first
 	 * @memberOf leaf.List
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 * @return {Object} The Model.
 	 */
 	List.prototype.first = function() {
@@ -432,7 +432,7 @@ var List = (function() {
 	 * Get the last Model in the List.
 	 * @function last
 	 * @memberOf leaf.List
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 * @return {Object} The Model.
 	 */
 	List.prototype.last = function() {
@@ -610,6 +610,7 @@ var Model = (function() {
 		  */
 		 this._cbs = cbs || {};
 	}
+	Model.prototype.isNew = false;
 	/**
 	 * Get the value of the specified key in the Model.
 	 * @function get
