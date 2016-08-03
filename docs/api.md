@@ -24,6 +24,7 @@
     * [.Model](#leaf.Model)
         * [new Model()](#new_leaf.Model_new)
         * [.items](#leaf.Model.items) : <code>Object</code>
+        * [.changed](#leaf.Model.changed) ⇒ <code>boolean</code>
         * [.get(key)](#leaf.Model.get) ⇒ <code>\*</code>
         * [.set(key, value)](#leaf.Model.set)
         * [.remove(key)](#leaf.Model.remove)
@@ -278,6 +279,7 @@ Return a List template with double-brackets replaced with values.
 * [.Model](#leaf.Model)
     * [new Model()](#new_leaf.Model_new)
     * [.items](#leaf.Model.items) : <code>Object</code>
+    * [.changed](#leaf.Model.changed) ⇒ <code>boolean</code>
     * [.get(key)](#leaf.Model.get) ⇒ <code>\*</code>
     * [.set(key, value)](#leaf.Model.set)
     * [.remove(key)](#leaf.Model.remove)
@@ -303,6 +305,14 @@ The items collection. Do not modify directly.
 
 **Kind**: static property of <code>[Model](#leaf.Model)</code>  
 **Since**: 0.1.0  
+<a name="leaf.Model.changed"></a>
+
+#### Model.changed ⇒ <code>boolean</code>
+Determines if a value inside the Model changed from a set.
+
+**Kind**: static property of <code>[Model](#leaf.Model)</code>  
+**Returns**: <code>boolean</code> - True if a value was changed.  
+**Since**: 1.0.0  
 <a name="leaf.Model.get"></a>
 
 #### Model.get(key) ⇒ <code>\*</code>

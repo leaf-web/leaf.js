@@ -601,7 +601,7 @@ var Model = (function() {
 	function Model(items, cbs) {
 		/**
 		 * @var {Object} items The items collection. Do not modify directly.
-		 * @memberOf  leaf.Model
+		 * @memberOf leaf.Model
 		 * @since 0.1.0
 		 */
 		 this.items = items || {};
@@ -610,6 +610,14 @@ var Model = (function() {
 		  */
 		 this._cbs = cbs || {};
 	}
+	/**
+	 * Determines if a value inside the Model changed from a set.
+	 * @var {Boolean} changed
+	 * @memberOf leaf.Model
+	 * @since 1.0.0
+ 	 * @return {boolean} True if a value was changed.
+	 */
+	Model.prototype.changed = false;
 	/**
 	 * Get the value of the specified key in the Model.
 	 * @function get
@@ -631,6 +639,10 @@ var Model = (function() {
 	 */
 	Model.prototype.set = function(key, value) {
 		this.items[key] = value;
+		/**
+		 * Set the changed property to true.
+		 */
+		this.changed = true;
 		/**
 		 * Execute a callback when the value changes.
 		 */
