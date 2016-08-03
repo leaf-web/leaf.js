@@ -308,7 +308,7 @@ The items collection. Do not modify directly.
 <a name="leaf.Model.changed"></a>
 
 #### Model.changed ⇒ <code>boolean</code>
-Determines if a value inside the Model changed from a set.
+Determines if a Model's value changed.
 
 **Kind**: static property of <code>[Model](#leaf.Model)</code>  
 **Returns**: <code>boolean</code> - True if a value was changed.  
@@ -797,6 +797,10 @@ Determines if a reference is a string.
 | --- | --- | --- |
 | value | <code>\*</code> | The reference to check. |
 
+**Example**  
+```js
+// returns trueconsole.log(leaf.isString('John'));
+```
 <a name="leaf.isNumber"></a>
 
 ### leaf.isNumber(value) ⇒ <code>boolean</code>
@@ -810,6 +814,10 @@ Determines if a reference is a number.
 | --- | --- | --- |
 | value | <code>\*</code> | The reference to check. |
 
+**Example**  
+```js
+// returns trueconsole.log(leaf.isNumber(1));
+```
 <a name="leaf.isBoolean"></a>
 
 ### leaf.isBoolean(value) ⇒ <code>boolean</code>
@@ -823,6 +831,10 @@ Determines if a reference is a boolean.
 | --- | --- | --- |
 | value | <code>\*</code> | The reference to check. |
 
+**Example**  
+```js
+// returns trueconsole.log(leaf.isBoolean(true));
+```
 <a name="leaf.isArray"></a>
 
 ### leaf.isArray(value) ⇒ <code>boolean</code>
@@ -836,6 +848,10 @@ Determines if a reference is an Array.
 | --- | --- | --- |
 | value | <code>\*</code> | The reference to check. |
 
+**Example**  
+```js
+// returns trueconsole.log(leaf.isArray([]));
+```
 <a name="leaf.isFunction"></a>
 
 ### leaf.isFunction(value) ⇒ <code>boolean</code>

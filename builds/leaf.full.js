@@ -12,6 +12,9 @@ var leaf;
  * @since  0.1.0
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a string.
+ * @example
+ * // returns true
+ * console.log(leaf.isString('John'));
  */
 leaf.isString = function(value) { return typeof value === 'string' || value instanceof String; };
 /**
@@ -21,6 +24,9 @@ leaf.isString = function(value) { return typeof value === 'string' || value inst
  * @since 0.1.0
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a number.
+ * @example
+ * // returns true
+ * console.log(leaf.isNumber(1));
  */
 leaf.isNumber = function(value) { return typeof value === 'number'; };
 /**
@@ -30,6 +36,9 @@ leaf.isNumber = function(value) { return typeof value === 'number'; };
  * @since 0.1.0
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a boolean.
+ * @example
+ * // returns true
+ * console.log(leaf.isBoolean(true));
  */
 leaf.isBoolean = function(value) { return typeof value === 'boolean'; };
 /**
@@ -39,6 +48,9 @@ leaf.isBoolean = function(value) { return typeof value === 'boolean'; };
  * @since 0.1.0
  * @param {*} value The reference to check.
  * @return {boolean} True if value is an Array.
+ * @example
+ * // returns true
+ * console.log(leaf.isArray([]));
  */
 leaf.isArray = function(value) { return value.constructor === Array; };
 /**
@@ -611,7 +623,7 @@ var Model = (function() {
 		 this._cbs = cbs || {};
 	}
 	/**
-	 * Determines if a value inside the Model changed from a set.
+	 * Determines if a Model's value changed.
 	 * @var {Boolean} changed
 	 * @memberOf leaf.Model
 	 * @since 1.0.0
