@@ -1,4 +1,4 @@
-/**
+mode/**
  * Represents a Model.
  * @class Model
  * @memberOf leaf
@@ -8,11 +8,12 @@ var Model = (function() {
 	/**
 	 * The constructor function.
 	 * @constructor
-	 * @param {Object} [items] The items to be added to the Model.
+	 * @param {Object} [items] The initial items to be added.  
 	 */
 	function Model(items, cbs) {
 		/**
-		 * @var {Object} items The items collection. Do not modify directly.
+		 * @var {Object} items The internal collection of attributes. Do not 
+		 * modify this directly.
 		 * @memberOf leaf.Model
 		 * @since 0.1.0
 		 */
@@ -42,7 +43,7 @@ var Model = (function() {
 		return this.items[key];
 	};
 	/**
-	 * Set the value of the specified key in the Model.
+	 * Set the value of the specified key in the model.
 	 * @function set
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -63,7 +64,7 @@ var Model = (function() {
 		}
 	};
 	/**
-	 * Remove the specified key from the Model.
+	 * Remove the specified key from the model.
 	 * @function remove
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -79,7 +80,7 @@ var Model = (function() {
 		}
 	};	
 	/**
-	 * Remove all the keys from the Model.
+	 * Remove all the attributes from the model.
 	 * @function clear
 	 * @since 1.0.0
 	 * @memberOf leaf.Model
@@ -110,7 +111,7 @@ var Model = (function() {
 		delete this._cbs[key];
 	};
 	/**
-	 * Determines if the specified key exists in the Model.
+	 * Determines if the specified key exists in the model.
 	 * @function contains
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -121,11 +122,11 @@ var Model = (function() {
 		return key in this.items;
 	};
 	/**
-	 * Execute a callback Function for each key in the Model.
+	 * Execute a callback Function for each attribute in the model.
 	 * @function each
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
-	 * @param {Function} cb The callback Function.
+	 * @param {Function} cb The callback function.
 	 */
 	Model.prototype.each = function(cb) {
 		for (var key in this.items) {
@@ -133,16 +134,17 @@ var Model = (function() {
         }
 	};
 	/**
-	 * Return the number of keys in the Model.
+	 * Return the number of keys in the model.
 	 * @function count
 	 * @memberOf leaf.Model
 	 * @since 1.0.0
+	 * @return {number} The number of keys.
 	 */	
 	Model.prototype.count = function() {
 		return Object.keys(this.items).length;
 	};
 	/**
-	 * Return a new instance of this Model.
+	 * Return a new instance of the model.
 	 * @function clone
 	 * @memberOf leaf.Model
 	 * @since 1.0.0
@@ -152,7 +154,7 @@ var Model = (function() {
 		return new Model(this.items, this._cbs);
 	};
 	/**
-	 * Returns the Model as a JSON string.
+	 * Returns the model as a JSON string.
 	 * @function toJSON
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -162,11 +164,12 @@ var Model = (function() {
 		return JSON.stringify(this.items);
 	};
 	/**
-	 * Returns the specified string with handle bars swapped for Model values.
+	 * Returns the specified string with handle bars swapped for model values.
 	 * @function template
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
-	 * @return {string} The string containing the handlebars.
+	 * @param {string} text The template string.
+	 * @return {string} The output.
 	 */
 	Model.prototype.template = function(text) {
 		/**

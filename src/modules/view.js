@@ -19,7 +19,7 @@ var View = (function() {
 	 * @memberOf leaf.View
 	 * @since 0.1.0
 	 * @param  {string} selector The selector.
-	 * @param  {Object} data The data option.
+	 * @param  {Object} props The properties.
 	 */
 	View.prototype.render = function (selector, props) {
 		/**
@@ -41,7 +41,7 @@ var View = (function() {
 		}
 	};
 	/**
-	 * Returns the options.data option.
+	 * Returns a property in the props collection.
 	 * @function props
 	 * @memberOf leaf.View
 	 * @since 0.1.0

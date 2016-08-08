@@ -12,9 +12,6 @@ var leaf;
  * @since  0.1.0
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a string.
- * @example
- * // returns true
- * console.log(leaf.isString('John'));
  */
 leaf.isString = function(value) { return typeof value === 'string' || value instanceof String; };
 /**
@@ -24,9 +21,6 @@ leaf.isString = function(value) { return typeof value === 'string' || value inst
  * @since 0.1.0
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a number.
- * @example
- * // returns true
- * console.log(leaf.isNumber(1));
  */
 leaf.isNumber = function(value) { return typeof value === 'number'; };
 /**
@@ -36,9 +30,6 @@ leaf.isNumber = function(value) { return typeof value === 'number'; };
  * @since 0.1.0
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a boolean.
- * @example
- * // returns true
- * console.log(leaf.isBoolean(true));
  */
 leaf.isBoolean = function(value) { return typeof value === 'boolean'; };
 /**
@@ -48,9 +39,6 @@ leaf.isBoolean = function(value) { return typeof value === 'boolean'; };
  * @since 0.1.0
  * @param {*} value The reference to check.
  * @return {boolean} True if value is an Array.
- * @example
- * // returns true
- * console.log(leaf.isArray([]));
  */
 leaf.isArray = function(value) { return value.constructor === Array; };
 /**
@@ -113,7 +101,16 @@ leaf.isNull = function(value) { return value === null; };
  * @memberOf leaf
  * @since 0.1.0
  * @param {string[]} args The arguments to concatenate.
- * @return {string} The concatenated string. 
+ * @return {string} The concatenated string.
+ * @example
+ * 	<html>	
+		<body>
+			<script src="scripts/leaf.min.js"></script>
+			<script>	
+				console.log(leaf.concat("John", " ", "Doe")); //returns "John Doe"
+			</script>
+		</body>
+	</html>	
  */
 leaf.concat = function() { return Array.prototype.slice.call(arguments).join(""); };
 /**
@@ -612,7 +609,8 @@ var Model = (function() {
 	 */
 	function Model(items, cbs) {
 		/**
-		 * @var {Object} items The items collection. Do not modify directly.
+		 * @var {Object} items The internal collection of items. Do not 
+		 * modify this directly.
 		 * @memberOf leaf.Model
 		 * @since 0.1.0
 		 */
@@ -689,7 +687,7 @@ var Model = (function() {
 		this._cbs = {};
 	};
 	/**
-	 * Sets a callback Function for the specified key. 
+	 * Sets a callback Function for when the specified key's value changes.
 	 * @function on
 	 * @memberOf leaf.Model
 	 * @since 0.1.0

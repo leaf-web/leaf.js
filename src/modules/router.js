@@ -24,7 +24,7 @@ var Router = (function() {
  	 * @memberOf leaf.Router
  	 * @since 0.1.0
 	 * @param {string} path The path.
-	 * @param {Function} cb The callback Function.
+	 * @param {Function} cb The callback function.
 	 */
 	Router.prototype.add = function(path, cb) {
 		this.routes[path] = cb;
@@ -40,7 +40,7 @@ var Router = (function() {
 		return this.routes[path];
 	};
 	/**
-	 * Remove a route from the Router by its hash.
+	 * Remove a route from the router by its path.
 	 * @function clear
 	 * @memberOf leaf.Router 
 	 * @since 0.1.0
@@ -50,7 +50,7 @@ var Router = (function() {
 		delete this.routes[path];
 	};	
 	/**
-	 * Removes all the routes in the Router.
+	 * Removes all the routes in the router.
 	 * @function clear
 	 * @memberOf leaf.Router 
 	 * @since 0.1.0
@@ -59,12 +59,12 @@ var Router = (function() {
 		this.routes = {};
 	};		
 	/**
-	 * Determine if the specified hash exists in the Router.
+	 * Determine if the specified path exists in the Router.
 	 * @function contains
  	 * @memberOf leaf.Router
  	 * @since 0.1.0
 	 * @param {string} hash The hash.
-	 * @return {boolean} True if the hash exists.
+	 * @return {boolean} True if the path exists.
 	 */	
 	Router.prototype.contains = function(path) {
 		return path in this.routes;
