@@ -42,7 +42,7 @@ leaf.isBoolean = function(value) { return typeof value === 'boolean'; };
  */
 leaf.isArray = function(value) { return value.constructor === Array; };
 /**
- * Determines if a reference is a Function.
+ * Determines if a reference is a function.
  * @function isFunction
  * @memberOf leaf
  * @since 0.1.0
@@ -417,58 +417,58 @@ var List = (function() {
 		}		
 	}
 	/**
-	 * Get the Model at the specified index in the List.
+	 * Get the model at the specified index in the list.
 	 * @function get
 	 * @memberOf leaf.List
 	 * @since 0.1.0
 	 * @param {number} index The index.
-	 * @return {Object} The Model.
+	 * @return {Object} The model.
 	 */
 	List.prototype.get = function(index) {
 		return this.items[index];
 	};
 	/**
-	 * Get the first Model in the List.
+	 * Get the first model in the list.
 	 * @function first
 	 * @memberOf leaf.List
 	 * @since 1.0.0
-	 * @return {Object} The Model.
+	 * @return {Object} The model.
 	 */
 	List.prototype.first = function() {
 		return this.items[0];
 	};
 	/**
-	 * Get the last Model in the List.
+	 * Get the last model in the list.
 	 * @function last
 	 * @memberOf leaf.List
 	 * @since 1.0.0
-	 * @return {Object} The Model.
+	 * @return {Object} The model.
 	 */
 	List.prototype.last = function() {
 		return this.items[this.items.length - 1];
 	};
 	/**
-	 * Add a Model to the List.
+	 * Add a model to the list.
 	 * @function add
 	 * @memberOf leaf.List
 	 * @since 0.1.0
-	 * @param {Object} model The Model.
+	 * @param {Object} model The model.
 	 */
 	List.prototype.add = function(model) {
  		this.items.push(model);	
 	};
 	/**
-	 * Remove a Model from the List at the specified index.
+	 * Remove a model from the list at the specified index.
 	 * @function remove
 	 * @memberOf leaf.List
 	 * @since 0.1.0
-	 * @param {number} index The index of the Model.
+	 * @param {number} index The index.
 	 */
 	List.prototype.remove = function(index) {
 		this.items.splice(index, 1);
 	};
 	/**
-	 * Removes all the Models in the List.
+	 * Removes all the models in the list.
 	 * @function clear
 	 * @memberOf leaf.List 
 	 * @since 0.1.0
@@ -477,7 +477,7 @@ var List = (function() {
 		this.items = [];
 	};	
 	/**
-	 * Merge the Models with Models from a flat JSON file.
+	 * Merge Models from a JSON file. 
 	 * @function fetch
 	 * @memberOf leaf.List 
 	 * @since 1.0.0
@@ -504,11 +504,11 @@ var List = (function() {
 		);
 	};	
 	/**
-	 * Merge the Models from an Array with this one.
+	 * Merge Models from an Array. 
 	 * @function merge
 	 * @memberOf leaf.List 
 	 * @since 1.0.0
-	 * @param {Object[]} items The Models to merge.
+	 * @param {Object[]} items The Models array.
 	 */
 	List.prototype.merge = function(items) {
 		for(var item in items) {
@@ -516,7 +516,7 @@ var List = (function() {
 		}
 	};
 	/**
-	 * Execute a callback Function for each Model in the List.
+	 * Execute a callback Function for each model in the list.
 	 * @function each
 	 * @memberOf leaf.List
 	 * @since 1.0.0
@@ -528,36 +528,37 @@ var List = (function() {
         }
 	};	
 	/**
-	 * Return the number of Model in the List.
+	 * Return the number of models in the list.
 	 * @function count
 	 * @memberOf leaf.List
 	 * @since 1.0.0
+	 * @returns {number} The number of models.
 	 */
 	List.prototype.count = function(key) {
 		return this.items.length;
 	};	
 	/**
-	 * Sort the Models in the List.
+	 * Sort the models in the list.
 	 * @function sort
 	 * @memberOf leaf.List 
 	 * @since 0.1.0
-	 * @param {Function} comparer The comparer Function.
+	 * @param {Function} comparer The comparer function.
 	 */
 	List.prototype.sort = function(comparer) {
 		this.items.sort(comparer);
 	};
 	/**
-	 * Remove Models that meet a condition.
+	 * Remove models that meet a condition.
 	 * @function filter
 	 * @memberOf leaf.List 
 	 * @since 1.0.0
-	 * @param {Function} comparer The comparer Function.
+	 * @param {Function} comparer The comparer function.
 	 */
 	List.prototype.filter = function(comparer) {
 		this.items = this.items.filter(comparer);
 	};		
 	/**
-	 * Serialize the List to JSON format.
+	 * Serialize the list to JSON format.
 	 * @function toJSON
 	 * @memberOf leaf.List 
 	 * @since 0.1.0
@@ -569,12 +570,12 @@ var List = (function() {
 		});
 	};	
 	/**
-	 * Return a List template with double-brackets replaced with values.
+	 * Returns the specified string with handle bars swapped for model values.
 	 * @function template
 	 * @memberOf leaf.List 
 	 * @since 0.1.0
-	 * @param  {string} text The source string.
-	 * @return {string} The target string.
+	 * @param  {string} text The template string.
+	 * @return {string} The output.
 	 */
 	List.prototype.template = function(text) {
 		var target = '';
@@ -605,11 +606,11 @@ var Model = (function() {
 	/**
 	 * The constructor function.
 	 * @constructor
-	 * @param {Object} [items] The items to be added to the Model.
+	 * @param {Object} [items] The initial items to be added.  
 	 */
 	function Model(items, cbs) {
 		/**
-		 * @var {Object} items The internal collection of items. Do not 
+		 * @var {Object} items The internal collection of attributes. Do not 
 		 * modify this directly.
 		 * @memberOf leaf.Model
 		 * @since 0.1.0
@@ -640,7 +641,7 @@ var Model = (function() {
 		return this.items[key];
 	};
 	/**
-	 * Set the value of the specified key in the Model.
+	 * Set the value of the specified key in the model.
 	 * @function set
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -661,7 +662,7 @@ var Model = (function() {
 		}
 	};
 	/**
-	 * Remove the specified key from the Model.
+	 * Remove the specified key from the model.
 	 * @function remove
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -677,7 +678,7 @@ var Model = (function() {
 		}
 	};	
 	/**
-	 * Remove all the keys from the Model.
+	 * Remove all the attributes from the model.
 	 * @function clear
 	 * @since 1.0.0
 	 * @memberOf leaf.Model
@@ -687,7 +688,7 @@ var Model = (function() {
 		this._cbs = {};
 	};
 	/**
-	 * Sets a callback Function for when the specified key's value changes.
+	 * Sets a callback Function for the specified key. 
 	 * @function on
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -708,7 +709,7 @@ var Model = (function() {
 		delete this._cbs[key];
 	};
 	/**
-	 * Determines if the specified key exists in the Model.
+	 * Determines if the specified key exists in the model.
 	 * @function contains
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -719,11 +720,11 @@ var Model = (function() {
 		return key in this.items;
 	};
 	/**
-	 * Execute a callback Function for each key in the Model.
+	 * Execute a callback Function for each attribute in the model.
 	 * @function each
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
-	 * @param {Function} cb The callback Function.
+	 * @param {Function} cb The callback function.
 	 */
 	Model.prototype.each = function(cb) {
 		for (var key in this.items) {
@@ -731,16 +732,17 @@ var Model = (function() {
         }
 	};
 	/**
-	 * Return the number of keys in the Model.
+	 * Return the number of keys in the model.
 	 * @function count
 	 * @memberOf leaf.Model
 	 * @since 1.0.0
+	 * @return {number} The number of keys.
 	 */	
 	Model.prototype.count = function() {
 		return Object.keys(this.items).length;
 	};
 	/**
-	 * Return a new instance of this Model.
+	 * Return a new instance of the model.
 	 * @function clone
 	 * @memberOf leaf.Model
 	 * @since 1.0.0
@@ -750,7 +752,7 @@ var Model = (function() {
 		return new Model(this.items, this._cbs);
 	};
 	/**
-	 * Returns the Model as a JSON string.
+	 * Returns the model as a JSON string.
 	 * @function toJSON
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -760,11 +762,12 @@ var Model = (function() {
 		return JSON.stringify(this.items);
 	};
 	/**
-	 * Returns the specified string with handle bars swapped for Model values.
+	 * Returns the specified string with handle bars swapped for model values.
 	 * @function template
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
-	 * @return {string} The string containing the handlebars.
+	 * @param {string} text The template string.
+	 * @return {string} The output.
 	 */
 	Model.prototype.template = function(text) {
 		/**
@@ -804,7 +807,7 @@ var View = (function() {
 	 * @memberOf leaf.View
 	 * @since 0.1.0
 	 * @param  {string} selector The selector.
-	 * @param  {Object} data The data option.
+	 * @param  {Object} props The properties.
 	 */
 	View.prototype.render = function (selector, props) {
 		/**
@@ -826,7 +829,7 @@ var View = (function() {
 		}
 	};
 	/**
-	 * Returns the options.data option.
+	 * Returns a property in the props collection.
 	 * @function props
 	 * @memberOf leaf.View
 	 * @since 0.1.0
@@ -889,7 +892,7 @@ var Router = (function() {
  	 * @memberOf leaf.Router
  	 * @since 0.1.0
 	 * @param {string} path The path.
-	 * @param {Function} cb The callback Function.
+	 * @param {Function} cb The callback function.
 	 */
 	Router.prototype.add = function(path, cb) {
 		this.routes[path] = cb;
@@ -905,7 +908,7 @@ var Router = (function() {
 		return this.routes[path];
 	};
 	/**
-	 * Remove a route from the Router by its hash.
+	 * Remove a route from the router by its path.
 	 * @function clear
 	 * @memberOf leaf.Router 
 	 * @since 0.1.0
@@ -915,7 +918,7 @@ var Router = (function() {
 		delete this.routes[path];
 	};	
 	/**
-	 * Removes all the routes in the Router.
+	 * Removes all the routes in the router.
 	 * @function clear
 	 * @memberOf leaf.Router 
 	 * @since 0.1.0
@@ -924,18 +927,18 @@ var Router = (function() {
 		this.routes = {};
 	};		
 	/**
-	 * Determine if the specified hash exists in the Router.
+	 * Determine if the specified path exists in the Router.
 	 * @function contains
  	 * @memberOf leaf.Router
  	 * @since 0.1.0
 	 * @param {string} hash The hash.
-	 * @return {boolean} True if the hash exists.
+	 * @return {boolean} True if the path exists.
 	 */	
 	Router.prototype.contains = function(path) {
 		return path in this.routes;
 	};
 	/**
-	 * Execute a callback Function for each route in the Router.
+	 * Execute a callback Function for each route in the router.
 	 * @function each
 	 * @memberOf leaf.Router
 	 * @since 1.0.0
@@ -1069,7 +1072,7 @@ leaf.JsonModelerControl = new leaf.View({
    ========================================================================== */
 
 /**
- * Control to return a template from a JSON file.
+ * Repeat through each model in a JSON file, and replace double-brackets with values.
  * @class JsonRepeaterControl
  * @memberOf leaf
  */
@@ -1119,7 +1122,7 @@ leaf.JsonRepeaterControl = new leaf.View({
    ========================================================================== */
 
 /**
- * Control to return a template from a List.
+ * Repeat through each model in a List, and replace double-brackets with values.
  * @class ListRepeaterControl
  * @memberOf leaf
  * @since 0.1.0

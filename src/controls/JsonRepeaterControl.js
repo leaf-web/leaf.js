@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /**
- * Control to return a template from a JSON file.
+ * Repeat through each model in a JSON file, and replace double-brackets with values.
  * @class JsonRepeaterControl
  * @memberOf leaf
  */

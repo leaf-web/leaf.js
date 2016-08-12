@@ -14,7 +14,7 @@ Once you have setup your environment, run:
 
 | Browser            | Version |
 | ------------------ | ------- |
-| Internet Explorer  | 10+     |
+| Internet Explorer  | 9+      |
 | Edge               | 12+     |
 | Firefox            | 42+     |
 | Chrome             | 45+     |

@@ -70,7 +70,7 @@ var Router = (function() {
 		return path in this.routes;
 	};
 	/**
-	 * Execute a callback Function for each route in the Router.
+	 * Execute a callback Function for each route in the router.
 	 * @function each
 	 * @memberOf leaf.Router
 	 * @since 1.0.0

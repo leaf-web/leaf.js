@@ -2,7 +2,7 @@
 
 ## Controls
 
-### Data
+### Templating
 
 * [JsonRepeaterControl](api/controls/JsonRepeaterControl.md)
 * [ListRepeaterControl](api/controls/ListRepeaterControl.md)

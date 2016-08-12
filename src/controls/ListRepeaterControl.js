@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /**
- * Control to return a template from a List.
+ * Repeat through each model in a List, and replace double-brackets with values.
  * @class ListRepeaterControl
  * @memberOf leaf
  * @since 0.1.0

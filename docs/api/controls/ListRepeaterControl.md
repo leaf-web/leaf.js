@@ -1,6 +1,6 @@
 # leaf.ListRepeaterControl
 
-Repeat through each model in a JSON file, and replace double-brackets with values.
+Repeat through each model in a List, and replace double-brackets with values.
 
 ----------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ leaf.ListRepeaterControl
 
 | Options         | Type          | Details                          |
 | --------------- | ------------- | -------------------------------- |
-| data            | `Array`       | The data.                        |
+| data            | `Array`       | The list.                        |
 
 ----------------------------------------------------------------------
 
