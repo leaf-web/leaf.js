@@ -1,23 +1,22 @@
-# leaf.merge
+# leaf.queryString
 
-Merge the properties of two objects non-recursively.
+Return the value of a queryString parameter.
 
 ----------------------------------------------------------------------
 
 ## Usage
 
-leaf.merge(value);
+leaf.queryString(name);
 
 ### Params
 
 | Param           | Type          | Details                          |
 | --------------- | ------------- | -------------------------------- |
-| source          | `Object`      | The source `Object`.             |
-| target          | `Object`      | The target `Object`.             |
+| name            | `string`      | The name.                        |
 
 ### Returns
 
-`Object` the `Object`.
+`string` the value.
 
 ----------------------------------------------------------------------
 
@@ -27,13 +26,7 @@ leaf.merge(value);
 		<body>
 			<script src="scripts/leaf.min.js"></script>
 			<script>	
-				var Person = {
-					lastName: 'Doe'
-				};
-
-				Person = leaf.merge(Person, {
-					firstName: 'John';
-				});
+				console.log(leaf.queryString('id'));
 			</script>
 		</body>
 	</html>	

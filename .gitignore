@@ -1,4 +1,5 @@
 # Development files
+.sublime-grunt.cache
 tests/
 node_modules/
 

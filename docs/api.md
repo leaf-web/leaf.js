@@ -28,6 +28,7 @@ Contains core utility functions.
 * [isDefined](api/functions/isDefined.md)
 * [isUndefined](api/functions/isUndefined.md)
 * [merge](api/functions/merge.md)
+* [queryString](api/functions/queryString.md)
 
 ----------------------------------------------------------------------
 
@@ -98,6 +99,7 @@ Represents a Router.
 * [call](api/router/call.md)
 * [clear](api/router/clear.md)
 * [contains](api/router/contains.md)
+* [count](api/router/count.md)
 * [each](api/router/each.md)
 * [get](api/router/get.md)
 * [ignore](api/router/ignore.md)

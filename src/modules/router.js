@@ -82,6 +82,16 @@ var Router = (function() {
         }
 	};	
 	/**
+	 * Return the number of routes in the Router.
+	 * @function count
+	 * @memberOf leaf.Model
+	 * @since 1.0.0
+	 * @return {number} The number of routes.
+	 */	
+	Router.prototype.count = function() {
+		return Object.keys(this.items).length;
+	};	
+	/**
 	 * Begin listening for hash changes to invoke routes.
 	 * @function listen
  	 * @memberOf leaf.Router

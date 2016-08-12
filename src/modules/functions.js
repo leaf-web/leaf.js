@@ -123,3 +123,16 @@ leaf.merge = function(obj, args) {
 	}
 	return obj;
 };
+
+/**
+ * Return the value of a queryString parameter.
+ * @function queryString
+ * @memberOf leaf
+ * @since 1.0.0
+ * @param  {string} name The name.
+ * @return {string}      The value.
+ */
+leaf.queryString = function(name) {
+	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null; 
+};
+

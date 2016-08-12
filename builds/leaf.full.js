@@ -130,6 +130,20 @@ leaf.merge = function(obj, args) {
 	}
 	return obj;
 };
+
+/**
+ * Return the value of a queryString parameter.
+ * @function queryString
+ * @memberOf leaf
+ * @since 1.0.0
+ * @param  {string} name The name.
+ * @return {string}      The value.
+ */
+leaf.queryString = function(name) {
+	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null; 
+};
+
+
 /* 
    #http
    ========================================================================== */
@@ -348,32 +362,6 @@ var http;
     http.include = include;
 
 })(http = leaf.http || (leaf.http = {}));
-/* 
-   #request
-   ========================================================================== */
-
-/**
- * @namespace request
- * @memberOf leaf
- */
-var request;
-
-(function (request) {
-	/**
-	 * Return a value from the querystring.
-	 * @function param
-	 * @memberOf leaf.request
-	 * @since  0.1.0
-	 * @param  {string} name The name.
-	 * @return {string} The value.
-	 */
-	function param(name) {
-		return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null; 
-	}
-
-	request.param = param;
-
-})(http = leaf.request || (leaf.request = {}));
 /**
  * Represents a collection of Models.
  * @class List
