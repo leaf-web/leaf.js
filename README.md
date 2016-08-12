@@ -6,11 +6,15 @@ Leaf.js is a lightweight MV* framework for creating client-side web applications
 * [Contributing] (CONTRIBUTING.md)
 * [Glitter](https://gitter.im/leaf-js/lobby)
 
+----------------------------------------------------------------------
+
 ## Building Leaf.js
 
 Once you have setup your environment, run:
 
     grunt
+
+----------------------------------------------------------------------
 
 ## Browser Support 
 
