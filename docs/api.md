@@ -5,6 +5,7 @@
 ### Templating
 
 * [JsonRepeaterControl](api/controls/JsonRepeaterControl.md)
+* [JsonModelerControl](api/controls/JsonModelerControl.md)
 * [ListRepeaterControl](api/controls/ListRepeaterControl.md)
 
 ----------------------------------------------------------------------
