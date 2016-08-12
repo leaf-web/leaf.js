@@ -16,12 +16,12 @@ Model.clear();
 		<body>
 			<script src="scripts/leaf.min.js"></script>
 			<script>	
-				var Person = new leaf.Model({
+				var PersonModel = new leaf.Model({
 					"lastName": "Doe",
 					"firstName": "John"
 				});
 
-				Person.clear();
+				PersonModel.clear();
 			</script>
 		</body>
 	</html>	
