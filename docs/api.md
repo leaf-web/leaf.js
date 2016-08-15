@@ -61,6 +61,7 @@ Represents a collection of models.
 * [filter](api/list/filter.md)
 * [first](api/list/first.md)
 * [get](api/list/get.md)
+* [items](api/list/items.md)
 * [last](api/list/last.md)
 * [merge](api/list/merge.md)
 * [remove](api/list/remove.md)
@@ -106,6 +107,7 @@ Represents a Router.
 * [ignore](api/router/ignore.md)
 * [listen](api/router/listen.md)
 * [remove](api/router/remove.md)
+* [routes](api/router/routes.md)
 
 ----------------------------------------------------------------------
 

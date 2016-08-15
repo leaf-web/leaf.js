@@ -1,12 +1,16 @@
-# Model.items
+# List.items
 
-They key-value collection. Do not modify this directly.
+The model Array.
 
 ----------------------------------------------------------------------
 
 ## Usage
 
-Model.items;
+List.items
+
+### Returns
+
+`Array` The model Array.
 
 ----------------------------------------------------------------------
 
@@ -16,12 +20,12 @@ Model.items;
 		<body>
 			<script src="scripts/leaf.min.js"></script>
 			<script>	
-				var Person = new leaf.Model({
-					"lastName": "Doe",
-					"firstName": "John"
-				});
+				var People = new leaf.List([
+					{ "firstName": "John", "lastName": "Doe" },
+					{ "firstName": "Jane", "lastName": "Doe" }
+				]);
 
-				console.log(Person.items.lastName); //returns "Doe"
+				console.log(People.items[0].get('firstName'));
 			</script>
 		</body>
 	</html>	

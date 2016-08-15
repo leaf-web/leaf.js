@@ -15,7 +15,7 @@ var List = (function() {
 	 */	
 	function List(items, success, failure) {
 		/**
-		 * @var {Array} items The Models collection. 
+		 * @var {Array} items The model Array. 
 		 * @memberOf leaf.List
 		 * @since 0.1.0
 		 */		

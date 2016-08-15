@@ -12,7 +12,7 @@ var Model = (function() {
 	 */
 	function Model(items, cbs) {
 		/**
-		 * @var {Object} items The internal collection of attributes. Do not 
+		 * @var {Object} items The key-value collection. Do not 
 		 * modify this directly.
 		 * @memberOf leaf.Model
 		 * @since 0.1.0

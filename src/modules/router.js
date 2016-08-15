@@ -12,7 +12,7 @@ var Router = (function() {
 	 */
 	function Router(routes) {
 		/**
-		 * @var {Object} routes The routes collection. 
+		 * @var {Object} routes The route collection. 
 		 * @memberOf leaf.Router
 		 * @since 0.1.0
 		 */		
