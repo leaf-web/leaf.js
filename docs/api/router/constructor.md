@@ -14,6 +14,16 @@ new leaf.Router(routes)
 | --------------- | ------------- | -------------------------------- |
 | routes          | `Object`      | The routes.                      |
 
+### Notes
+
+> Parameters can be included in the path by prefixing it with a colon.
+
+	var Router = new leaf.Router({
+		"#/store/:item": function(param) {
+			console.log(param.item);
+		}
+	});
+
 ----------------------------------------------------------------------
 
 ## Example
@@ -23,7 +33,7 @@ new leaf.Router(routes)
 			<nav>
 				<ul>
 					<li><a href="#/home">Home</a></li>
-					<li><a href="#/help">Help</a></li>					
+					<li><a href="#/help">Help</a></li>
 				</ul>
 			</nav>
 
@@ -41,4 +51,4 @@ new leaf.Router(routes)
             	Router.listen();
             </script>
         </body>
-    </html>    
+    </html>
