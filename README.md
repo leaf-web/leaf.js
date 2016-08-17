@@ -3,14 +3,28 @@
 Leaf.js is a lightweight MV* framework for creating client-side web applications.
 
 * [API Reference](docs/api.md)
-* [Contributing] (CONTRIBUTING.md)
+* [Contributing Guidelines](CONTRIBUTING.md)
 * [Gitter](https://gitter.im/leaf-js/lobby)
+
+## Installing Leaf.js
+
+Install using Bower:
+
+	$ bower install --save leaf.js
+
+Install using Npm:
+
+	$ npm install --save leaf.js
 
 ## Building Leaf.js
 
 Once you have setup your environment, run:
 
     grunt
+
+## Contribute & Develop
+
+We've set up a separate document for our [contribution guidelines](CONTRIBUTING.md).
 
 ## Browser Support
 
