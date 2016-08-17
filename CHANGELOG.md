@@ -1,3 +1,7 @@
+# 1.0.2  (8/17/2016)
+
+* Added: bower.json
+
 # 1.0.1  (8/17/2016)
 
 * Added: .editorconfig

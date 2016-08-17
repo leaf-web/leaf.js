@@ -1,0 +1,22 @@
+{
+  "name": "leaf.js",
+  "license": "MIT",
+  "homepage": "https://github.com/leaf-web/leaf.js",
+  "authors": [
+    "leaf.git@gmail.com"
+  ],
+  "description": "Leaf.js is a lightweight MV* framework for creating client-side web applications.",
+  "main": "builds/leaf.min.js",
+  "keywords": [
+    "JavaScript",
+    "MVC",
+    "MV*"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
