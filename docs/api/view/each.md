@@ -16,4 +16,4 @@ View.each(cb)
 
 ### Notes
 
-The HTMLElement is passed to the callback.
+> The HTMLElement is passed to the callback.

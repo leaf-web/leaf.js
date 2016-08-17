@@ -16,7 +16,7 @@ Model.each(cb);
 
 ### Notes
 
-The path and callback `Function` are  passed as parameters to cb.
+> The path and callback `Function` are  passed as parameters to cb.
 
 ----------------------------------------------------------------------
 

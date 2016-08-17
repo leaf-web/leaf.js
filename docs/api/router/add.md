@@ -17,11 +17,15 @@ Router.add(path, cb)
 
 ### Notes
 
-Parameters can be included in the path by prefixing it with a colon.
+> Parameters can be included in the path by prefixing it with a colon.
+
+	Router.add('#/store/:item', function(param) {
+		console.log(param.item);
+	});
 
 ----------------------------------------------------------------------
 
-## Example
+## Example 
 
 	<html>	
 		<body>

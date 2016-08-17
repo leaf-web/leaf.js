@@ -20,7 +20,7 @@ Model.template(string);
 
 ### Returns
 
-'string' The output.
+`string` The output.
 
 ----------------------------------------------------------------------
 

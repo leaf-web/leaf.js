@@ -18,7 +18,7 @@ List.fetch(url, [success], [failure])
 
 ### Notes
 
-The list is passed as a parameter to the success callback `Function`.
+> The list is passed as a parameter to the success callback `Function`.
 
 ----------------------------------------------------------------------
 
