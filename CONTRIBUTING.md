@@ -1,4 +1,4 @@
-# Contributing
+# Contributing to Leaf.js
 
 ## Code of Conduct
 
