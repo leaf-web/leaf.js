@@ -6,7 +6,7 @@ The constructor function.
 
 ## Usage
 
-new leaf.Router(routes)
+new leaf.Router([routes])
 
 ### Params
 
