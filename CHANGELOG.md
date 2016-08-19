@@ -1,3 +1,7 @@
+# 1.0.3  (8/19/2016)
+
+* Fixed: README.md needed full-qualitified paths on links for its NPM page.
+
 # 1.0.2  (8/17/2016)
 
 * Added: bower.json

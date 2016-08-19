@@ -2,8 +2,8 @@
 
 Leaf.js is a lightweight MV* framework for creating client-side web applications.
 
-* [API Reference](docs/api.md)
-* [Contribution Guidelines](CONTRIBUTING.md)
+* [API Reference](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md)
+* [Contribution Guidelines](https://github.com/leaf-web/leaf.js/blob/master/CONTRIBUTING.md)
 * [Gitter](https://gitter.im/leaf-js/lobby)
 
 ## Installing Leaf.js
@@ -24,7 +24,7 @@ Once you have setup your environment, run:
 
 ## Contribute & Develop
 
-We've set up a separate document for our [contribution guidelines](CONTRIBUTING.md).
+We've set up a separate document for our [contribution guidelines](https://github.com/leaf-web/leaf.js/blob/master/CONTRIBUTING.md).
 
 ## Browser Support
 
