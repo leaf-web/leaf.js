@@ -1,3 +1,7 @@
+# 1.0.4  (8/19/2016)
+
+* Fixed: Bower package and Npm package capitalization was inconsistant. Republished.
+
 # 1.0.3  (8/19/2016)
 
 * Fixed: README.md needed full-qualitified paths on links for its NPM page.
