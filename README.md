@@ -10,11 +10,11 @@ Leaf.js is a lightweight MV* framework for creating client-side web applications
 
 Install using Bower:
 
-	$ bower install --save Leaf.js
+	$ bower install --save leaf.js
 
 Install using Npm:
 
-	$ npm install --save Leaf.js
+	$ npm install --save leaf.js
 
 ## Building Leaf.js
 
