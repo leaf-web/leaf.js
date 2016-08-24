@@ -1,4 +1,4 @@
-# Model.toJSON
+# Model.clone
 
 Return a new instance of the model.
 
@@ -6,26 +6,28 @@ Return a new instance of the model.
 
 ## Usage
 
-Model.toJSON();
+Model.clone();
 
 ### Returns
 
-`string` A JSON string.
+`Object` The model instance.
 
 ----------------------------------------------------------------------
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
-				var Person = new leaf.Model({
+			<script>
+				var Person1 = new leaf.Model({
 					"lastName": "Doe",
 					"firstName": "John"
 				});
 
-				console.log(Person.toJSON());
+				var Person2 = Person1.clone();
+
+				console.log(Person2.get('lastName'));
 			</script>
 		</body>
-	</html>	
+	</html>

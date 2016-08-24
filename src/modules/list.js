@@ -12,13 +12,13 @@ var List = (function() {
  	 * @param {string} [items] The URL to a JSON file.
 	 * @param {Function} [success] The success callback.
 	 * @param {Function} [failure] The failure callback.
-	 */	
+	 */
 	function List(items, success, failure) {
 		/**
-		 * @var {Array} items The model Array. 
+		 * @var {Array} items The model Array.
 		 * @memberOf leaf.List
 		 * @since 0.1.0
-		 */		
+		 */
 		this.items = [];
 
 		/**
@@ -35,10 +35,10 @@ var List = (function() {
 		}
 		/**
 		 * If items is a string, assume we are loading a URL.
-		 */		
+		 */
 		if(leaf.isString(items)) {
 			this.fetch(items, success, failure);
-		}		
+		}
 	}
 	/**
 	 * Get the model at the specified index in the list.
@@ -79,7 +79,7 @@ var List = (function() {
 	 * @param {Object} model The model.
 	 */
 	List.prototype.add = function(model) {
- 		this.items.push(model);	
+ 		this.items.push(model);
 	};
 	/**
 	 * Remove a model from the list at the specified index.
@@ -94,16 +94,16 @@ var List = (function() {
 	/**
 	 * Removes all the models in the list.
 	 * @function clear
-	 * @memberOf leaf.List 
+	 * @memberOf leaf.List
 	 * @since 0.1.0
 	 */
 	List.prototype.clear = function() {
 		this.items = [];
-	};	
+	};
 	/**
-	 * Merge Models from a JSON file. 
+	 * Merge Models from a JSON file.
 	 * @function fetch
-	 * @memberOf leaf.List 
+	 * @memberOf leaf.List
 	 * @since 1.0.0
 	 * @param {string} url The URL.
 	 * @param {Function} [success] The success callback.
@@ -118,19 +118,19 @@ var List = (function() {
 
 				if (leaf.isFunction(success)) {
 					success(that);
-				} 
+				}
 			},
 			function(status) {
 				if (leaf.isFunction(failure)) {
 					failure(status);
-				} 	
+				}
 			}
 		);
-	};	
+	};
 	/**
-	 * Merge Models from an Array. 
+	 * Merge Models from an Array.
 	 * @function merge
-	 * @memberOf leaf.List 
+	 * @memberOf leaf.List
 	 * @since 1.0.0
 	 * @param {Object[]} items The Models array.
 	 */
@@ -150,7 +150,7 @@ var List = (function() {
         for (var index in this.items) {
             cb(this.get(index), index);
         }
-	};	
+	};
 	/**
 	 * Return the number of models in the list.
 	 * @function count
@@ -160,11 +160,11 @@ var List = (function() {
 	 */
 	List.prototype.count = function(key) {
 		return this.items.length;
-	};	
+	};
 	/**
 	 * Sort the models in the list.
 	 * @function sort
-	 * @memberOf leaf.List 
+	 * @memberOf leaf.List
 	 * @since 0.1.0
 	 * @param {Function} comparer The comparer function.
 	 */
@@ -174,17 +174,44 @@ var List = (function() {
 	/**
 	 * Remove models that meet a condition.
 	 * @function filter
-	 * @memberOf leaf.List 
+	 * @memberOf leaf.List
 	 * @since 1.0.0
 	 * @param {Function} comparer The comparer function.
 	 */
 	List.prototype.filter = function(comparer) {
 		this.items = this.items.filter(comparer);
-	};		
+	};
+	/**
+	 * Return a new instance of the model.
+	 * @function clone
+	 * @memberOf leaf.List
+	 * @since 1.0.5
+	 * @return {Object} The model instance.
+	 */
+	List.prototype.clone = function() {
+		var output = new leaf.List();
+
+		this.each(function(model) {
+			output.add(model);
+		});
+
+		return output;
+	};
+	/**
+	 * Reduce the models to a specific portion.
+	 * @function slice
+	 * @memberOf leaf.List
+	 * @since 1.0.5
+	 * @param {number} begin The index at which to begin extraction.
+	 * @param {number} end The index at which to end extraction.
+	 */
+	List.prototype.slice = function(begin, end) {
+        this.items = this.items.slice(begin, end);
+	};
 	/**
 	 * Serialize the list to JSON format.
 	 * @function toJSON
-	 * @memberOf leaf.List 
+	 * @memberOf leaf.List
 	 * @since 0.1.0
 	 * @return {string} A JSON string.
 	 */
@@ -192,11 +219,11 @@ var List = (function() {
 		return this.items.map(function(model) {
 			return model.toJSON();
 		});
-	};	
+	};
 	/**
 	 * Returns the specified string with handle bars swapped for model values.
 	 * @function template
-	 * @memberOf leaf.List 
+	 * @memberOf leaf.List
 	 * @since 0.1.0
 	 * @param  {string} text The template string.
 	 * @return {string} The output.
@@ -207,14 +234,14 @@ var List = (function() {
 		 * Iterate through each model and build the template.
 		 */
 		this.each(function(model) {
-			target += model.template(text); 
+			target += model.template(text);
 		});
 
 		return target;
 	};
 	/**
 	 * Return the members of this class.
-	 */	
+	 */
 	return List;
 })();
 

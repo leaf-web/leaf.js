@@ -1,4 +1,9 @@
-# 1.0.4  (8/19/2016)
+# 1.0.5  (8/25/2016)
+
+* Added: List.clone
+* Added: List.slice
+
+# 1.0.4  (8/24/2016)
 
 * Fixed: Bower package and Npm package capitalization was inconsistant. Republished.
 
