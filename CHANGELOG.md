@@ -1,3 +1,8 @@
+# 1.0.6  (8/25/2016)
+
+* Added: leaf.version
+* Added: transform() on JsonRepeaterControl
+
 # 1.0.5  (8/25/2016)
 
 * Added: List.clone

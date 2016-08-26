@@ -37,10 +37,10 @@ The HTMLElement is passed as a parameter to the `draw` option.
                 var Person = new leaf.View({
                 	draw: function(el) {
                 		return '<p>Hello World</p>';
-                	}	
+                	}
             	});
 
             	Person.render('#main');
             </script>
         </body>
-    </html>    
+    </html>

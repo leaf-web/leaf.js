@@ -8,11 +8,11 @@ var Model = (function() {
 	/**
 	 * The constructor function.
 	 * @constructor
-	 * @param {Object} [items] The initial items to be added.  
+	 * @param {Object} [items] The initial items to be added.
 	 */
 	function Model(items, cbs) {
 		/**
-		 * @var {Object} items The key-value collection. Do not 
+		 * @var {Object} items The key-value collection. Do not
 		 * modify this directly.
 		 * @memberOf leaf.Model
 		 * @since 0.1.0
@@ -78,19 +78,19 @@ var Model = (function() {
 		if(key in this._cbs) {
 			delete this._cbs[key];
 		}
-	};	
+	};
 	/**
 	 * Remove all the attributes from the model.
 	 * @function clear
 	 * @since 1.0.0
 	 * @memberOf leaf.Model
-	 */	
+	 */
 	Model.prototype.clear = function() {
 		this.items = {};
 		this._cbs = {};
 	};
 	/**
-	 * Sets a callback Function for the specified key. 
+	 * Sets a callback Function for the specified key.
 	 * @function on
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -101,12 +101,12 @@ var Model = (function() {
 		this._cbs[key] = cb;
 	};
 	/**
-	 * Removes the specified key's callback function. 
+	 * Removes the specified key's callback function.
 	 * @function un
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
 	 * @param {string} key The key.
-	 */	
+	 */
 	Model.prototype.un = function(key) {
 		delete this._cbs[key];
 	};
@@ -139,7 +139,7 @@ var Model = (function() {
 	 * @memberOf leaf.Model
 	 * @since 1.0.0
 	 * @return {number} The number of keys.
-	 */	
+	 */
 	Model.prototype.count = function() {
 		return Object.keys(this.items).length;
 	};

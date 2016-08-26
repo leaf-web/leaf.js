@@ -2,9 +2,17 @@ var leaf;
 /**
  * @namespace leaf
  */
-(function (leaf) {	
+(function (leaf) {
 
 	'use strict';
+	/**
+	 * The current version of Leaf.js
+	 * @type {String}
+	 * @memberOf leaf
+	 * @since  1.0.6
+	 */
+	leaf.version = '1.0.6';
+
 /**
  * Determines if a reference is a string.
  * @function isString
@@ -548,9 +556,9 @@ var List = (function() {
 	/**
 	 * Return a new instance of the model.
 	 * @function clone
-	 * @memberOf leaf.Model
-	 * @since 1.0.0
-	 * @return {Object} The new Model.
+	 * @memberOf leaf.List
+	 * @since 1.0.5
+	 * @return {Object} The model instance.
 	 */
 	List.prototype.clone = function() {
 		var output = new leaf.List();
@@ -565,8 +573,9 @@ var List = (function() {
 	 * Reduce the models to a specific portion.
 	 * @function slice
 	 * @memberOf leaf.List
-	 * @since 1.0.0
-	 * @param {number} amount The amount of models.
+	 * @since 1.0.5
+	 * @param {number} begin The index at which to begin extraction.
+	 * @param {number} end The index at which to end extraction.
 	 */
 	List.prototype.slice = function(begin, end) {
         this.items = this.items.slice(begin, end);
@@ -620,11 +629,11 @@ var Model = (function() {
 	/**
 	 * The constructor function.
 	 * @constructor
-	 * @param {Object} [items] The initial items to be added.  
+	 * @param {Object} [items] The initial items to be added.
 	 */
 	function Model(items, cbs) {
 		/**
-		 * @var {Object} items The key-value collection. Do not 
+		 * @var {Object} items The key-value collection. Do not
 		 * modify this directly.
 		 * @memberOf leaf.Model
 		 * @since 0.1.0
@@ -690,19 +699,19 @@ var Model = (function() {
 		if(key in this._cbs) {
 			delete this._cbs[key];
 		}
-	};	
+	};
 	/**
 	 * Remove all the attributes from the model.
 	 * @function clear
 	 * @since 1.0.0
 	 * @memberOf leaf.Model
-	 */	
+	 */
 	Model.prototype.clear = function() {
 		this.items = {};
 		this._cbs = {};
 	};
 	/**
-	 * Sets a callback Function for the specified key. 
+	 * Sets a callback Function for the specified key.
 	 * @function on
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
@@ -713,12 +722,12 @@ var Model = (function() {
 		this._cbs[key] = cb;
 	};
 	/**
-	 * Removes the specified key's callback function. 
+	 * Removes the specified key's callback function.
 	 * @function un
 	 * @memberOf leaf.Model
 	 * @since 0.1.0
 	 * @param {string} key The key.
-	 */	
+	 */
 	Model.prototype.un = function(key) {
 		delete this._cbs[key];
 	};
@@ -751,7 +760,7 @@ var Model = (function() {
 	 * @memberOf leaf.Model
 	 * @since 1.0.0
 	 * @return {number} The number of keys.
-	 */	
+	 */
 	Model.prototype.count = function() {
 		return Object.keys(this.items).length;
 	};
@@ -800,6 +809,7 @@ var Model = (function() {
 })();
 
 leaf.Model = Model;
+
 /**
  * Represents a view, component, or HTML fragment.
  * @class View
@@ -1091,7 +1101,7 @@ leaf.JsonModelerControl = new leaf.View({
 	}
 });
 
-/* 
+/*
    #JsonRepeaterControl
    ========================================================================== */
 
@@ -1109,19 +1119,24 @@ leaf.JsonRepeaterControl = new leaf.View({
 		var html = el.innerHTML;
 		//
 		// Draw the template.
-		// 
-		var List = new leaf.List(this.props.url, 
+		//
+		var List = new leaf.List(this.props.url,
 			function(data) {
-			
+				/**
+				 * Transform
+				 */
+				if(leaf.isFunction(that.props.transform)) {
+					data = that.props.transform(data);
+				}
 				/**
 				 * Draw
-				 */				
+				 */
 				el.innerHTML = data.template(html);
 				/**
 				 * Success
 				 */
-				if (leaf.isFunction(that.props.success)) { 
-					that.props.success(data); 
+				if (leaf.isFunction(that.props.success)) {
+					that.props.success(data);
 				}
 			},
 			function(status) {
@@ -1129,15 +1144,15 @@ leaf.JsonRepeaterControl = new leaf.View({
 				/**
 				 * Failure
 				 */
-				if (leaf.isFunction(that.props.failure)) { 
-					that.props.failure(status); 
+				if (leaf.isFunction(that.props.failure)) {
+					that.props.failure(status);
 				}
-			}		
+			}
 		);
 		/**
 		 * Return loading text if specified.
 		 */
-		return this.props.text || ''; 
+		return this.props.text || '';
 	}
 });
 

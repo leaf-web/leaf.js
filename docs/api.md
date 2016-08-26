@@ -14,7 +14,7 @@
 
 ### leaf
 
-Contains core utility functions.
+Contains core utilities.
 
 * [concat](api/functions/concat.md)
 * [isArray](api/functions/isArray.md)
@@ -30,6 +30,7 @@ Contains core utility functions.
 * [isUndefined](api/functions/isUndefined.md)
 * [merge](api/functions/merge.md)
 * [queryString](api/functions/queryString.md)
+* [version](api/functions/version.md)
 
 ----------------------------------------------------------------------
 

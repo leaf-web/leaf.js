@@ -1,4 +1,4 @@
-/* 
+/*
    #JsonRepeaterControl
    ========================================================================== */
 
@@ -16,19 +16,24 @@ leaf.JsonRepeaterControl = new leaf.View({
 		var html = el.innerHTML;
 		//
 		// Draw the template.
-		// 
-		var List = new leaf.List(this.props.url, 
+		//
+		var List = new leaf.List(this.props.url,
 			function(data) {
-			
+				/**
+				 * Transform
+				 */
+				if(leaf.isFunction(that.props.transform)) {
+					data = that.props.transform(data);
+				}
 				/**
 				 * Draw
-				 */				
+				 */
 				el.innerHTML = data.template(html);
 				/**
 				 * Success
 				 */
-				if (leaf.isFunction(that.props.success)) { 
-					that.props.success(data); 
+				if (leaf.isFunction(that.props.success)) {
+					that.props.success(data);
 				}
 			},
 			function(status) {
@@ -36,14 +41,14 @@ leaf.JsonRepeaterControl = new leaf.View({
 				/**
 				 * Failure
 				 */
-				if (leaf.isFunction(that.props.failure)) { 
-					that.props.failure(status); 
+				if (leaf.isFunction(that.props.failure)) {
+					that.props.failure(status);
 				}
-			}		
+			}
 		);
 		/**
 		 * Return loading text if specified.
 		 */
-		return this.props.text || ''; 
+		return this.props.text || '';
 	}
 });
