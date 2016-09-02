@@ -12,10 +12,10 @@ var Router = (function() {
 	 */
 	function Router(routes) {
 		/**
-		 * @var {Object} routes The route collection. 
+		 * @var {Object} routes The route collection.
 		 * @memberOf leaf.Router
 		 * @since 0.1.0
-		 */		
+		 */
 		this.routes = routes || {};
 	}
 	/**
@@ -35,29 +35,29 @@ var Router = (function() {
  	 * @memberOf leaf.Router
  	 * @since 0.1.0
 	 * @param {string} path The path.
-	 */	
+	 */
 	Router.prototype.get = function(path) {
 		return this.routes[path];
 	};
 	/**
 	 * Remove a route from the router by its path.
 	 * @function clear
-	 * @memberOf leaf.Router 
+	 * @memberOf leaf.Router
 	 * @since 0.1.0
 	 * @param {string} hash The hash.
 	 */
 	Router.prototype.remove = function(path) {
 		delete this.routes[path];
-	};	
+	};
 	/**
 	 * Removes all the routes in the router.
 	 * @function clear
-	 * @memberOf leaf.Router 
+	 * @memberOf leaf.Router
 	 * @since 0.1.0
 	 */
 	Router.prototype.clear = function() {
 		this.routes = {};
-	};		
+	};
 	/**
 	 * Determine if the specified path exists in the Router.
 	 * @function contains
@@ -65,7 +65,7 @@ var Router = (function() {
  	 * @since 0.1.0
 	 * @param {string} hash The hash.
 	 * @return {boolean} True if the path exists.
-	 */	
+	 */
 	Router.prototype.contains = function(path) {
 		return path in this.routes;
 	};
@@ -80,41 +80,49 @@ var Router = (function() {
         for (var route in this.routes) {
             cb(route, this.get(route));
         }
-	};	
+	};
 	/**
 	 * Return the number of routes in the Router.
 	 * @function count
 	 * @memberOf leaf.Model
 	 * @since 1.0.0
 	 * @return {number} The number of routes.
-	 */	
+	 */
 	Router.prototype.count = function() {
 		return Object.keys(this.items).length;
-	};	
+	};
 	/**
 	 * Begin listening for hash changes to invoke routes.
 	 * @function listen
  	 * @memberOf leaf.Router
  	 * @since 0.1.0
-	 */		
+	 */
 	Router.prototype.listen = function() {
         var that = this;
 
+        window.addEventListener('load', function () {
+            that.call(window.location.hash);
+        });
+
         window.addEventListener('hashchange', function () {
             that.call(window.location.hash);
-        });        
-	};	
+        });
+	};
 	/**
 	 * Stop listening for hash changes.
 	 * @function ignore
  	 * @memberOf leaf.Router
  	 * @since 0.1.0
-	 */	
+	 */
 	Router.prototype.ignore = function() {
         var that = this;
 
+        window.removeEventListener('load', function () {
+            that.call(window.location.hash);
+        });
+
         window.removeEventListener('hashchange', function () {
-            that.call();
+            that.call(window.location.hash);
         });
 	};
 	/**
@@ -123,7 +131,7 @@ var Router = (function() {
  	 * @memberOf leaf.Router
  	 * @since 0.1.0
 	 * @param {string} hash The hash.
-	 */	
+	 */
 	Router.prototype.call = function(path) {
 		for (var route in this.routes) {
 			/**
@@ -155,7 +163,7 @@ var Router = (function() {
 	};
 	/**
 	 * Return the members of this class.
-	 */	
+	 */
 	return Router;
 })();
 
