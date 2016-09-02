@@ -1,4 +1,4 @@
-/* 
+/*
    #http
    ========================================================================== */
 
@@ -9,7 +9,6 @@
 var http;
 
 (function (http) {
-
 	/**
 	 * Executes a HTTP request.
 	 * @function request
@@ -56,7 +55,7 @@ var http;
 	http.request = request;
 
 	/**
-	 * Shorthand function to execute a HTTP GET request.	 
+	 * Shorthand function to execute a HTTP GET request.
 	 * @function get
 	 * @memberOf leaf.http
  	 * @since 0.1.0
@@ -64,9 +63,9 @@ var http;
 	 * @param {Object} options The request options.
 	 */
     function get(url, options) {
-        var defaults = leaf.merge(options || {}, { 
-        	method: 'GET', 
-        	url: url 
+        var defaults = leaf.merge(options || {}, {
+        	method: 'GET',
+        	url: url
         });
         return {
             then: function (success, failure) {
@@ -85,9 +84,9 @@ var http;
 	 * @param {Object} options The request options.
 	 */
     function del(url, options) {
-        var defaults = leaf.merge(options || {}, { 
-        	method: 'DELETE', 
-        	url: url 
+        var defaults = leaf.merge(options || {}, {
+        	method: 'DELETE',
+        	url: url
         });
         return {
             then: function (success, failure) {
@@ -106,9 +105,9 @@ var http;
 	 * @param {Object} options The request options.
 	 */
     function head(url, options) {
-        var defaults = leaf.merge(options || {}, { 
-        	method: 'HEAD', 
-        	url: url 
+        var defaults = leaf.merge(options || {}, {
+        	method: 'HEAD',
+        	url: url
         });
         return {
             then: function (success, failure) {
@@ -127,9 +126,9 @@ var http;
 	 * @param {Object} options The request options.
 	 */
     function jsonp(url, options) {
-        var defaults = leaf.merge(options || {}, { 
-        	method: 'JSONP', 
-        	url: url 
+        var defaults = leaf.merge(options || {}, {
+        	method: 'JSONP',
+        	url: url
         });
         return {
             then: function (success, failure) {
@@ -145,15 +144,15 @@ var http;
 	 * @memberOf leaf.http
  	 * @since 0.1.0
 	 * @param {string} url The URL.
-	 * @param {*} data The data.	
-	 * @param {Object} options The request options.  
+	 * @param {*} data The data.
+	 * @param {Object} options The request options.
 	 */
     function post(url, data, options) {
-        var defaults = leaf.merge(options || {}, { 
-        	method: 'POST', 
+        var defaults = leaf.merge(options || {}, {
+        	method: 'POST',
         	url: url,
         	data: data
-        });        
+        });
         return {
             then: function (success, failure) {
                 leaf.http.request(defaults, success, failure);
@@ -172,8 +171,8 @@ var http;
 	 * @param {Object} options The request options.
 	 */
     function patch(url, data, options) {
-        var defaults = leaf.merge(options || {}, { 
-        	method: 'PATCH', 
+        var defaults = leaf.merge(options || {}, {
+        	method: 'PATCH',
         	url: url,
         	data: data
         });
@@ -193,7 +192,7 @@ var http;
 	 * @param {string} url The URL.
 	 * @param {string} selector The selector string.
 	 * @param {Function} success The success Function.
-	 * @param {Function} failure The failure Function. 
+	 * @param {Function} failure The failure Function.
 	 */
     function include(url, selector, success, failure) {
     	var el = document.querySelector(selector);
@@ -204,12 +203,12 @@ var http;
 
    				if (leaf.isFunction(success)) {
 					success(data);
-				} 
-    		}, 
+				}
+    		},
    			function(status) {
    				if (leaf.isFunction(failure)) {
 					failure(status);
-				} 		
+				}
    			}
     	);
     }
