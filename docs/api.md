@@ -86,6 +86,7 @@ Represents a model.
 * [each](api/model/each.md)
 * [get](api/model/get.md)
 * [items](api/model/items.md)
+* [merge](api/model/merge.md)
 * [on](api/model/on.md)
 * [remove](api/model/remove.md)
 * [set](api/model/set.md)

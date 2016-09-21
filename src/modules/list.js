@@ -101,6 +101,19 @@ var List = (function() {
 		this.items = [];
 	};
 	/**
+	 * Sets a callback Function for the specified key.
+	 * @function on
+	 * @memberOf leaf.List
+	 * @since 0.1.0
+	 * @param {string} key The key.
+	 * @param {Function} cb The callback Function.
+	 */
+	List.prototype.on = function(key, cb) {
+		this.each(function(model) {
+			model.on(key, cb);
+		});
+	};
+	/**
 	 * Merge Models from a JSON file.
 	 * @function fetch
 	 * @memberOf leaf.List

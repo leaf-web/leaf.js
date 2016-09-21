@@ -1,3 +1,7 @@
+# 1.0.8  (8/25/2016)
+
+* Added: Model.merge
+
 # 1.0.7  (9/2/2016)
 
 * Fixed: Added load event to Router.listen and Router.ignore

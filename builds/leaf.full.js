@@ -11,7 +11,7 @@ var leaf;
 	 * @memberOf leaf
 	 * @since  1.0.6
 	 */
-	leaf.version = '1.0.7';
+	leaf.version = '1.0.8';
 
 /**
  * Determines if a reference is a string.
@@ -473,6 +473,19 @@ var List = (function() {
 		this.items = [];
 	};
 	/**
+	 * Sets a callback Function for the specified key.
+	 * @function on
+	 * @memberOf leaf.List
+	 * @since 0.1.0
+	 * @param {string} key The key.
+	 * @param {Function} cb The callback Function.
+	 */
+	List.prototype.on = function(key, cb) {
+		this.each(function(model) {
+			model.on(key, cb);
+		});
+	};
+	/**
 	 * Merge Models from a JSON file.
 	 * @function fetch
 	 * @memberOf leaf.List
@@ -741,6 +754,18 @@ var Model = (function() {
 	 */
 	Model.prototype.contains = function(key) {
 		return key in this.items;
+	};
+	/**
+	 * Merge attributes from an Object.
+	 * @function merge
+	 * @memberOf leaf.List
+	 * @since 1.0.0
+	 * @param {Object[]} items The Models array.
+	 */
+	Model.prototype.merge = function(items)	 {
+		for(var item in items) {
+			this.set(item, items[item]);
+		}
 	};
 	/**
 	 * Execute a callback Function for each attribute in the model.

@@ -122,6 +122,18 @@ var Model = (function() {
 		return key in this.items;
 	};
 	/**
+	 * Merge attributes from an Object.
+	 * @function merge
+	 * @memberOf leaf.List
+	 * @since 1.0.0
+	 * @param {Object[]} items The Models array.
+	 */
+	Model.prototype.merge = function(items)	 {
+		for(var item in items) {
+			this.set(item, items[item]);
+		}
+	};
+	/**
 	 * Execute a callback Function for each attribute in the model.
 	 * @function each
 	 * @memberOf leaf.Model
