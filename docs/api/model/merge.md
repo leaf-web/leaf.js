@@ -1,4 +1,4 @@
-# List.merge
+# Model.merge
 
 Merge attributes from an `Object`.
 
