@@ -6,7 +6,7 @@ Merge attributes from an `Object`.
 
 ## Usage
 
-List.merge(items[])
+Model.merge(items[])
 
 ### Params
 
