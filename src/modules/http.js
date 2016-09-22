@@ -162,6 +162,29 @@ var http;
     http.post = post;
 
 	/**
+	 * Shorthand function to execute a HTTP PUT request.
+	 * @function put
+	 * @memberOf leaf.http
+ 	 * @since 1.0.8
+	 * @param {string} url The URL.
+	 * @param {*} data The data.
+	 * @param {Object} options The request options.
+	 */
+    function put(url, data, options) {
+        var defaults = leaf.merge(options || {}, {
+        	method: 'PUT',
+        	url: url,
+        	data: data
+        });
+        return {
+            then: function (success, failure) {
+                leaf.http.request(defaults, success, failure);
+            }
+        };
+    }
+    http.put = put;
+
+	/**
 	 * Shorthand function to execute a HTTP PATCH request.
 	 * @function patch
 	 * @memberOf leaf.http

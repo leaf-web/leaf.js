@@ -11,7 +11,7 @@ var leaf;
 	 * @memberOf leaf
 	 * @since  1.0.6
 	 */
-	leaf.version = '1.0.8';
+	leaf.version = '1.0.9';
 
 /**
  * Determines if a reference is a string.
@@ -111,14 +111,14 @@ leaf.isNull = function(value) { return value === null; };
  * @param {string[]} args The arguments to concatenate.
  * @return {string} The concatenated string.
  * @example
- * 	<html>	
+ * 	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				console.log(leaf.concat("John", " ", "Doe")); //returns "John Doe"
 			</script>
 		</body>
-	</html>	
+	</html>
  */
 leaf.concat = function() { return Array.prototype.slice.call(arguments).join(""); };
 /**
@@ -148,9 +148,13 @@ leaf.merge = function(obj, args) {
  * @return {string}      The value.
  */
 leaf.queryString = function(name) {
-	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null; 
+	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 };
 
+leaf.sync = function() {
+	alert('syncing');
+	return leaf.sync.apply(this, arguments);
+};
 
 /*
    #http
@@ -314,6 +318,29 @@ var http;
         };
     }
     http.post = post;
+
+	/**
+	 * Shorthand function to execute a HTTP PUT request.
+	 * @function put
+	 * @memberOf leaf.http
+ 	 * @since 1.0.8
+	 * @param {string} url The URL.
+	 * @param {*} data The data.
+	 * @param {Object} options The request options.
+	 */
+    function put(url, data, options) {
+        var defaults = leaf.merge(options || {}, {
+        	method: 'PUT',
+        	url: url,
+        	data: data
+        });
+        return {
+            then: function (success, failure) {
+                leaf.http.request(defaults, success, failure);
+            }
+        };
+    }
+    http.put = put;
 
 	/**
 	 * Shorthand function to execute a HTTP PATCH request.
@@ -656,6 +683,8 @@ var Model = (function() {
 		  * This argument is only accepted for Model.clone() to work.
 		  */
 		 this._cbs = cbs || {};
+
+		 this.url='';
 	}
 	/**
 	 * Determines if a Model's value changed.
@@ -758,8 +787,8 @@ var Model = (function() {
 	/**
 	 * Merge attributes from an Object.
 	 * @function merge
-	 * @memberOf leaf.List
-	 * @since 1.0.0
+	 * @memberOf leaf.Model
+	 * @since 1.0.8
 	 * @param {Object[]} items The Models array.
 	 */
 	Model.prototype.merge = function(items)	 {

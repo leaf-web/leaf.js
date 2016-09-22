@@ -22,6 +22,8 @@ var Model = (function() {
 		  * This argument is only accepted for Model.clone() to work.
 		  */
 		 this._cbs = cbs || {};
+
+		 this.url='';
 	}
 	/**
 	 * Determines if a Model's value changed.
@@ -124,8 +126,8 @@ var Model = (function() {
 	/**
 	 * Merge attributes from an Object.
 	 * @function merge
-	 * @memberOf leaf.List
-	 * @since 1.0.0
+	 * @memberOf leaf.Model
+	 * @since 1.0.8
 	 * @param {Object[]} items The Models array.
 	 */
 	Model.prototype.merge = function(items)	 {

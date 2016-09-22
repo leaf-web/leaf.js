@@ -1,3 +1,7 @@
+# 1.0.9 (9/21/2016)
+
+* Added: http.put
+
 # 1.0.8  (9/21/2016)
 
 * Added: Model.merge

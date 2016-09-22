@@ -45,6 +45,7 @@ Contains functions for making HTTP requests.
 * [jsonp](api/http/jsonp.md)
 * [patch](api/http/patch.md)
 * [post](api/http/post.md)
+* [put](api/http/put.md)
 * [request](api/http/request.md)
 
 ----------------------------------------------------------------------
