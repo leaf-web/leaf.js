@@ -1,6 +1,8 @@
-# 1.0.9 (9/21/2016)
+# 1.0.9 (10/6/2016)
 
 * Added: http.put
+* Updated: Added links to CodePen for most List members.
+* Updated: Added links to CodePen for most Model members.
 
 # 1.0.8  (9/21/2016)
 

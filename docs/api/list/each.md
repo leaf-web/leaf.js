@@ -22,10 +22,10 @@ The model and index are passed as parameters to the callback `Function`.
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var People = new leaf.List([
 					{ "firstName": "John", "lastName": "Doe" },
 					{ "firstName": "Jane", "lastName": "Doe" }
@@ -36,4 +36,6 @@ The model and index are passed as parameters to the callback `Function`.
 				});
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/XjkKPY)

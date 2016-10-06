@@ -20,10 +20,10 @@ List.sort(comparer);
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var People = new leaf.List([
 					{ "firstName": "John", "lastName": "Doe" },
 					{ "firstName": "Jane", "lastName": "Doe" }
@@ -36,10 +36,12 @@ List.sort(comparer);
 					if(a.get('lastName') > b.get('lastName')) {
 						return 1;
 					}
-					return 0;  
+					return 0;
 				});
 
 				console.log(People.template('Hello {{firstName}} {{lastName}}\n'));
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/kkZkWj)

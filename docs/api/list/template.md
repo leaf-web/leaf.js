@@ -26,10 +26,10 @@ Model.template(string);
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var People = new leaf.List([
 					{ "firstName": "John", "lastName": "Doe" },
 					{ "firstName": "Jane", "lastName": "Doe" }
@@ -38,4 +38,6 @@ Model.template(string);
 				console.log(People.template('Hello {{firstName}} {{lastName}}\n'));
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/vXdXNN)

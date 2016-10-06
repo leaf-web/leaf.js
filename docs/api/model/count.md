@@ -16,16 +16,18 @@ Model.count();
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var Person = new leaf.Model({
 					"lastName": "Doe",
 					"firstName": "John"
 				});
 
-				console.log(Person.count())); //returns 2
+				console.log(Person.count()); //returns 2
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/BLYKvZ)

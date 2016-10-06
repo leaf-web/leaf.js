@@ -95,15 +95,6 @@ leaf.isNull = function(value) { return value === null; };
  * @since 0.1.0
  * @param {string[]} args The arguments to concatenate.
  * @return {string} The concatenated string.
- * @example
- * 	<html>
-		<body>
-			<script src="scripts/leaf.min.js"></script>
-			<script>
-				console.log(leaf.concat("John", " ", "Doe")); //returns "John Doe"
-			</script>
-		</body>
-	</html>
  */
 leaf.concat = function() { return Array.prototype.slice.call(arguments).join(""); };
 /**
@@ -136,7 +127,3 @@ leaf.queryString = function(name) {
 	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 };
 
-leaf.sync = function() {
-	alert('syncing');
-	return leaf.sync.apply(this, arguments);
-};

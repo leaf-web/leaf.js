@@ -16,10 +16,10 @@ List.last();
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var People = new leaf.List([
 					{ "firstName": "John", "lastName": "Doe" },
 					{ "firstName": "Jane", "lastName": "Doe" }
@@ -28,4 +28,6 @@ List.last();
 				console.log(People.last().get('firstName')); //returns Jane
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/PGQzvz)

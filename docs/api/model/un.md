@@ -1,6 +1,6 @@
 # Model.un
 
-Removes the callback `Function` for the specified key. 
+Removes the callback `Function` for the specified key.
 
 ----------------------------------------------------------------------
 
@@ -12,10 +12,10 @@ Model.un(key);
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var Person = new leaf.Model({
 					"lastName": "Smith",
 					"firstName": "Jane"
@@ -26,8 +26,10 @@ Model.un(key);
 				});
 
 				Person.un('lastName');
-				
-				Person.set('lastName', 'Doe'); 				
+
+				Person.set('lastName', 'Doe');
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/LRQkEA)

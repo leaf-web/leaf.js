@@ -31,3 +31,5 @@ Model.clone();
 			</script>
 		</body>
 	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/BLYKVb)

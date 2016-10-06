@@ -19,10 +19,10 @@ Model.set(key, value);
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var Person = new leaf.Model({
 					"lastName": "Doe",
 					"firstName": "John"
@@ -33,4 +33,6 @@ Model.set(key, value);
 				console.log(Person.get('firstName')); //returns "Jane"
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/GjQkVZ)

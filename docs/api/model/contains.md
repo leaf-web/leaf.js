@@ -22,10 +22,10 @@ Model.contains(key);
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var Person = new leaf.Model({
 					"lastName": "Doe",
 					"firstName": "John"
@@ -34,4 +34,6 @@ Model.contains(key);
 				console.log(Person.contains('firstName')); //returns true
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/WGrwYZ)

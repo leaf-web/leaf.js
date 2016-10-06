@@ -18,16 +18,20 @@ List.remove(index);
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var People = new leaf.List([
 					{ "firstName": "John", "lastName": "Doe" },
-					{ "firstName": "Jane", "lastName": "Doe" }	
+					{ "firstName": "Jane", "lastName": "Doe" }
 				]);
 
 				People.remove(0);
+
+				console.log(People.toJSON());
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/zKRBVr)

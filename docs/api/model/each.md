@@ -22,10 +22,10 @@ The key and the value are passed as parameters to the callback `Function`.
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var Person = new leaf.Model({
 					"lastName": "Smith",
 					"firstName": "Jane"
@@ -36,4 +36,6 @@ The key and the value are passed as parameters to the callback `Function`.
 				});
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/JRpXxO)

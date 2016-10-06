@@ -16,10 +16,10 @@ leaf.changed
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var Person = new leaf.Model({
 					"lastName": "Doe",
 					"firstName": "John"
@@ -30,4 +30,6 @@ leaf.changed
 				console.log(Person.changed); //returns true
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/dpdrqm)

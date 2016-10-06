@@ -1,6 +1,6 @@
 # Model.on
 
-Sets a callback Function for the specified key. 
+Sets a callback Function for the specified key.
 
 ----------------------------------------------------------------------
 
@@ -23,10 +23,10 @@ The value is passed as a parameter to the callback `Function`.
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var Person = new leaf.Model({
 					"lastName": "Smith",
 					"firstName": "Jane"
@@ -39,4 +39,6 @@ The value is passed as a parameter to the callback `Function`.
 				Person.set('lastName', 'Doe');
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/jrkqjb)

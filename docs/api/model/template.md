@@ -16,17 +16,17 @@ Model.template(string);
 
 ### Returns
 
-'string' The output.
+`string` The output.
 
 ----------------------------------------------------------------------
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
-				var Person = new leaf.List({
+			<script>
+				var Person = new leaf.Model({
 					"lastName": "Smith",
 					"firstName": "Jane"
 				});
@@ -34,4 +34,6 @@ Model.template(string);
 				console.log(Person.template('Hello {{firstName}} {{lastName}}'));
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/XjkKWa)
