@@ -22,13 +22,15 @@ leaf.isDefined(value);
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				var person = 'John Doe';
 
 				console.log(leaf.isDefined(person)); //returns true
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/EgErXv)

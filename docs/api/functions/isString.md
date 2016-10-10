@@ -22,11 +22,13 @@ leaf.isString(value);
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				console.log(leaf.isString('John Doe')); //returns true
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/zKWbpd)

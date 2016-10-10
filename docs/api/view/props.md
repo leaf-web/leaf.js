@@ -21,7 +21,7 @@ View.props
                 var Person = new leaf.View({
                 	draw: function(el) {
                 		return '<p>Hello ' + this.props.name + '</p>';
-                	}	
+                	}
             	});
 
             	Person.render('#main', {
@@ -29,4 +29,6 @@ View.props
         		});
             </script>
         </body>
-    </html>    
+    </html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/dpmAQQ)

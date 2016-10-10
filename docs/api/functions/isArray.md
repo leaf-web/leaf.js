@@ -22,11 +22,13 @@ leaf.isArray(value);
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
 				console.log(leaf.isArray([1,2,3])); //returns true
 			</script>
 		</body>
-	</html>	
+	</html>
+
+[View in CodePen](https://codepen.io/leaf-git/pen/pELYZg)
