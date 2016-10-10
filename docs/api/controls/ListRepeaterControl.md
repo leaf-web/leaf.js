@@ -20,23 +20,24 @@ leaf.ListRepeaterControl
 
 ## Example
 
-	<html>	
+	<html>
 		<body>
         	<main id="main">
             	<p>{{lastName}}, {{firstName}}</p>
         	</main>
 
 			<script src="scripts/leaf.min.js"></script>
-			<script>	
+			<script>
                 var People = new leaf.List([
 					{ lastName: 'Doe', firstName: 'John'},
-					{ lastName: 'Doe', firstName: 'Jane'}	               
+					{ lastName: 'Doe', firstName: 'Jane'}
                 ]);
-            	
+
             	leaf.ListRepeaterControl.render('#main', {
             			data: People
         		});
 			</script>
 		</body>
-	</html>	
+	</html>
 
+[View in CodePen](https://codepen.io/leaf-git/pen/dpmLPA)
