@@ -34,7 +34,7 @@ leaf.ListRepeaterControl
                 ]);
 
             	leaf.ListRepeaterControl.render('#main', {
-            			data: People
+        			data: People
         		});
 			</script>
 		</body>
