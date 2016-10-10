@@ -4,6 +4,7 @@ Leaf.js is a lightweight MV* framework for creating client-side web applications
 
 * [API Reference](https://github.com/leaf-web/leaf.js/blob/master/docs/api.md)
 * [Contribution Guidelines](https://github.com/leaf-web/leaf.js/blob/master/CONTRIBUTING.md)
+* [CodePen](https://codepen.io/leaf-git/)
 * [Gitter](https://gitter.im/leaf-js/lobby)
 
 ## Installing Leaf.js
