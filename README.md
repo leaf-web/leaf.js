@@ -1,4 +1,4 @@
-# ![logo](https://github.com/leaf-web/leaf.js/raw/master/docs/images/logo.jpg).js
+# ![logo](https://github.com/leaf-web/leaf.js/raw/master/docs/images/logo.png) leaf.js
 
 Leaf.js is a lightweight MV* framework for creating client-side web applications.
 
