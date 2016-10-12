@@ -26,4 +26,20 @@ describe('Functions', function() {
 	it('should return true when checking a Date with isDate', function() {
 		expect(leaf.isDate(new Date())).toBe(true);
 	});
+
+	it('should return true when checking a defined variable with isDefined', function() {
+		var person = 'John Doe';
+
+		expect(leaf.isDefined(person).toBe(true);
+	});
+
+	it('should return true when checking an udefined variable with isUndefined', function() {
+		var person;
+
+		expect(leaf.isUndefined(person).toBe(true);
+	});
+
+	it('should return true when checking a null value with isNull', function() {
+		expect(leaf.isNull('').toBe(true);
+	});
 });
