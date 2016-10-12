@@ -29,5 +29,17 @@ describe('Model', function() {
 	it('should be able to check if an attribute exists', function() {
 		expect(Person.contains('firstName')).toBe(false);
 	});
+
+	it('should observe changes to an attribute.', function() {
+		var observed = false;
+
+		Person.on('lastName', function() {
+			observed = true;
+		});
+
+		Person.set('lastName'. 'Smith');
+
+		expect(Person.get('lastName')).toBe('Smith');
+	});
 });
 
