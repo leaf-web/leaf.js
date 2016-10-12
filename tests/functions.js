@@ -43,7 +43,19 @@ describe('Functions', function() {
 		expect(leaf.isNull('John Doe')).toBe(false);
 	});
 
-	it('should concat two strings together', function() {
+	it('should concat three strings together', function() {
 		expect(leaf.concat('John', ' ', 'Doe')).toBe('John Doe');
+	});
+
+	it('should merge two objects together.', function() {
+		var Person = {
+			lastName: 'Doe'
+		};
+
+		Person = leaf.merge(Person, {
+			firstName: 'John'
+		});
+
+		expect(Person.firstName).toBe('Johns');
 	});
 });

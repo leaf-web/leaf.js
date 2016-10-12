@@ -15,8 +15,7 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
-    "karma-requirejs": "^1.1.0",
-    "requirejs": "^2.3.2"
+    "karma-requirejs": "^1.1.0"
   },
   "scripts": {
     "start": "http-server -a localhost -p 8000 -c-1"
