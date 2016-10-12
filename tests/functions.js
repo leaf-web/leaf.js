@@ -39,7 +39,11 @@ describe('Functions', function() {
 		expect(leaf.isUndefined(person)).toBe(true);
 	});
 
-	it('should return true when checking a null value with isNull', function() {
-		expect(leaf.isNull('')).toBe(true);
+	it('should return false when checking a string with isNull', function() {
+		expect(leaf.isNull('John Doe')).toBe(false);
+	});
+
+	it('should concat two strings together', function() {
+		expect(leaf.concat('John', ' ', 'Doe')).toBe('John Doe');
 	});
 });
