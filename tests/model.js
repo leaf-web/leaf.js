@@ -9,7 +9,17 @@ describe('Model', function() {
 	});
 
 	it('should be able to get an attribute.', function() {
-		expect(Person.get('lastName')).toBe('Does');
+		expect(Person.get('lastName')).toBe('Doe');
+	});
+
+	it('should be able to set an attribute.', function() {
+		Person.set('firstName', 'Jane');
+
+		expect(Person.get('firstName')).toBe('Jane');
+	});
+
+	it('should be able to determine if it was changed.', function() {
+		expect(Person.changed).toBe(true);
 	});
 });
 
