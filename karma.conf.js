@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'requirejs'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
@@ -60,7 +60,11 @@ module.exports = function(config) {
 
 
     // set browser timeout
-	browserNoActivityTimeout: 100000,
+
+	captureTimeout: 60000, // it was already there
+	browserDisconnectTimeout : 10000,
+	browserDisconnectTolerance : 1,
+	browserNoActivityTimeout : 60000,//by default 10000
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
