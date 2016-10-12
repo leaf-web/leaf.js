@@ -1,61 +1,91 @@
+/**
+ * Functions
+ */
 describe('Leaf', function() {
-	it('should return true when checking a string with isString', function() {
-		expect(leaf.isString('John Doe')).toBe(true);
-	});
+	/**
+	 * Define a test variable for isDefined and isUndefined.
+	 */
+	var person = 'John Doe';
 
-	it('should return true when checking a number with isNumber', function() {
+	/**
+	 * isString
+	 */
+	it('should check if a reference is a string', function() {
+		expect(leaf.isString(person)).toBe(true);
+	});
+	/**
+	 * isNumber
+	 */
+	it('should check if a reference is a number', function() {
 		expect(leaf.isNumber(1)).toBe(true);
 	});
-
-	it('should return true when checking a Boolean with isBoolean', function() {
+	/**
+	 * isBoolean
+	 */
+	it('should check if a reference is a boolean', function() {
 		expect(leaf.isBoolean(true)).toBe(true);
 	});
-
-	it('should return true when checking an Array with isArray', function() {
-		expect(leaf.isArray([1,2,3])).toBe(true);
+	/**
+	 * isArray
+	 */
+	it('should check if a reference is an Array', function() {
+		expect(leaf.isArray([1, 2, 3])).toBe(true);
 	});
-
-	it('should return true when checking a Function with isFunction', function() {
+	/**
+	 * isFunction
+	 */
+	it('should check if a reference is a Function', function() {
 		expect(leaf.isFunction(function() {})).toBe(true);
 	});
-
-	it('should return true when checking an Object with isObject', function() {
+	/**
+	 * isObject
+	 */
+	it('should check if a reference is an Object', function() {
 		expect(leaf.isObject({})).toBe(true);
 	});
-
-	it('should return true when checking a Date with isDate', function() {
+	/**
+	 * isDate
+	 */
+	it('should check if a reference is a Date', function() {
 		expect(leaf.isDate(new Date())).toBe(true);
 	});
-
-	it('should return true when checking a defined variable with isDefined', function() {
-		var person = 'John Doe';
-
+	/**
+	 * isDefined
+	 */
+	it('should check if a reference is defined', function() {
 		expect(leaf.isDefined(person)).toBe(true);
 	});
-
-	it('should return true when checking an udefined variable with isUndefined', function() {
-		var person;
-
-		expect(leaf.isUndefined(person)).toBe(true);
+	/**
+	 * isUndefined
+	 */
+	it('should check if a reference is undefined', function() {
+		expect(leaf.isUndefined(person)).toBe(false);
 	});
-
-	it('should return false when checking a string with isNull', function() {
-		expect(leaf.isNull('John Doe')).toBe(false);
+	/**
+	 * isNull
+	 */
+	it('should check if a reference is null', function() {
+		expect(leaf.isNull(person)).toBe(false);
 	});
-
-	it('should concat three strings together', function() {
-		expect(leaf.concat('John', ' ', 'Doe')).toBe('John Doe');
+	/**
+	 * concat
+	 */
+	it('should check if arguments can be concatenated', function() {
+		expect(leaf.concat('John', ' ', 'Doe')).toBe(person);
 	});
-
-	it('should merge two objects together.', function() {
-		var Person = {
-			lastName: 'Doe'
-		};
-
-		Person = leaf.merge(Person, {
-			firstName: 'John'
-		});
-
-		expect(Person.firstName).toBe('John');
+	/**
+	 * merge
+	 */
+	it('should check if two objects can be merged together', function() {
+		expect(
+			leaf.merge(
+				{
+					firstName: 'John'
+				},
+				{
+					lastName: 'Doe'
+				}
+			).firstName
+		).toBe('John');
 	});
 });

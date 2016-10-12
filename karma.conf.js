@@ -17,7 +17,6 @@ module.exports = function(config) {
     files: [
     	'builds/leaf.min.js',
     	'tests/functions.js',
-    	'tests/model.js'
     ],
 
 
