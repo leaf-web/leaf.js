@@ -37,7 +37,7 @@ describe('Model', function() {
 			observed = true;
 		});
 
-		Person.set('lastName'. 'Smith');
+		Person.set('lastName', 'Smith');
 
 		expect(Person.get('lastName')).toBe('Smith');
 	});
