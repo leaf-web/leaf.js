@@ -1,4 +1,4 @@
-describe('Functions', function() {
+describe('Leaf', function() {
 	it('should return true when checking a string with isString', function() {
 		expect(leaf.isString('John Doe')).toBe(true);
 	});
@@ -56,6 +56,6 @@ describe('Functions', function() {
 			firstName: 'John'
 		});
 
-		expect(Person.firstName).toBe('Johns');
+		expect(Person.firstName).toBe('John');
 	});
 });
