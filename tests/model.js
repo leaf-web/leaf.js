@@ -18,7 +18,7 @@ describe('Model', function() {
 	});
 
 	it('should be able to determine if it was changed', function() {
-		expect(Person.changed).toBe(true);
+		expect(Person.changed).toBe(false);
 	});
 
 	it('should be able to remove an attribute', function() {
