@@ -6,7 +6,6 @@ describe('Leaf', function() {
 	 * Define a test variable for isDefined and isUndefined.
 	 */
 	var person = 'John Doe';
-
 	/**
 	 * isString
 	 */
@@ -77,15 +76,13 @@ describe('Leaf', function() {
 	 * merge
 	 */
 	it('should check if two objects can be merged together', function() {
-		expect(
-			leaf.merge(
-				{
-					firstName: 'John'
-				},
-				{
-					lastName: 'Doe'
-				}
-			).firstName
-		).toBe('John');
+		expect(leaf.merge(
+			{
+				firstName: 'John'
+			},
+			{
+				lastName: 'Doe'
+			}
+		).firstName).toBe('John');
 	});
 });

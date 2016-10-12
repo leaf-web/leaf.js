@@ -11,26 +11,22 @@ describe('Model', function() {
 		middleName: 'Robert'
 	});
 	/**
-	 * set
+	 * items
 	 */
-	it('should check if an attribute can be read', function() {
-		
+	it('should check if the items collection exists', function() {
+		expect(leaf.isDefined(Person.items)).toBe(true);
 	});
 	/**
-	 * get
+	 * contains
 	 */
-	it('should check if an attribute can be written', function() {
-		
-	});	
+	it('should check if an attribute exists', function() {
+		expect(Person.contains('lastName')).toBe(true);
+	});
 	/**
-	 * on
+	 * count
 	 */
-	it('should check if an attribute can be observed', function() {
-		
-	});	
-	/**
-	 * un
-	 */
-	it('should check if an attribute can be unobserved', function() {
-		
-	});	
+	it('should check if the attributes can be counted', function() {
+		expect(Person.count()).toBe(2);
+	});
+
+});
