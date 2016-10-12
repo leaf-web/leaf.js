@@ -57,6 +57,9 @@ module.exports = function(config) {
     browsers: ['Firefox'],
 
 
+    // set browser timeout
+	browserNoActivityTimeout: 100000,
+
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
