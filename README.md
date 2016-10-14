@@ -1,3 +1,5 @@
+[![Travis](https://api.travis-ci.org/leaf-web/leaf.js.svg?branch=master)]()
+
 # Leaf.js
 
 Leaf.js is a lightweight MV* framework for single-page applications.
