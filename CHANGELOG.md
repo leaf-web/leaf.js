@@ -1,3 +1,11 @@
+# 1.0.10 (10/6/2016)
+
+* Added: Model tests
+* Added: List tests
+* Added: View tests
+* Added: Router tests
+* Fixed: Router.count() was returning undefined
+
 # 1.0.9 (10/6/2016)
 
 * Added: http.put

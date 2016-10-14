@@ -75,7 +75,7 @@ describe('Model', function() {
 
 		Person.each(function() {
 			iterated = true;
-		})
+		});
 
 		expect(iterated).toBe(true);
 	});

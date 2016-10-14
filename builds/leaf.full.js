@@ -110,15 +110,6 @@ leaf.isNull = function(value) { return value === null; };
  * @since 0.1.0
  * @param {string[]} args The arguments to concatenate.
  * @return {string} The concatenated string.
- * @example
- * 	<html>
-		<body>
-			<script src="scripts/leaf.min.js"></script>
-			<script>
-				console.log(leaf.concat("John", " ", "Doe")); //returns "John Doe"
-			</script>
-		</body>
-	</html>
  */
 leaf.concat = function() { return Array.prototype.slice.call(arguments).join(""); };
 /**
@@ -151,10 +142,6 @@ leaf.queryString = function(name) {
 	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 };
 
-leaf.sync = function() {
-	alert('syncing');
-	return leaf.sync.apply(this, arguments);
-};
 
 /*
    #http
@@ -875,13 +862,13 @@ var View = (function() {
 	 * The constructor function.
 	 * @constructor
 	 * @param {Object} options The options.
-	 */	
-	function View(options) { 
-		this.options = options; 
-	}	
+	 */
+	function View(options) {
+		this.options = options;
+	}
 	/**
 	 * Render the view on the webpage.
-	 * @function render 
+	 * @function render
 	 * @memberOf leaf.View
 	 * @since 0.1.0
 	 * @param  {string} selector The selector.
@@ -903,7 +890,7 @@ var View = (function() {
 		if (leaf.isFunction(that.options.draw)) {
             this.each(function (el) {
                 el.innerHTML = that.options.draw(el);
-            });	
+            });
 		}
 	};
 	/**
@@ -926,7 +913,7 @@ var View = (function() {
 	View.prototype.each = function(cb) {
         /**
          * Match on options.selector.
-         */		
+         */
         var els = document.querySelectorAll(this.options.selector);
         /**
          * Execute the callback for each.
@@ -937,7 +924,7 @@ var View = (function() {
 	};
 	/**
 	 * Return the members of this class.
-	 */	
+	 */
 	return View;
 })();
 
@@ -1035,7 +1022,7 @@ var Router = (function() {
 	 * @return {number} The number of routes.
 	 */
 	Router.prototype.count = function() {
-		return Object.keys(this.items).length;
+		return Object.keys(this.routes).length;
 	};
 	/**
 	 * Begin listening for hash changes to invoke routes.

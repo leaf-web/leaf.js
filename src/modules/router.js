@@ -89,7 +89,7 @@ var Router = (function() {
 	 * @return {number} The number of routes.
 	 */
 	Router.prototype.count = function() {
-		return Object.keys(this.items).length;
+		return Object.keys(this.routes).length;
 	};
 	/**
 	 * Begin listening for hash changes to invoke routes.

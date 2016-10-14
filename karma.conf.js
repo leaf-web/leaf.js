@@ -16,8 +16,11 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
     	'builds/leaf.min.js',
-    	'tests/functions.js',
-    	'tests/model.js',
+    	'tests/modules/functions.js',
+    	'tests/modules/model.js',
+    	'tests/modules/list.js',
+    	'tests/modules/view.js',
+    	'tests/modules/router.js'
     ],
 
 
