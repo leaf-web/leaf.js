@@ -1,4 +1,4 @@
-[![Travis](https://api.travis-ci.org/leaf-web/leaf.js.svg?branch=master)]()
+[![Build Status](https://travis-ci.org/leaf-web/leaf.js.svg?branch=master)](https://travis-ci.org/leaf-web/leaf.js)
 
 # Leaf.js
 
