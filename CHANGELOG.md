@@ -1,4 +1,4 @@
-# 1.0.10 (10/6/2016)
+# 1.0.10 (10/14/2016)
 
 * Added: Model tests
 * Added: List tests
