@@ -15,12 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-    	'builds/leaf.min.js',
-    	'tests/modules/functions.js',
-    	'tests/modules/model.js',
-    	'tests/modules/list.js',
-    	'tests/modules/view.js',
-    	'tests/modules/router.js'
+		'builds/leaf.min.js',
+		'tests/modules/functions.js',
+		'tests/modules/model.js',
+		'tests/modules/list.js',
+		'tests/modules/view.js',
+		'tests/modules/router.js'
     ],
 
 
@@ -42,7 +42,7 @@ module.exports = function(config) {
 
 
     // web server port
-    port: 9876,
+	port: 9876,
 
 
     // enable / disable colors in the output (reporters and logs)

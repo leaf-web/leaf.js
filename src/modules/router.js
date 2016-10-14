@@ -100,11 +100,11 @@ var Router = (function() {
 	Router.prototype.listen = function() {
         var that = this;
 
-        window.addEventListener("load", function () {
+        window.addEventListener('load', function () {
             that.call(window.location.hash);
         });
 
-        window.addEventListener("hashchange", function () {
+        window.addEventListener('hashchange', function () {
             that.call(window.location.hash);
         });
 	};
@@ -117,11 +117,11 @@ var Router = (function() {
 	Router.prototype.ignore = function() {
         var that = this;
 
-        window.removeEventListener("load", function () {
+        window.removeEventListener('load', function () {
             that.call(window.location.hash);
         });
 
-        window.removeEventListener("hashchange", function () {
+        window.removeEventListener('hashchange', function () {
             that.call(window.location.hash);
         });
 	};
@@ -149,7 +149,7 @@ var Router = (function() {
 				 * Make a key-value object with parameters.
 				 */
 				match.forEach(function(value, index) {
-					params[keys[index].replace(":", "")] = value;
+					params[keys[index].replace(':', '')] = value;
 				});
 				/**
 				 * Make a key-value object with parameters.

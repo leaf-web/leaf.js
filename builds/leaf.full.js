@@ -21,7 +21,7 @@ var leaf;
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a string.
  */
-leaf.isString = function(value) { return typeof value === "string" || value instanceof String; };
+leaf.isString = function(value) { return typeof value === 'string' || value instanceof String; };
 /**
  * Determines if a reference is a number.
  * @function isNumber
@@ -30,7 +30,7 @@ leaf.isString = function(value) { return typeof value === "string" || value inst
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a number.
  */
-leaf.isNumber = function(value) { return typeof value === "number"; };
+leaf.isNumber = function(value) { return typeof value === 'number'; };
 /**
  * Determines if a reference is a boolean.
  * @function isBoolean
@@ -39,7 +39,7 @@ leaf.isNumber = function(value) { return typeof value === "number"; };
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a boolean.
  */
-leaf.isBoolean = function(value) { return typeof value === "boolean"; };
+leaf.isBoolean = function(value) { return typeof value === 'boolean'; };
 /**
  * Determines if a reference is an Array.
  * @function isArray
@@ -57,7 +57,7 @@ leaf.isArray = function(value) { return value.constructor === Array; };
  * @param  {*} value The reference to check.
  * @return {boolean} True if value is a Function.
  */
-leaf.isFunction = function(value) { return typeof value === "function"; };
+leaf.isFunction = function(value) { return typeof value === 'function'; };
 /**
  * Determines if a reference is an Object.
  * @function isObject
@@ -66,7 +66,7 @@ leaf.isFunction = function(value) { return typeof value === "function"; };
  * @param {*} value The reference to check.
  * @return {boolean} True if value is an Object.
  */
-leaf.isObject = function(value) { return typeof value === "object"; };
+leaf.isObject = function(value) { return typeof value === 'object'; };
 /**
  * Determines if a reference is a Date.
  * @function isDate
@@ -84,7 +84,7 @@ leaf.isDate = function(value) { return Object.prototype.toString.call(value) ===
  * @param {*} value The reference to check.
  * @return {boolean} True if value is defined.
  */
-leaf.isDefined = function(value) { return typeof value !== "undefined"; };
+leaf.isDefined = function(value) { return typeof value !== 'undefined'; };
 /**
  * Determines if a reference is undefined.
  * @function isUndefined
@@ -93,7 +93,7 @@ leaf.isDefined = function(value) { return typeof value !== "undefined"; };
  * @param {*} value The reference to check.
  * @return {boolean} True if value is undefined.
  */
-leaf.isUndefined = function(value) { return typeof value === "undefined"; };
+leaf.isUndefined = function(value) { return typeof value === 'undefined'; };
 /**
  * Determines if a reference is null.
  * @function isDefined
@@ -111,7 +111,7 @@ leaf.isNull = function(value) { return value === null; };
  * @param {string[]} args The arguments to concatenate.
  * @return {string} The concatenated string.
  */
-leaf.concat = function() { return Array.prototype.slice.call(arguments).join(""); };
+leaf.concat = function() { return Array.prototype.slice.call(arguments).join(''); };
 /**
  * Does a simple, non-recursive, merge of two Objects.
  * @function merge
@@ -123,7 +123,7 @@ leaf.concat = function() { return Array.prototype.slice.call(arguments).join("")
  */
 leaf.merge = function(obj, args) {
 	for(var index in args) {
-		if(typeof obj[index] == "undefined") {
+		if(typeof obj[index] == 'undefined') {
 			obj[index] = args[index];
 		}
 	}
@@ -1033,11 +1033,11 @@ var Router = (function() {
 	Router.prototype.listen = function() {
         var that = this;
 
-        window.addEventListener("load", function () {
+        window.addEventListener('load', function () {
             that.call(window.location.hash);
         });
 
-        window.addEventListener("hashchange", function () {
+        window.addEventListener('hashchange', function () {
             that.call(window.location.hash);
         });
 	};
@@ -1050,11 +1050,11 @@ var Router = (function() {
 	Router.prototype.ignore = function() {
         var that = this;
 
-        window.removeEventListener("load", function () {
+        window.removeEventListener('load', function () {
             that.call(window.location.hash);
         });
 
-        window.removeEventListener("hashchange", function () {
+        window.removeEventListener('hashchange', function () {
             that.call(window.location.hash);
         });
 	};
@@ -1082,7 +1082,7 @@ var Router = (function() {
 				 * Make a key-value object with parameters.
 				 */
 				match.forEach(function(value, index) {
-					params[keys[index].replace(":", "")] = value;
+					params[keys[index].replace(':', '')] = value;
 				});
 				/**
 				 * Make a key-value object with parameters.
