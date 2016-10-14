@@ -11,7 +11,7 @@ var leaf;
 	 * @memberOf leaf
 	 * @since  1.0.6
 	 */
-	leaf.version = '1.0.10';
+	leaf.version = "1.0.10";
 
 /**
  * Determines if a reference is a string.
@@ -21,7 +21,7 @@ var leaf;
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a string.
  */
-leaf.isString = function(value) { return typeof value === 'string' || value instanceof String; };
+leaf.isString = function(value) { return typeof value === "string" || value instanceof String; };
 /**
  * Determines if a reference is a number.
  * @function isNumber
@@ -30,7 +30,7 @@ leaf.isString = function(value) { return typeof value === 'string' || value inst
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a number.
  */
-leaf.isNumber = function(value) { return typeof value === 'number'; };
+leaf.isNumber = function(value) { return typeof value === "number"; };
 /**
  * Determines if a reference is a boolean.
  * @function isBoolean
@@ -39,7 +39,7 @@ leaf.isNumber = function(value) { return typeof value === 'number'; };
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a boolean.
  */
-leaf.isBoolean = function(value) { return typeof value === 'boolean'; };
+leaf.isBoolean = function(value) { return typeof value === "boolean"; };
 /**
  * Determines if a reference is an Array.
  * @function isArray
@@ -57,7 +57,7 @@ leaf.isArray = function(value) { return value.constructor === Array; };
  * @param  {*} value The reference to check.
  * @return {boolean} True if value is a Function.
  */
-leaf.isFunction = function(value) { return typeof value === 'function'; };
+leaf.isFunction = function(value) { return typeof value === "function"; };
 /**
  * Determines if a reference is an Object.
  * @function isObject
@@ -66,7 +66,7 @@ leaf.isFunction = function(value) { return typeof value === 'function'; };
  * @param {*} value The reference to check.
  * @return {boolean} True if value is an Object.
  */
-leaf.isObject = function(value) { return typeof value === 'object'; };
+leaf.isObject = function(value) { return typeof value === "object"; };
 /**
  * Determines if a reference is a Date.
  * @function isDate
@@ -75,7 +75,7 @@ leaf.isObject = function(value) { return typeof value === 'object'; };
  * @param {*} value The reference to check.
  * @return {boolean} True if value is a Date.
  */
-leaf.isDate = function(value) { return Object.prototype.toString.call(value) === '[object Date]'; };
+leaf.isDate = function(value) { return Object.prototype.toString.call(value) === "[object Date]"; };
 /**
  * Determines if a reference is defined.
  * @function isDefined
@@ -84,7 +84,7 @@ leaf.isDate = function(value) { return Object.prototype.toString.call(value) ===
  * @param {*} value The reference to check.
  * @return {boolean} True if value is defined.
  */
-leaf.isDefined = function(value) { return typeof value !== 'undefined'; };
+leaf.isDefined = function(value) { return typeof value !== "undefined"; };
 /**
  * Determines if a reference is undefined.
  * @function isUndefined
@@ -93,7 +93,7 @@ leaf.isDefined = function(value) { return typeof value !== 'undefined'; };
  * @param {*} value The reference to check.
  * @return {boolean} True if value is undefined.
  */
-leaf.isUndefined = function(value) { return typeof value === 'undefined'; };
+leaf.isUndefined = function(value) { return typeof value === "undefined"; };
 /**
  * Determines if a reference is null.
  * @function isDefined

@@ -11,4 +11,4 @@ var leaf;
 	 * @memberOf leaf
 	 * @since  1.0.6
 	 */
-	leaf.version = '$leaf-version';
+	leaf.version = "$leaf-version";
