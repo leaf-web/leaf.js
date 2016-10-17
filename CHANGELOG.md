@@ -1,5 +1,10 @@
+# 1.0.11 (10/14/2016)
+
+* Added: MIT badge
+
 # 1.0.10 (10/14/2016)
 
+* Added: Build badge
 * Added: Model tests
 * Added: List tests
 * Added: View tests
