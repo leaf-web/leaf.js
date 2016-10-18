@@ -1,5 +1,7 @@
 # API Reference
 
+<a name="controls"></a>
+
 ## Controls
 
 ### Templating
@@ -9,6 +11,8 @@
 * [ListRepeaterControl](api/controls/ListRepeaterControl.md)
 
 ----------------------------------------------------------------------
+
+<a name="leaf"></a>
 
 ## Modules
 
@@ -34,6 +38,8 @@ Contains core utilities.
 
 ----------------------------------------------------------------------
 
+<a name="http"></a>
+
 ### leaf.http
 
 Contains functions for making HTTP requests.
@@ -49,6 +55,8 @@ Contains functions for making HTTP requests.
 * [request](api/http/request.md)
 
 ----------------------------------------------------------------------
+
+<a name="list"></a>
 
 ### leaf.List
 
@@ -75,6 +83,8 @@ Represents a collection of models.
 
 ----------------------------------------------------------------------
 
+<a name="model"></a>
+
 ### leaf.Model
 
 Represents a model.
@@ -97,6 +107,8 @@ Represents a model.
 
 ----------------------------------------------------------------------
 
+<a name="router"></a>
+
 ### leaf.Router
 
 Represents a Router.
@@ -115,6 +127,8 @@ Represents a Router.
 * [routes](api/router/routes.md)
 
 ----------------------------------------------------------------------
+
+<a name="view"></a>
 
 ### leaf.View
 
