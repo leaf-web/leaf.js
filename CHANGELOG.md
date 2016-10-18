@@ -1,4 +1,8 @@
-# 1.0.11 (10/14/2016)
+# 1.0.12 (10/17/2016)
+
+* Updated: Gruntfile.js has separate task for testing through Karma
+
+# 1.0.11 (10/16/2016)
 
 * Added: MIT badge
 

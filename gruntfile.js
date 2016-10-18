@@ -34,13 +34,20 @@ module.exports = function(grunt) {
 				src: 'builds/leaf.full.js',
 				dest: 'builds/leaf.min.js'
 			}
-		}
+		},
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
+        }
 	});
 
  	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', ['concat', 'replace', 'jshint', 'uglify']);
+	grunt.registerTask('test', ['concat', 'replace', 'jshint', 'uglify', 'karma']);
 }

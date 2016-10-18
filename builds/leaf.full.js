@@ -11,7 +11,7 @@ var leaf;
 	 * @memberOf leaf
 	 * @since  1.0.6
 	 */
-	leaf.version = "1.0.10";
+	leaf.version = "1.0.11";
 
 /**
  * Determines if a reference is a string.
