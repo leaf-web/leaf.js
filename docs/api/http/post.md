@@ -36,10 +36,10 @@ leaf.http.post(url, data, [options]).then([success], [failure])
             		firstName: 'John',
             		lastName: 'Doe'
             	}
-				leaf.http.post('api/person', JSON.stringify(data), {
-						headers: {
-							"content-type": "application/json"
-						}
+				leaf.http.post('api/person', JSON.stringify(person), {
+					headers: {
+						"content-type": "application/json"
+					}
 				}).then(
 					function () {
 						alert('Saved');

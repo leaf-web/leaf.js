@@ -1,8 +1,8 @@
 # 1.0.12 (10/19/2016)
 
+* Added: http.post example
 * Updated: Gruntfile.js has separate task for testing through Karma
-* Updated: Bookmarks in API (not currently used)
-* Fixed: Request headers not being set
+* Fixed: option.headers were not being read
 
 # 1.0.11 (10/16/2016)
 
@@ -20,7 +20,7 @@
 # 1.0.9 (10/6/2016)
 
 * Added: http.put
-* Updated: Added links to CodePen for most members.
+* Updated: Added links to CodePen for most members
 * Updated: Added CodePen link in README.md
 
 # 1.0.8  (9/21/2016)
@@ -43,11 +43,11 @@
 
 # 1.0.4  (8/24/2016)
 
-* Fixed: Bower package and Npm package capitalization was inconsistant. Republished.
+* Fixed: Bower package and Npm package capitalization was inconsistant. Republished
 
 # 1.0.3  (8/19/2016)
 
-* Fixed: README.md needed full-qualitified paths on links for its NPM page.
+* Fixed: README.md needed full-qualitified paths on links for its NPM page
 
 # 1.0.2  (8/17/2016)
 
@@ -56,7 +56,7 @@
 # 1.0.1  (8/17/2016)
 
 * Added: .editorconfig
-* Added: Parameter example under the [Router.add](docs/api/router/add.md) API.
+* Added: Parameter example under the [Router.add](docs/api/router/add.md) API
 
 # 1.0.0 (8/16/2016)
 
