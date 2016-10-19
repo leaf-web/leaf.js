@@ -174,7 +174,7 @@ var http;
          */
         if (leaf.isDefined(options.headers)) {
         	for(var header in options.headers) {
-        		xhr.setRequestHeader(header, options.headers[i]);
+        		xhr.setRequestHeader(header, options.headers[header]);
         	}
         }
         /**

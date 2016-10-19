@@ -1,3 +1,7 @@
+# 1.0.13 (10/19/2016)
+
+* Fixed: Forgot to rebuild for rawgit.
+
 # 1.0.12 (10/19/2016)
 
 * Added: http.post example
