@@ -1,7 +1,8 @@
-# 1.0.12 (10/17/2016)
+# 1.0.12 (10/19/2016)
 
 * Updated: Gruntfile.js has separate task for testing through Karma
 * Updated: Bookmarks in API (not currently used)
+* Fixed: Request headers not being set
 
 # 1.0.11 (10/16/2016)
 
