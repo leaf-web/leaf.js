@@ -1,24 +1,20 @@
-# List.fetch
+# Model.update
 
-Fetch models from the services layer.
+Update a model in the services layer.
 
 ----------------------------------------------------------------------
 
 ## Usage
 
-List.fetch(url, [success], [failure])
+Model.update(id, [success], [failure])
 
 ### Params
 
 | Param           | Type          | Details                          |
 | --------------- | ------------- | -------------------------------- |
-| url             | `string`      | The URL.                         |
+| id              | `number`      | The ID.                          |
 | success         | `Function`    | The success callback.            |
 | failure         | `Function`    | The failure callback.            |
-
-### Notes
-
-> The list is passed as a parameter to the success callback `Function`.
 
 ----------------------------------------------------------------------
 
@@ -30,24 +26,17 @@ List.fetch(url, [success], [failure])
 		<body>
 			<script src="scripts/leaf.min.js"></script>
 			<script>
-				var People = new leaf.List();
+				var Person = new leaf.Model();
 
-				People.fetch('people.json', function(list) {
-					console.log(list.first().get('firstName')); //returns John
+				Person.url = 'api/people';
+
+				Person.fetch(1, function() {
+					Person.set('lastName', 'Doe');
+
+					Person.update(1, function() {
+						console.log('The model was updated.');
+					});
 				});
 			</script>
 		</body>
 	</html>
-
-**people.json**
-
-	[
-		{
-			"firstName": "John",
-			"lastName": "Doe"
-		},
-		{
-			"firstName": "Jane",
-			"lastName": "Mouse"
-		}
-	]

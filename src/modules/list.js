@@ -114,7 +114,7 @@ var List = (function() {
 		});
 	};
 	/**
-	 * Merge Models from a JSON file.
+	 * Fetch Models from your persistence layer or JSON file.
 	 * @function fetch
 	 * @memberOf leaf.List
 	 * @since 1.0.0
@@ -127,6 +127,7 @@ var List = (function() {
 
 		leaf.http.get(url).then(
 			function(data) {
+				that.clear();
 				that.merge(JSON.parse(data));
 
 				if (leaf.isFunction(success)) {

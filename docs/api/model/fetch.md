@@ -1,24 +1,20 @@
-# List.fetch
+# Model.fetch
 
-Fetch models from the services layer.
+Fetch a model from the services layer.
 
 ----------------------------------------------------------------------
 
 ## Usage
 
-List.fetch(url, [success], [failure])
+Model.fetch(id, [success], [failure])
 
 ### Params
 
 | Param           | Type          | Details                          |
 | --------------- | ------------- | -------------------------------- |
-| url             | `string`      | The URL.                         |
+| id              | `number`      | The ID.                          |
 | success         | `Function`    | The success callback.            |
 | failure         | `Function`    | The failure callback.            |
-
-### Notes
-
-> The list is passed as a parameter to the success callback `Function`.
 
 ----------------------------------------------------------------------
 
@@ -30,24 +26,13 @@ List.fetch(url, [success], [failure])
 		<body>
 			<script src="scripts/leaf.min.js"></script>
 			<script>
-				var People = new leaf.List();
+				var Person = new leaf.Model();
 
-				People.fetch('people.json', function(list) {
-					console.log(list.first().get('firstName')); //returns John
+				Person.url = 'api/people';
+
+				Person.fetch(1, function() {
+					console.log(Person.get('firstName'));
 				});
 			</script>
 		</body>
 	</html>
-
-**people.json**
-
-	[
-		{
-			"firstName": "John",
-			"lastName": "Doe"
-		},
-		{
-			"firstName": "Jane",
-			"lastName": "Mouse"
-		}
-	]

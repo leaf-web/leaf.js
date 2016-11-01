@@ -1,3 +1,13 @@
+# 1.1.0 (11/1/2016)
+
+* Added: Model.fetch
+* Added: Model.save
+* Added: Model.update
+* Added: Model.destroy
+* Added: Model.url
+* Updated: API Reference
+* Updated: List.fetch was changed to clear first.
+
 # 1.0.13 (10/19/2016)
 
 * Fixed: Forgot to rebuild for rawgit.

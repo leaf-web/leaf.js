@@ -94,16 +94,21 @@ Represents a model.
 * [clone](api/model/clone.md)
 * [contains](api/model/contains.md)
 * [count](api/model/count.md)
+* [destroy](api/model/destroy.md)
 * [each](api/model/each.md)
+* [fetch](api/model/fetch.md)
 * [get](api/model/get.md)
 * [items](api/model/items.md)
 * [merge](api/model/merge.md)
 * [on](api/model/on.md)
 * [remove](api/model/remove.md)
+* [save](api/model/save.md)
 * [set](api/model/set.md)
 * [template](api/model/template.md)
 * [toJSON](api/model/toJSON.md)
 * [un](api/model/un.md)
+* [update](api/model/update.md)
+* [url](api/model/url.md)
 
 ----------------------------------------------------------------------
 

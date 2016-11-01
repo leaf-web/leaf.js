@@ -11,7 +11,7 @@ var leaf;
 	 * @memberOf leaf
 	 * @since  1.0.6
 	 */
-	leaf.version = "1.0.11";
+	leaf.version = "1.1.0";
 
 /**
  * Determines if a reference is a string.
@@ -500,7 +500,7 @@ var List = (function() {
 		});
 	};
 	/**
-	 * Merge Models from a JSON file.
+	 * Fetch Models from your persistence layer or JSON file.
 	 * @function fetch
 	 * @memberOf leaf.List
 	 * @since 1.0.0
@@ -513,6 +513,7 @@ var List = (function() {
 
 		leaf.http.get(url).then(
 			function(data) {
+				that.clear();
 				that.merge(JSON.parse(data));
 
 				if (leaf.isFunction(success)) {
@@ -667,11 +668,15 @@ var Model = (function() {
 		 */
 		 this.items = items || {};
 		 /**
+		  * @var {string} url The url to the services layer.
+		 * @memberOf leaf.Model
+		 * @since 1.1.0
+		  */
+		 this.url = '';
+		 /**
 		  * This argument is only accepted for Model.clone() to work.
 		  */
 		 this._cbs = cbs || {};
-
-		 this.url='';
 	}
 	/**
 	 * Determines if a Model's value changed.
@@ -842,6 +847,106 @@ var Model = (function() {
 		});
 
 		return text;
+	};
+	/**
+	 * Fetch a model from the services layer.
+	 * @function fetch
+	 * @memberOf leaf.Model
+	 * @since 1.1.0
+	 * @param {number} id The id.
+	 * @param {Function} success The success Function.
+	 * @param {Function} failure The failure Function.
+	 */
+	Model.prototype.fetch = function(id, success, failure) {
+		var that = this;
+
+		leaf.http.get(this.url + '/' + id, {
+            headers: {
+                "content-type": "application/json"
+            }
+		}).then(function(data) {
+			that.clear();
+			that.merge(JSON.parse(data)[0]);
+
+			if (leaf.isFunction(success)) {
+				success(data);
+			}
+		}, function(status) {
+			if (leaf.isFunction(success)) {
+				failure(status);
+			}
+		});
+	};
+	/**
+	 * Create a model in the services layer.
+	 * @function save
+	 * @memberOf leaf.Model
+	 * @since 1.1.0
+	 * @param {Function} success The success Function.
+	 * @param {Function} failure The failure Function.
+	 */
+	Model.prototype.save = function(success, failure) {
+		leaf.http.post(this.url, this.toJSON(), {
+            headers: {
+                "content-type": "application/json"
+            }
+		}).then(function(response) {
+			if (leaf.isFunction(success)) {
+				success(response);
+			}
+		}, function(status) {
+			if (leaf.isFunction(success)) {
+				failure(status);
+			}
+		});
+	};
+	/**
+	 * Update a model in the services layer.
+	 * @function update
+	 * @memberOf leaf.Model
+	 * @since 1.1.0
+	 * @param {number} id The id.
+	 * @param {Function} success The success Function.
+	 * @param {Function} failure The failure Function.
+	 */
+	Model.prototype.update = function(id, success, failure) {
+		leaf.http.put(this.url + '/' + id, this.toJSON(), {
+            headers: {
+                "content-type": "application/json"
+            }
+		}).then(function(response) {
+			if (leaf.isFunction(success)) {
+				success(response);
+			}
+		}, function(status) {
+			if (leaf.isFunction(success)) {
+				failure(status);
+			}
+		});
+	};
+	/**
+	 * Destroy a model in the services layer.
+	 * @function save
+	 * @memberOf leaf.Model
+	 * @since 1.1.0
+	 * @param {number} id The id.
+	 * @param {Function} success The success Function.
+	 * @param {Function} failure The failure Function.
+	 */
+	Model.prototype.destroy = function(id, success, failure) {
+		leaf.http.del(this.url + '/' + id, {
+            headers: {
+                "content-type": "application/json"
+            }
+		}).then(function(response) {
+			if (leaf.isFunction(success)) {
+				success(response);
+			}
+		}, function(status) {
+			if (leaf.isFunction(success)) {
+				failure(status);
+			}
+		});
 	};
 	/**
 	 * Return the members of this class.
