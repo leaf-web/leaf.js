@@ -39,12 +39,12 @@ var http;
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
                     if (leaf.isFunction(success)) {
-                        success(xhr.responseText);
+                        success(xhr.responseText, xhr);
                     }
                 }
 	            else {
     	            if (leaf.isFunction(failure)) {
-        	            failure(xhr.statusText);
+        	            failure(xhr.statusText, xhr);
             	    }
             	}
             }

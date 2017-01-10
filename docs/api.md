@@ -70,6 +70,7 @@ Represents a collection of models.
 * [each](api/list/each.md)
 * [fetch](api/list/fetch.md)
 * [filter](api/list/filter.md)
+* [find](api/list/find.md)
 * [first](api/list/first.md)
 * [get](api/list/get.md)
 * [items](api/list/items.md)

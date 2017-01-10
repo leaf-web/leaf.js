@@ -196,6 +196,16 @@ var List = (function() {
 		this.items = this.items.filter(comparer);
 	};
 	/**
+	 * Returns a model from a list where a condition is met.
+	 * @function find
+	 * @memberOf leaf.List
+	 * @since 1.2.0
+	 * @param {Function} comparer The comparer function.
+	 */
+	List.prototype.find = function(comparer) {
+		return this.items.find(comparer);
+	};
+	/**
 	 * Return a new instance of the model.
 	 * @function clone
 	 * @memberOf leaf.List

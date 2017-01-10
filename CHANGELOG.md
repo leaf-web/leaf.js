@@ -1,3 +1,8 @@
+# 1.2.0 (11/10/2016)
+
+* Added: List.find
+* Updated: http.request returns xhr object to success and failure callbacks.
+
 # 1.1.0 (11/1/2016)
 
 * Added: Model.fetch
